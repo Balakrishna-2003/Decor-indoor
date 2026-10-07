@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Residential Interiors | DECOR INDOORS</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <meta name="theme-color" content="#373f2e">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================================
+           RESIDENTIAL HERO — Editorial split
+           Left: cream content panel w/ vertical rail
+           Right: image framed as a floating card w/ grand top-left arch
+           Height: strictly 70vh
+        ========================================================= */
+        .di-ri-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 520px;
+            background: var(--di-cream);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .di-ri-hero-wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.08fr;
+            width: 100%;
+            height: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+
+        /* ---------------------------------------------------------
+           LEFT — Content on cream
+        --------------------------------------------------------- */
+        .di-ri-hero-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 50px 40px 50px 130px;
+        }
+
+
+        /* Vertical rail on the far left */
+        .di-ri-hero-rail {
+            position: absolute;
+            left: 68px;
+            top: 16%;
+            bottom: 16%;
+            z-index: 3;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            opacity: 0;
+            animation: diRiRailIn 1.1s cubic-bezier(.2, .8, .2, 1) 1.4s forwards;
+        }
+
+        .di-ri-hero-rail-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--di-brown);
+            flex-shrink: 0;
+        }
+
+        .di-ri-hero-rail-line {
+            flex: 1;
+            width: 1px;
+            background: rgba(174, 155, 138, 0.45);
+            margin: 8px 0;
+        }
+
+        .di-ri-hero-rail-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: "Manrope", sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+            white-space: nowrap;
+            margin: 12px 0;
+        }
+
+        @keyframes diRiRailIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Number marker "01" */
+        .di-ri-hero-inner { max-width: 560px; width: 100%; }
+
+        .di-ri-hero-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+
+            font-family: "Playfair Display", serif;
+            font-size: 13px;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 2px;
+            color: var(--di-brown);
+
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 0.15s forwards;
+        }
+
+        .di-ri-hero-number::after {
+            content: "";
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--di-brown);
+            opacity: 0.7;
+        }
+
+
+        /* Breadcrumb */
+        .di-ri-hero-crumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 26px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--di-muted);
+
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 0.3s forwards;
+        }
+
+        .di-ri-hero-crumb a {
+            color: var(--di-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .di-ri-hero-crumb a:hover { color: var(--di-brown); }
+        .di-ri-hero-crumb span { color: var(--di-brown); font-size: 13px; line-height: 1; }
+        .di-ri-hero-crumb strong { color: var(--di-dark); font-weight: 700; }
+
+
+        /* Title */
+        .di-ri-hero-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(46px, 5vw, 78px);
+            font-weight: 500;
+            line-height: 1.02;
+            letter-spacing: -2.6px;
+            color: var(--di-dark);
+        }
+
+        .di-ri-hero-title .line { display: block; overflow: hidden; }
+        .di-ri-hero-title .line > span {
+            display: block;
+            transform: translateX(-105%);
+            animation: diRiTitleRise 1.15s cubic-bezier(.2, .8, .2, 1) forwards;
+        }
+        .di-ri-hero-title .line-1 > span { animation-delay: 0.45s; }
+        .di-ri-hero-title .line-2 > span { animation-delay: 0.6s; }
+        .di-ri-hero-title .accent { color: var(--di-brown); }
+
+
+        /* Divider */
+        .di-ri-hero-divider {
+            width: 72px;
+            height: 2px;
+            margin: 30px 0 24px;
+
+            background: var(--di-brown);
+            transform-origin: left center;
+            transform: scaleX(0);
+            animation: diRiLineGrow 1.1s cubic-bezier(.2, .8, .2, 1) 0.9s forwards;
+        }
+
+
+        /* Description */
+        .di-ri-hero-text {
+            max-width: 520px;
+            margin: 0 0 30px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: var(--di-muted);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.05s forwards;
+        }
+
+
+        /* Features */
+        .di-ri-hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            padding-top: 22px;
+            border-top: 1px solid var(--di-border);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.2s forwards;
+        }
+
+        .di-ri-hero-feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--di-dark);
+        }
+
+        .di-ri-hero-feature-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--di-brown);
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(174, 155, 138, 0.22);
+        }
+        .di-ri-hero-feature:nth-child(2) .di-ri-hero-feature-dot {
+            background: var(--di-green);
+            box-shadow: 0 0 0 3px rgba(54, 62, 44, 0.18);
+        }
+        .di-ri-hero-feature:nth-child(3) .di-ri-hero-feature-dot {
+            background: transparent;
+            border: 1px solid var(--di-brown);
+            box-shadow: none;
+        }
+
+
+        /* ---------------------------------------------------------
+           RIGHT — Framed image with grand top-left arch
+        --------------------------------------------------------- */
+        .di-ri-hero-media {
+            position: relative;
+            margin: 0;
+            padding: 42px 42px 42px 42px;
+            height: 100%;
+            box-sizing: border-box;
+            display: block !important;
+            overflow: hidden;
+        }
+
+        .di-ri-hero-media img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+
+            /* grand arched top-left corner + soft others */
+            border-radius: 260px 28px 28px 28px;
+
+            box-shadow: 0 30px 70px -30px rgba(37, 37, 37, 0.32);
+
+            /* reveal + zoom */
+            clip-path: inset(0 0 100% 0);
+            animation:
+                diRiMediaReveal 1.5s cubic-bezier(.2, .8, .2, 1) forwards,
+                diRiMediaZoom 2.4s cubic-bezier(.2, .75, .2, 1) 0.15s forwards;
+        }
+
+        @keyframes diRiMediaReveal { to { clip-path: inset(0 0 0 0); } }
+        @keyframes diRiMediaZoom   { to { transform: scale(1); } }
+
+
+        /* Corner bracket — top-left of the image (in the padding) */
+        .di-ri-hero-corner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 26px;
+            height: 26px;
+            border-top: 1px solid var(--di-brown);
+            border-left: 1px solid var(--di-brown);
+            z-index: 4;
+
+            opacity: 0;
+            animation: diRiCornerIn 1s cubic-bezier(.2, .8, .2, 1) 1.5s forwards;
+        }
+
+        @keyframes diRiCornerIn {
+            to { opacity: 0.7; }
+        }
+
+
+        /* Stat badge — bottom-right of the image */
+        .di-ri-hero-tag {
+            position: absolute;
+            right: 66px;
+            bottom: 66px;
+            z-index: 5;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px 14px 16px;
+
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 14px;
+
+            box-shadow:
+                0 20px 40px -18px rgba(20, 25, 18, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+
+            opacity: 0;
+            transform: translateX(30px) scale(0.9);
+            animation: diRiTagIn 1s cubic-bezier(.2, .8, .2, 1) 1.65s forwards;
+        }
+
+        @keyframes diRiTagIn {
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        .di-ri-hero-tag-num {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -1px;
+            color: var(--di-brown);
+        }
+
+        .di-ri-hero-tag-text {
+            display: flex;
+            flex-direction: column;
+            font-family: "Manrope", sans-serif;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            color: var(--di-dark);
+        }
+
+
+        /* Dots — top-right of the image */
+        .di-ri-hero-dots {
+            position: absolute;
+            right: 66px;
+            top: 66px;
+            z-index: 5;
+            display: flex;
+            gap: 7px;
+
+            opacity: 0;
+            transform: translateX(20px);
+            animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.8s forwards;
+        }
+
+        .di-ri-hero-dots span {
+            display: block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ffffff;
+            opacity: 0.95;
+            box-shadow: 0 2px 8px rgba(20, 25, 18, 0.35);
+        }
+        .di-ri-hero-dots span:nth-child(2) { background: var(--di-brown); }
+        .di-ri-hero-dots span:nth-child(3) {
+            background: transparent;
+            border: 1px solid #ffffff;
+            opacity: 0.75;
+        }
+
+
+        /* Animations */
+        @keyframes diRiFadeRight {
+            from { opacity: 0; transform: translateX(-40px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes diRiTitleRise { to { transform: translateX(0); } }
+        @keyframes diRiLineGrow  { to { transform: scaleX(1); } }
+
+
+        /* =========================================================
+           RESPONSIVE — LARGE TABLET (still split)
+        ========================================================= */
+        @media (max-width: 1399.98px) {
+            .di-ri-hero-content { padding-left: 110px; }
+            .di-ri-hero-rail { left: 55px; }
+            .di-ri-hero-media { padding: 36px; }
+            .di-ri-hero-media img { border-radius: 220px 24px 24px 24px; }
+            .di-ri-hero-tag { right: 58px; bottom: 58px; }
+            .di-ri-hero-dots { right: 58px; top: 58px; }
+        }
+
+
+        @media (max-width: 1199.98px) {
+            .di-ri-hero-content { padding-left: 90px; padding-right: 30px; }
+            .di-ri-hero-rail { left: 42px; }
+            .di-ri-hero-media { padding: 30px; }
+            .di-ri-hero-media img { border-radius: 180px 22px 22px 22px; }
+            .di-ri-hero-tag { right: 48px; bottom: 48px; padding: 12px 16px 12px 13px; }
+            .di-ri-hero-tag-num { font-size: 24px; }
+            .di-ri-hero-tag-text { font-size: 7px; }
+            .di-ri-hero-dots { right: 48px; top: 48px; }
+            .di-ri-hero-title { letter-spacing: -1.8px; }
+        }
+
+
+        @media (max-width: 991.98px) {
+            .di-ri-hero-content { padding: 40px 26px 40px 70px; }
+            .di-ri-hero-rail { left: 28px; }
+            .di-ri-hero-media { padding: 24px; }
+            .di-ri-hero-media img { border-radius: 150px 20px 20px 20px; }
+            .di-ri-hero-tag { right: 40px; bottom: 40px; }
+            .di-ri-hero-dots { right: 40px; top: 40px; }
+            .di-ri-hero-title { font-size: clamp(38px, 5.4vw, 58px); letter-spacing: -1.6px; }
+            .di-ri-hero-kicker { font-size: 10px; letter-spacing: 4px; }
+            .di-ri-hero-kicker::after { width: 42px; }
+            .di-ri-hero-text { font-size: 14px; margin-bottom: 24px; }
+            .di-ri-hero-features { gap: 18px; }
+            .di-ri-hero-feature { font-size: 9px; letter-spacing: 2px; }
+        }
+
+
+        /* =========================================================
+           RESPONSIVE — MOBILE (still 70vh, image on top, content below)
+        ========================================================= */
+        @media (max-width: 767.98px) {
+            .di-ri-hero {
+                height: 70vh;
+                min-height: 620px;
+            }
+
+            .di-ri-hero-wrap {
+                grid-template-columns: 1fr;
+                grid-template-rows: 40% 1fr;
+            }
+
+            /* Content below */
+            .di-ri-hero-content {
+                order: 2;
+                padding: 28px 24px 30px;
+                align-items: flex-start;
+            }
+
+            /* Rail hidden on mobile */
+            .di-ri-hero-rail { display: none; }
+
+            .di-ri-hero-number {
+                font-size: 11px;
+                margin-bottom: 14px;
+            }
+            .di-ri-hero-number::after { width: 22px; }
+
+            .di-ri-hero-crumb {
+                font-size: 9px;
+                letter-spacing: 3px;
+                gap: 9px;
+                margin-bottom: 16px;
+            }
+
+            .di-ri-hero-title { font-size: 34px; letter-spacing: -1.2px; }
+
+            .di-ri-hero-divider {
+                margin: 18px 0 14px;
+                width: 54px;
+            }
+
+            .di-ri-hero-text {
+                font-size: 13px;
+                line-height: 1.65;
+                margin-bottom: 18px;
+                max-width: 100%;
+            }
+
+            .di-ri-hero-features {
+                padding-top: 14px;
+                gap: 14px;
+            }
+            .di-ri-hero-feature { font-size: 8.5px; letter-spacing: 1.8px; }
+
+            /* Image on top */
+            .di-ri-hero-media {
+                order: 1;
+                padding: 18px;
+                height: 100%;
+            }
+            .di-ri-hero-media img {
+                border-radius: 90px 16px 16px 16px;
+                box-shadow: 0 20px 40px -20px rgba(37, 37, 37, 0.3);
+            }
+
+            .di-ri-hero-corner { top: 8px; left: 8px; width: 20px; height: 20px; }
+
+            .di-ri-hero-tag {
+                right: 30px;
+                bottom: 30px;
+                padding: 10px 14px 10px 12px;
+                gap: 10px;
+            }
+            .di-ri-hero-tag-num { font-size: 20px; }
+            .di-ri-hero-tag-text { font-size: 6.5px; letter-spacing: 1.5px; }
+
+            .di-ri-hero-dots {
+                right: 30px;
+                top: 30px;
+                gap: 5px;
+            }
+            .di-ri-hero-dots span { width: 6px; height: 6px; }
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-ri-hero-media img,
+            .di-ri-hero-rail,
+            .di-ri-hero-number,
+            .di-ri-hero-crumb,
+            .di-ri-hero-title .line > span,
+            .di-ri-hero-divider,
+            .di-ri-hero-text,
+            .di-ri-hero-features,
+            .di-ri-hero-corner,
+            .di-ri-hero-tag,
+            .di-ri-hero-dots {
+                animation: none !important;
+                clip-path: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!-- =========================================================
+     DECOR INDOORS HEADER
+========================================================= -->
+<header class="di-main-header" id="diMainHeader">
+
+    <div class="di-header-inner">
+
+        <a href="index.html" class="di-brand">
+            <figure>
+                <img src="images/decor-indoors-logo.png"
+                     alt="Decor Indoors" class="di-brand-logo">
+                <figcaption class="cr-only">
+                    Decor Indoors official brand logo.
+                </figcaption>
+            </figure>
+        </a>
+
+        <nav class="di-desktop-navigation navbar navbar-expand-lg" id="diNavigation">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-about-us.html">About</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle di-active-link" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Interiors
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-residential-interiors.html">
+                            Residential Interiors</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-renovation-and-remodeling.html">
+                            Renovation &amp; Remodeling</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-furniture-and-styling.html">
+                            Furniture &amp; Styling</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-design-counsultation.html">
+                            Design Consultation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-commercials.html">Commercials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-portfolio.html">Portfolio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-contacts.html">Contacts</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <a href="decor-indoors-contacts.html" class="di-header-action">
+            Let's Talk
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+        <button class="di-mobile-trigger" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#diMobileOffcanvas"
+                aria-controls="diMobileOffcanvas" aria-label="Open menu">
+            <span class="di-mobile-trigger-inner">
+                <span class="di-mobile-trigger-line"></span>
+                <span class="di-mobile-trigger-line"></span>
+                <span class="di-mobile-trigger-line"></span>
+            </span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<article>
+
+    <!-- =========================================================
+         RESIDENTIAL HERO — Editorial split
+    ========================================================= -->
+    <section class="di-ri-hero">
+
+        <div class="di-ri-hero-wrap">
+
+            <!-- LEFT — Content on cream -->
+            <div class="di-ri-hero-content">
+
+                <div class="di-ri-hero-rail">
+                    <span class="di-ri-hero-rail-dot"></span>
+                    <span class="di-ri-hero-rail-line"></span>
+                    <span class="di-ri-hero-rail-text">
+                        Decor Indoors · Residential
+                    </span>
+                    <span class="di-ri-hero-rail-line"></span>
+                    <span class="di-ri-hero-rail-dot"></span>
+                </div>
+
+                <div class="di-ri-hero-inner">
+
+                    <div class="di-ri-hero-number">
+                        01
+                    </div>
+
+                    <nav class="di-ri-hero-crumb" aria-label="Breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <a href="decor-indoors-interiors-residential-interiors.html">Interiors</a>
+                        <span>/</span>
+                        <strong>Residential</strong>
+                    </nav>
+
+                    <h1 class="di-ri-hero-title">
+                        <span class="line line-1"><span>Homes Designed</span></span>
+                        <span class="line line-2"><span class="accent">Around You.</span></span>
+                    </h1>
+
+                    <div class="di-ri-hero-divider"></div>
+
+                    <p class="di-ri-hero-text">
+                        Thoughtful residential interiors shaped by the way
+                        you live — warm materials, intelligent planning,
+                        and refined craftsmanship brought together in
+                        every room.
+                    </p>
+
+                    <div class="di-ri-hero-features">
+                        <span class="di-ri-hero-feature">
+                            <span class="di-ri-hero-feature-dot"></span>
+                            Warm Materials
+                        </span>
+                        <span class="di-ri-hero-feature">
+                            <span class="di-ri-hero-feature-dot"></span>
+                            Smart Planning
+                        </span>
+                        <span class="di-ri-hero-feature">
+                            <span class="di-ri-hero-feature-dot"></span>
+                            Fine Craft
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — Framed image with grand top-left arch -->
+            <figure class="di-ri-hero-media">
+                <img src="images/decor-indoors-residentials-hero-section-bg.jpg"
+                     alt="Residential interior design by Decor Indoors">
+                <figcaption class="cr-only">
+                    Residential interior design by Decor Indoors.
+                </figcaption>
+
+                <span class="di-ri-hero-corner" aria-hidden="true"></span>
+
+                <div class="di-ri-hero-dots">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="di-ri-hero-tag">
+                    <span class="di-ri-hero-tag-num">12+</span>
+                    <span class="di-ri-hero-tag-text">
+                        Years of<br>Design
+                    </span>
+                </div>
+            </figure>
+
+        </div>
+
+    </section>
+
+</article>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="di-footer">
+
+    <div class="di-footer-deco di-footer-deco-top-left"></div>
+    <div class="di-footer-deco di-footer-deco-bottom-left"></div>
+    <div class="di-footer-deco di-footer-deco-top-right"></div>
+    <div class="di-footer-deco di-footer-deco-bottom-right"></div>
+
+    <div class="container">
+        <div class="di-footer-inner">
+
+            <div class="row di-footer-main align-items-start">
+
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                    <div class="di-footer-brand">
+
+                        <a href="index.html" class="di-footer-logo">
+                            <figure>
+                                <img src="images/decor-indoors-logo1.png"
+                                     alt="Decor Indoors">
+                                <figcaption class="cr-only">
+                                    Decor Indoors footer brand logo.
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                        <div class="di-footer-brand-line"></div>
+
+                        <p>
+                            We design and create inspiring spaces
+                            that bring together beauty, functionality
+                            and a better way of living.
+                        </p>
+
+                        <div class="di-footer-social">
+                            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        </div>
+
+                        <div class="di-footer-connected">STAY CONNECTED</div>
+
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                    <div class="di-footer-column">
+                        <h3 class="di-footer-heading">Quick Links</h3>
+                        <div class="di-footer-heading-line"></div>
+
+                        <ul class="di-footer-links">
+                            <li><a href="index.html"><span>›</span> Home</a></li>
+                            <li><a href="decor-indoors-about-us.html"><span>›</span> About Us</a></li>
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Interiors</a></li>
+                            <li><a href="decor-indoors-portfolio.html"><span>›</span> Portfolio</a></li>
+                            <li><a href="decor-indoors-testimonials.html"><span>›</span> Testimonials</a></li>
+                            <li><a href="decor-indoors-contacts.html"><span>›</span> Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                    <div class="di-footer-column">
+                        <h3 class="di-footer-heading">Our Services</h3>
+                        <div class="di-footer-heading-line"></div>
+
+                        <ul class="di-footer-links">
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Residential Interiors</a></li>
+                            <li><a href="decor-indoors-commercials.html"><span>›</span> Commercial Interiors</a></li>
+                            <li><a href="decor-indoors-interiors-renovation-and-remodeling.html"><span>›</span> Renovation &amp; Remodeling</a></li>
+                            <li><a href="decor-indoors-interiors-furniture-and-styling.html"><span>›</span> Furniture &amp; Styling</a></li>
+                            <li><a href="decor-indoors-interiors-design-counsultation.html"><span>›</span> Design Consultation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4">
+                    <div class="di-footer-contact">
+                        <h3 class="di-footer-heading">Contact Us</h3>
+                        <div class="di-footer-heading-line"></div>
+
+                        <div class="di-footer-contact-item">
+                            <div class="di-footer-contact-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div class="di-footer-contact-content">
+                                <a href="tel:+917259357732">+91 72593 57732</a>
+                            </div>
+                        </div>
+
+                        <div class="di-footer-contact-item">
+                            <div class="di-footer-contact-icon">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="di-footer-contact-content">
+                                <a href="mailto:info@decorindoors.com">info@decorindoors.com</a>
+                            </div>
+                        </div>
+
+                        <div class="di-footer-contact-item">
+                            <div class="di-footer-contact-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="di-footer-contact-content di-footer-address">
+                                <span>Door No. 3-12-45, 2nd Floor,</span>
+                                <span>Kankanady Main Road,</span>
+                                <span>Mangalore, Karnataka - 575002, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="di-footer-bottom">
+
+                <div class="di-footer-copy">
+                    © 2026 Decor Indoors. All rights reserved.
+                </div>
+
+                <div class="di-footer-policy">
+                    <a href="#">Privacy Policy</a>
+                    <span></span>
+                    <a href="#">Terms and Conditions</a>
+                </div>
+
+                <div class="di-footer-powered">
+                    Powered By
+                    <a href="https://bluelinecomputers.com/" target="_blank" rel="noopener">
+                        <strong>Blue Line Computers</strong>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     FIXED WHATSAPP BUTTON
+========================================================= -->
+<a
+    href="https://wa.me/917259357732?text=Hello%20Decor%20Indoors%2C%20I%20would%20like%20to%20know%20more%20about%20your%20residential%20interior%20services."
+    class="di-whatsapp-float"
+    target="_blank" rel="noopener"
+    aria-label="Chat with Decor Indoors on WhatsApp"
+>
+    <span class="di-whatsapp-ripple ripple-one"></span>
+    <span class="di-whatsapp-ripple ripple-two"></span>
+    <span class="di-whatsapp-ripple ripple-three"></span>
+    <span class="di-whatsapp-orbit"></span>
+
+    <span class="di-whatsapp-tooltip">
+        <span class="di-tooltip-dot"></span>
+        Chat with us
+    </span>
+
+    <span class="di-whatsapp-icon">
+        <i class="bi bi-whatsapp"></i>
+    </span>
+</a>
+
+
+<!-- =========================================================
+     MOBILE OFFCANVAS
+========================================================= -->
+<div class="offcanvas offcanvas-start di-mobile-offcanvas"
+     tabindex="-1" id="diMobileOffcanvas"
+     aria-labelledby="diMobileOffcanvasLabel">
+
+    <button type="button" class="di-offcanvas-close"
+            data-bs-dismiss="offcanvas" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="offcanvas-body di-offcanvas-body">
+
+        <div id="diMobileMenuContainer"></div>
+
+        <a href="decor-indoors-contacts.html"
+           class="di-offcanvas-action" data-bs-dismiss="offcanvas">
+            Let's Talk
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+        <div class="di-offcanvas-note">
+            <small>Interior Design Studio</small>
+            <strong>Spaces for a<br>Better Tomorrow.</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const diHeader = document.getElementById("diMainHeader");
+    const diNavigation = document.getElementById("diNavigation");
+    const diMobileMenuContainer = document.getElementById("diMobileMenuContainer");
+    const diMobileOffcanvas = document.getElementById("diMobileOffcanvas");
+
+    diMobileOffcanvas.addEventListener("show.bs.offcanvas", function () {
+        diHeader.style.display = "none";
+    });
+
+    diMobileOffcanvas.addEventListener("hidden.bs.offcanvas", function () {
+        diHeader.style.display = "";
+    });
+
+    const diMenu = diNavigation.querySelector(".navbar-nav");
+    const diDesktopParent = diNavigation;
+    const diDesktopMedia = window.matchMedia("(min-width: 992px)");
+
+    function diMoveMenu() {
+        if (diDesktopMedia.matches) {
+            if (diMenu.parentElement !== diDesktopParent) {
+                diDesktopParent.appendChild(diMenu);
+            }
+        } else {
+            if (diMenu.parentElement !== diMobileMenuContainer) {
+                diMobileMenuContainer.appendChild(diMenu);
+            }
+        }
+    }
+
+    diMoveMenu();
+    diDesktopMedia.addEventListener("change", diMoveMenu);
+
+    function diHeaderScrollEffect() {
+        if (window.scrollY > 70) {
+            diHeader.classList.add("di-header-scrolled");
+        } else {
+            diHeader.classList.remove("di-header-scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", diHeaderScrollEffect, { passive: true });
+
+    function diEnableDesktopHover() {
+        if (!diDesktopMedia.matches) return;
+
+        const diDropdowns = diNavigation.querySelectorAll(".dropdown");
+
+        diDropdowns.forEach(function (diDropdown) {
+            const diToggle = diDropdown.querySelector(".dropdown-toggle");
+            if (diDropdown.dataset.diHoverReady === "true") return;
+            diDropdown.dataset.diHoverReady = "true";
+
+            diDropdown.addEventListener("mouseenter", function () {
+                if (!diDesktopMedia.matches) return;
+                bootstrap.Dropdown.getOrCreateInstance(diToggle).show();
+            });
+
+            diDropdown.addEventListener("mouseleave", function () {
+                if (!diDesktopMedia.matches) return;
+                bootstrap.Dropdown.getOrCreateInstance(diToggle).hide();
+            });
+        });
+    }
+
+    setTimeout(diEnableDesktopHover, 100);
+
+    diDesktopMedia.addEventListener("change", function () {
+        setTimeout(diEnableDesktopHover, 100);
+    });
+
+    diMobileOffcanvas.addEventListener("click", function (event) {
+
+        const diClickedLink = event.target.closest(".nav-link:not(.dropdown-toggle)");
+
+        if (diClickedLink && !diClickedLink.classList.contains("dropdown-toggle")) {
+            const instance = bootstrap.Offcanvas.getInstance(diMobileOffcanvas);
+            if (instance) instance.hide();
+        }
+
+        const diDropdownItem = event.target.closest(".dropdown-item");
+
+        if (diDropdownItem) {
+            const instance = bootstrap.Offcanvas.getInstance(diMobileOffcanvas);
+            if (instance) instance.hide();
+        }
+    });
+
+});
+</script>
+
+<script src="js/decor-indoors-scroll-live-fixed.js"></script>
+</body>
+</html>
