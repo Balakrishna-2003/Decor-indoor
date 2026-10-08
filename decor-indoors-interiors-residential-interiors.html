@@ -22,9 +22,6 @@
 
         /* =========================================================
            RESIDENTIAL HERO — Editorial split
-           Left: cream content panel w/ vertical rail
-           Right: image framed as a floating card w/ grand top-left arch
-           Height: strictly 70vh
         ========================================================= */
         .di-ri-hero {
             position: relative;
@@ -46,10 +43,6 @@
             margin: 0 auto;
         }
 
-
-        /* ---------------------------------------------------------
-           LEFT — Content on cream
-        --------------------------------------------------------- */
         .di-ri-hero-content {
             position: relative;
             display: flex;
@@ -57,27 +50,22 @@
             padding: 50px 40px 50px 130px;
         }
 
-
-        /* Vertical rail on the far left */
         .di-ri-hero-rail {
             position: absolute;
             left: 68px;
             top: 16%;
             bottom: 16%;
             z-index: 3;
-
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-
             opacity: 0;
             animation: diRiRailIn 1.1s cubic-bezier(.2, .8, .2, 1) 1.4s forwards;
         }
 
         .di-ri-hero-rail-dot {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--di-brown);
             flex-shrink: 0;
@@ -108,8 +96,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-
-        /* Number marker "01" */
         .di-ri-hero-inner { max-width: 560px; width: 100%; }
 
         .di-ri-hero-number {
@@ -117,14 +103,12 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 22px;
-
             font-family: "Playfair Display", serif;
             font-size: 13px;
             font-weight: 500;
             font-style: italic;
             letter-spacing: 2px;
             color: var(--di-brown);
-
             opacity: 0;
             transform: translateX(-30px);
             animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 0.15s forwards;
@@ -139,37 +123,27 @@
             opacity: 0.7;
         }
 
-
-        /* Breadcrumb */
         .di-ri-hero-crumb {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 26px;
-
             font-family: "Manrope", sans-serif;
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--di-muted);
-
             opacity: 0;
             transform: translateX(-30px);
             animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 0.3s forwards;
         }
 
-        .di-ri-hero-crumb a {
-            color: var(--di-muted);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+        .di-ri-hero-crumb a { color: var(--di-muted); text-decoration: none; transition: color 0.3s ease; }
         .di-ri-hero-crumb a:hover { color: var(--di-brown); }
         .di-ri-hero-crumb span { color: var(--di-brown); font-size: 13px; line-height: 1; }
         .di-ri-hero-crumb strong { color: var(--di-dark); font-weight: 700; }
 
-
-        /* Title */
         .di-ri-hero-title {
             margin: 0;
             font-family: "Playfair Display", serif;
@@ -190,45 +164,34 @@
         .di-ri-hero-title .line-2 > span { animation-delay: 0.6s; }
         .di-ri-hero-title .accent { color: var(--di-brown); }
 
-
-        /* Divider */
         .di-ri-hero-divider {
-            width: 72px;
-            height: 2px;
+            width: 72px; height: 2px;
             margin: 30px 0 24px;
-
             background: var(--di-brown);
             transform-origin: left center;
             transform: scaleX(0);
             animation: diRiLineGrow 1.1s cubic-bezier(.2, .8, .2, 1) 0.9s forwards;
         }
 
-
-        /* Description */
         .di-ri-hero-text {
             max-width: 520px;
             margin: 0 0 30px;
-
             font-family: "Manrope", sans-serif;
             font-size: 15px;
             font-weight: 400;
             line-height: 1.8;
             color: var(--di-muted);
-
             opacity: 0;
             transform: translateX(-40px);
             animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.05s forwards;
         }
 
-
-        /* Features */
         .di-ri-hero-features {
             display: flex;
             flex-wrap: wrap;
             gap: 26px;
             padding-top: 22px;
             border-top: 1px solid var(--di-border);
-
             opacity: 0;
             transform: translateX(-40px);
             animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.2s forwards;
@@ -238,7 +201,6 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-
             font-family: "Manrope", sans-serif;
             font-size: 10px;
             font-weight: 700;
@@ -248,8 +210,7 @@
         }
 
         .di-ri-hero-feature-dot {
-            width: 7px;
-            height: 7px;
+            width: 7px; height: 7px;
             border-radius: 50%;
             background: var(--di-brown);
             flex-shrink: 0;
@@ -265,14 +226,10 @@
             box-shadow: none;
         }
 
-
-        /* ---------------------------------------------------------
-           RIGHT — Framed image with grand top-left arch
-        --------------------------------------------------------- */
         .di-ri-hero-media {
             position: relative;
             margin: 0;
-            padding: 42px 42px 42px 42px;
+            padding: 42px;
             height: 100%;
             box-sizing: border-box;
             display: block !important;
@@ -285,13 +242,9 @@
             display: block;
             object-fit: cover;
             object-position: center;
-
-            /* grand arched top-left corner + soft others */
             border-radius: 260px 28px 28px 28px;
-
             box-shadow: 0 30px 70px -30px rgba(37, 37, 37, 0.32);
-
-            /* reveal + zoom */
+            transform: scale(1.15);
             clip-path: inset(0 0 100% 0);
             animation:
                 diRiMediaReveal 1.5s cubic-bezier(.2, .8, .2, 1) forwards,
@@ -301,56 +254,40 @@
         @keyframes diRiMediaReveal { to { clip-path: inset(0 0 0 0); } }
         @keyframes diRiMediaZoom   { to { transform: scale(1); } }
 
-
-        /* Corner bracket — top-left of the image (in the padding) */
         .di-ri-hero-corner {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 26px;
-            height: 26px;
+            top: 20px; left: 20px;
+            width: 26px; height: 26px;
             border-top: 1px solid var(--di-brown);
             border-left: 1px solid var(--di-brown);
             z-index: 4;
-
             opacity: 0;
             animation: diRiCornerIn 1s cubic-bezier(.2, .8, .2, 1) 1.5s forwards;
         }
 
-        @keyframes diRiCornerIn {
-            to { opacity: 0.7; }
-        }
+        @keyframes diRiCornerIn { to { opacity: 0.7; } }
 
-
-        /* Stat badge — bottom-right of the image */
         .di-ri-hero-tag {
             position: absolute;
-            right: 66px;
-            bottom: 66px;
+            right: 66px; bottom: 66px;
             z-index: 5;
-
             display: inline-flex;
             align-items: center;
             gap: 14px;
             padding: 14px 20px 14px 16px;
-
             background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 14px;
-
             box-shadow:
                 0 20px 40px -18px rgba(20, 25, 18, 0.45),
                 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
-
             opacity: 0;
             transform: translateX(30px) scale(0.9);
             animation: diRiTagIn 1s cubic-bezier(.2, .8, .2, 1) 1.65s forwards;
         }
 
-        @keyframes diRiTagIn {
-            to { opacity: 1; transform: translateX(0) scale(1); }
-        }
+        @keyframes diRiTagIn { to { opacity: 1; transform: translateX(0) scale(1); } }
 
         .di-ri-hero-tag-num {
             font-family: "Playfair Display", serif;
@@ -373,16 +310,12 @@
             color: var(--di-dark);
         }
 
-
-        /* Dots — top-right of the image */
         .di-ri-hero-dots {
             position: absolute;
-            right: 66px;
-            top: 66px;
+            right: 66px; top: 66px;
             z-index: 5;
             display: flex;
             gap: 7px;
-
             opacity: 0;
             transform: translateX(20px);
             animation: diRiFadeRight 1s cubic-bezier(.2, .8, .2, 1) 1.8s forwards;
@@ -390,8 +323,7 @@
 
         .di-ri-hero-dots span {
             display: block;
-            width: 7px;
-            height: 7px;
+            width: 7px; height: 7px;
             border-radius: 50%;
             background: #ffffff;
             opacity: 0.95;
@@ -404,8 +336,6 @@
             opacity: 0.75;
         }
 
-
-        /* Animations */
         @keyframes diRiFadeRight {
             from { opacity: 0; transform: translateX(-40px); }
             to   { opacity: 1; transform: translateX(0); }
@@ -415,7 +345,542 @@
 
 
         /* =========================================================
-           RESPONSIVE — LARGE TABLET (still split)
+           RESIDENTIAL SHOWCASE — REFINED ROWS
+        ========================================================= */
+        .di-rr-section {
+            position: relative;
+            overflow: hidden;
+            padding: 130px 0 140px;
+            background: var(--di-white);
+        }
+
+        .di-rr-section::before {
+            content: "";
+            position: absolute;
+            top: -180px; right: -180px;
+            width: 460px; height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(174, 155, 138, 0.10) 0%,
+                rgba(174, 155, 138, 0) 68%);
+            pointer-events: none;
+        }
+
+        .di-rr-section::after {
+            content: "";
+            position: absolute;
+            bottom: -130px; left: -130px;
+            width: 340px; height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(54, 62, 44, 0.06) 0%,
+                rgba(54, 62, 44, 0) 68%);
+            pointer-events: none;
+        }
+
+        .di-rr-wrap {
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 clamp(22px, 4.5%, 90px);
+        }
+
+        .di-rr-head {
+            max-width: 780px;
+            margin: 0 auto 90px;
+            text-align: center;
+        }
+
+        .di-rr-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-rr-kicker::before,
+        .di-rr-kicker::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 1px;
+            background: var(--di-brown);
+            transform-origin: center center;
+            transform: scaleX(0);
+            transition: transform 1s cubic-bezier(.2, .8, .2, 1) 0.35s;
+        }
+
+        .di-rr-section.is-in-view .di-rr-kicker::before,
+        .di-rr-section.is-in-view .di-rr-kicker::after {
+            transform: scaleX(1);
+        }
+
+        .di-rr-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 4.6vw, 68px);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: var(--di-dark);
+        }
+
+        .di-rr-title .line { display: block; overflow: hidden; }
+        .di-rr-title .line > span {
+            display: block;
+            transform: translateX(-105%);
+            transition: transform 1.05s cubic-bezier(.2, .8, .2, 1);
+        }
+        .di-rr-section.is-in-view .di-rr-title .line-1 > span {
+            transform: translateX(0);
+            transition-delay: 0.25s;
+        }
+        .di-rr-section.is-in-view .di-rr-title .line-2 > span {
+            transform: translateX(0);
+            transition-delay: 0.40s;
+        }
+
+        .di-rr-title .accent { color: var(--di-brown); }
+
+
+        /* Row container — observer target */
+        .di-rr-list {
+            display: flex;
+            flex-direction: column;
+            gap: 44px;
+        }
+
+
+        /* --------------------------
+           Single row — refined card
+        -------------------------- */
+        .di-rr-row {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: 1.02fr 1fr;
+            gap: 64px;
+            align-items: center;
+
+            padding: 44px 48px 44px 44px;
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #ffffff 55%,
+                    #f8f4ee 100%
+                );
+
+            border: 1px solid rgba(174, 155, 138, 0.18);
+
+            box-shadow:
+                0 24px 50px -30px rgba(37, 37, 37, 0.16),
+                0 2px 6px -2px rgba(37, 37, 37, 0.03);
+
+            overflow: hidden;
+
+            opacity: 0;
+            transform: translateY(60px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1),
+                transform 0.9s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rr-row:nth-child(even) {
+            grid-template-columns: 1fr 1.02fr;
+        }
+
+        .di-rr-row:nth-child(even) .di-rr-row-media { order: 2; }
+        .di-rr-row:nth-child(even) .di-rr-row-content { order: 1; }
+
+        .di-rr-row::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 48px;
+            width: 62px;
+            height: 3px;
+            border-radius: 0 0 3px 3px;
+            background: var(--di-brown);
+            transition: width 0.55s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rr-row:nth-child(even)::before {
+            background: var(--di-green);
+            left: auto;
+            right: 48px;
+        }
+
+        .di-rr-row::after {
+            content: "";
+            position: absolute;
+            bottom: -140px;
+            right: -140px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(174, 155, 138, 0.14) 0%,
+                rgba(174, 155, 138, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .di-rr-row:nth-child(even)::after {
+            right: auto;
+            left: -140px;
+            background: radial-gradient(circle,
+                rgba(54, 62, 44, 0.10) 0%,
+                rgba(54, 62, 44, 0) 70%);
+        }
+
+
+        /* ---------------------------------------------------------
+           SEQUENTIAL REVEAL — delay inline for reliability
+        --------------------------------------------------------- */
+        .di-rr-list.is-in-view .di-rr-row:nth-child(1) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.05s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.05s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(2) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.40s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.40s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(3) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.75s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.75s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(4) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 1.10s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 1.10s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(5) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 1.45s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 1.45s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(6) {
+            opacity: 1; transform: translateY(0);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 1.80s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 1.80s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+
+
+        /* Hover — refined lift (only active after reveal) */
+        .di-rr-list.is-in-view .di-rr-row:hover {
+            transform: translateY(-6px);
+            border-color: rgba(174, 155, 138, 0.38);
+            box-shadow:
+                0 40px 70px -32px rgba(37, 37, 37, 0.22),
+                0 4px 10px -2px rgba(37, 37, 37, 0.05);
+            transition:
+                transform 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
+                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        }
+
+        .di-rr-list.is-in-view .di-rr-row:hover::before {
+            width: 110px;
+        }
+
+
+        /* --------------------------
+           Image — rounded corners kept
+        -------------------------- */
+        .di-rr-row-media {
+            position: relative;
+            margin: 0;
+            padding: 0;
+
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+
+            display: block !important;
+            background: #d9d5cb;
+
+            box-shadow: 0 26px 55px -28px rgba(37, 37, 37, 0.30);
+            z-index: 1;
+        }
+
+        .di-rr-row-media img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rr-row:hover .di-rr-row-media img {
+            transform: scale(1.06);
+        }
+
+        .di-rr-row-media::after {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.1s;
+        }
+
+        .di-rr-row:hover .di-rr-row-media::after {
+            opacity: 1;
+        }
+
+        .di-rr-row-media-arrow {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--di-dark);
+            font-size: 16px;
+
+            box-shadow: 0 12px 24px -12px rgba(20, 25, 18, 0.5);
+
+            opacity: 0;
+            transform: translateX(12px) scale(0.85);
+            transition:
+                opacity 0.4s ease,
+                transform 0.5s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rr-row:hover .di-rr-row-media-arrow {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+
+        /* --------------------------
+           Content
+        -------------------------- */
+        .di-rr-row-content {
+            position: relative;
+            padding: 6px 4px;
+            z-index: 1;
+        }
+
+        .di-rr-row-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+
+            font-family: "Playfair Display", serif;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 2px;
+            color: var(--di-brown);
+        }
+
+        .di-rr-row-number::after {
+            content: "";
+            display: block;
+            width: 44px;
+            height: 1px;
+            background: var(--di-brown);
+            opacity: 0.6;
+        }
+
+        .di-rr-row-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-rr-row-title {
+            margin: 0 0 18px;
+
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px, 2.9vw, 42px);
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            color: var(--di-dark);
+        }
+
+        .di-rr-row-text {
+            max-width: 500px;
+            margin: 0 0 26px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 14.5px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: var(--di-muted);
+        }
+
+        .di-rr-row-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-top: 22px;
+            border-top: 1px solid var(--di-border);
+        }
+
+        .di-rr-row-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--di-dark);
+        }
+
+        .di-rr-row-meta-item i {
+            color: var(--di-brown);
+            font-size: 14px;
+        }
+
+
+        /* --------------------------
+           Bottom bar
+        -------------------------- */
+        .di-rr-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--di-border);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 2.15s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 2.15s;
+        }
+
+        .di-rr-list.is-in-view ~ .di-rr-bottom,
+        .di-rr-section.is-in-view .di-rr-bottom {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .di-rr-bottom-text {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--di-muted);
+        }
+
+        .di-rr-bottom-text::before {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--di-brown);
+        }
+
+        .di-rr-bottom-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 15px 26px;
+            background: var(--di-brown);
+            color: #ffffff;
+            text-decoration: none;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            border-radius: 40px;
+
+            transition:
+                background 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .di-rr-bottom-btn i {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .di-rr-bottom-btn:hover {
+            color: #ffffff;
+            background: var(--di-brown-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -10px rgba(174, 155, 138, 0.5);
+        }
+
+        .di-rr-bottom-btn:hover i { transform: translateX(4px); }
+
+
+        /* =========================================================
+           HERO RESPONSIVE
         ========================================================= */
         @media (max-width: 1399.98px) {
             .di-ri-hero-content { padding-left: 110px; }
@@ -425,7 +890,6 @@
             .di-ri-hero-tag { right: 58px; bottom: 58px; }
             .di-ri-hero-dots { right: 58px; top: 58px; }
         }
-
 
         @media (max-width: 1199.98px) {
             .di-ri-hero-content { padding-left: 90px; padding-right: 30px; }
@@ -439,7 +903,6 @@
             .di-ri-hero-title { letter-spacing: -1.8px; }
         }
 
-
         @media (max-width: 991.98px) {
             .di-ri-hero-content { padding: 40px 26px 40px 70px; }
             .di-ri-hero-rail { left: 28px; }
@@ -448,101 +911,135 @@
             .di-ri-hero-tag { right: 40px; bottom: 40px; }
             .di-ri-hero-dots { right: 40px; top: 40px; }
             .di-ri-hero-title { font-size: clamp(38px, 5.4vw, 58px); letter-spacing: -1.6px; }
-            .di-ri-hero-kicker { font-size: 10px; letter-spacing: 4px; }
-            .di-ri-hero-kicker::after { width: 42px; }
             .di-ri-hero-text { font-size: 14px; margin-bottom: 24px; }
             .di-ri-hero-features { gap: 18px; }
             .di-ri-hero-feature { font-size: 9px; letter-spacing: 2px; }
         }
 
-
-        /* =========================================================
-           RESPONSIVE — MOBILE (still 70vh, image on top, content below)
-        ========================================================= */
         @media (max-width: 767.98px) {
-            .di-ri-hero {
-                height: 70vh;
-                min-height: 620px;
-            }
-
-            .di-ri-hero-wrap {
-                grid-template-columns: 1fr;
-                grid-template-rows: 40% 1fr;
-            }
-
-            /* Content below */
+            .di-ri-hero { height: 70vh; min-height: 620px; }
+            .di-ri-hero-wrap { grid-template-columns: 1fr; grid-template-rows: 40% 1fr; }
             .di-ri-hero-content {
                 order: 2;
                 padding: 28px 24px 30px;
                 align-items: flex-start;
             }
-
-            /* Rail hidden on mobile */
             .di-ri-hero-rail { display: none; }
-
-            .di-ri-hero-number {
-                font-size: 11px;
-                margin-bottom: 14px;
-            }
+            .di-ri-hero-number { font-size: 11px; margin-bottom: 14px; }
             .di-ri-hero-number::after { width: 22px; }
-
-            .di-ri-hero-crumb {
-                font-size: 9px;
-                letter-spacing: 3px;
-                gap: 9px;
-                margin-bottom: 16px;
-            }
-
+            .di-ri-hero-crumb { font-size: 9px; letter-spacing: 3px; gap: 9px; margin-bottom: 16px; }
             .di-ri-hero-title { font-size: 34px; letter-spacing: -1.2px; }
-
-            .di-ri-hero-divider {
-                margin: 18px 0 14px;
-                width: 54px;
-            }
-
-            .di-ri-hero-text {
-                font-size: 13px;
-                line-height: 1.65;
-                margin-bottom: 18px;
-                max-width: 100%;
-            }
-
-            .di-ri-hero-features {
-                padding-top: 14px;
-                gap: 14px;
-            }
+            .di-ri-hero-divider { margin: 18px 0 14px; width: 54px; }
+            .di-ri-hero-text { font-size: 13px; line-height: 1.65; margin-bottom: 18px; max-width: 100%; }
+            .di-ri-hero-features { padding-top: 14px; gap: 14px; }
             .di-ri-hero-feature { font-size: 8.5px; letter-spacing: 1.8px; }
-
-            /* Image on top */
-            .di-ri-hero-media {
-                order: 1;
-                padding: 18px;
-                height: 100%;
-            }
+            .di-ri-hero-media { order: 1; padding: 18px; height: 100%; }
             .di-ri-hero-media img {
                 border-radius: 90px 16px 16px 16px;
                 box-shadow: 0 20px 40px -20px rgba(37, 37, 37, 0.3);
             }
-
             .di-ri-hero-corner { top: 8px; left: 8px; width: 20px; height: 20px; }
-
             .di-ri-hero-tag {
-                right: 30px;
-                bottom: 30px;
-                padding: 10px 14px 10px 12px;
-                gap: 10px;
+                right: 30px; bottom: 30px;
+                padding: 10px 14px 10px 12px; gap: 10px;
             }
             .di-ri-hero-tag-num { font-size: 20px; }
             .di-ri-hero-tag-text { font-size: 6.5px; letter-spacing: 1.5px; }
-
-            .di-ri-hero-dots {
-                right: 30px;
-                top: 30px;
-                gap: 5px;
-            }
+            .di-ri-hero-dots { right: 30px; top: 30px; gap: 5px; }
             .di-ri-hero-dots span { width: 6px; height: 6px; }
         }
 
+
+        /* =========================================================
+           SHOWCASE RESPONSIVE
+        ========================================================= */
+        @media (max-width: 1199.98px) {
+            .di-rr-row {
+                padding: 36px 36px 36px 32px;
+                gap: 45px;
+            }
+            .di-rr-row-media { height: 350px; }
+            .di-rr-row::before { left: 36px; }
+            .di-rr-row:nth-child(even)::before { right: 36px; }
+        }
+
+        @media (max-width: 991.98px) {
+            .di-rr-section { padding: 90px 0 95px; }
+            .di-rr-head { margin-bottom: 60px; }
+
+            .di-rr-row,
+            .di-rr-row:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 28px;
+                border-radius: 22px;
+            }
+
+            .di-rr-row:nth-child(even) .di-rr-row-media,
+            .di-rr-row:nth-child(even) .di-rr-row-content {
+                order: initial;
+            }
+
+            .di-rr-row::before,
+            .di-rr-row:nth-child(even)::before {
+                left: 28px;
+                right: auto;
+            }
+
+            .di-rr-row-media { height: 320px; }
+            .di-rr-row-title { font-size: 28px; letter-spacing: -1.1px; }
+            .di-rr-row-text { font-size: 14px; }
+        }
+
+        @media (max-width: 575.98px) {
+            .di-rr-section { padding: 70px 0 75px; }
+            .di-rr-wrap { padding: 0 22px; }
+            .di-rr-head { margin-bottom: 42px; }
+            .di-rr-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 18px; }
+            .di-rr-kicker::before,
+            .di-rr-kicker::after { width: 38px; }
+            .di-rr-title { font-size: 34px; letter-spacing: -1.2px; }
+
+            .di-rr-list { gap: 22px; }
+            .di-rr-row {
+                padding: 20px;
+                border-radius: 18px;
+                gap: 22px;
+            }
+
+            .di-rr-row::before,
+            .di-rr-row:nth-child(even)::before {
+                left: 20px;
+                width: 42px;
+            }
+
+            .di-rr-row-media { height: 240px; border-radius: 14px; }
+            .di-rr-row-media-arrow {
+                width: 36px; height: 36px;
+                top: 12px; right: 12px;
+                font-size: 13px;
+            }
+            .di-rr-row-media::after { inset: 10px; border-radius: 10px; }
+
+            .di-rr-row-number { font-size: 12px; margin-bottom: 14px; }
+            .di-rr-row-number::after { width: 26px; }
+
+            .di-rr-row-kicker { font-size: 9px; letter-spacing: 3px; margin-bottom: 12px; }
+            .di-rr-row-title { font-size: 24px; letter-spacing: -0.9px; margin-bottom: 14px; }
+            .di-rr-row-text { font-size: 13.5px; line-height: 1.75; margin-bottom: 20px; }
+
+            .di-rr-row-meta { gap: 14px; padding-top: 16px; }
+            .di-rr-row-meta-item { font-size: 8.5px; letter-spacing: 2px; gap: 6px; }
+            .di-rr-row-meta-item i { font-size: 12px; }
+
+            .di-rr-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                margin-top: 42px;
+            }
+            .di-rr-bottom-btn { width: 100%; justify-content: center; }
+        }
 
         @media (prefers-reduced-motion: reduce) {
             .di-ri-hero-media img,
@@ -555,8 +1052,17 @@
             .di-ri-hero-features,
             .di-ri-hero-corner,
             .di-ri-hero-tag,
-            .di-ri-hero-dots {
+            .di-ri-hero-dots,
+            .di-rr-kicker::before,
+            .di-rr-kicker::after,
+            .di-rr-title .line > span,
+            .di-rr-row,
+            .di-rr-row-media img,
+            .di-rr-row-media-arrow,
+            .di-rr-row-media::after,
+            .di-rr-bottom {
                 animation: none !important;
+                transition: none !important;
                 clip-path: none !important;
                 opacity: 1 !important;
                 transform: none !important;
@@ -655,13 +1161,12 @@
 <article>
 
     <!-- =========================================================
-         RESIDENTIAL HERO — Editorial split
+         RESIDENTIAL HERO
     ========================================================= -->
     <section class="di-ri-hero">
 
         <div class="di-ri-hero-wrap">
 
-            <!-- LEFT — Content on cream -->
             <div class="di-ri-hero-content">
 
                 <div class="di-ri-hero-rail">
@@ -676,9 +1181,7 @@
 
                 <div class="di-ri-hero-inner">
 
-                    <div class="di-ri-hero-number">
-                        01
-                    </div>
+                    <div class="di-ri-hero-number">01</div>
 
                     <nav class="di-ri-hero-crumb" aria-label="Breadcrumb">
                         <a href="index.html">Home</a>
@@ -721,10 +1224,8 @@
 
             </div>
 
-
-            <!-- RIGHT — Framed image with grand top-left arch -->
             <figure class="di-ri-hero-media">
-                <img src="images/decor-indoors-residentials-hero-section-bg.jpg"
+                <img src="images/decor-indoors1.jpg"
                      alt="Residential interior design by Decor Indoors">
                 <figcaption class="cr-only">
                     Residential interior design by Decor Indoors.
@@ -743,6 +1244,277 @@
                     </span>
                 </div>
             </figure>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RESIDENTIAL SHOWCASE — SEQUENTIAL FADE-UP ROWS
+    ========================================================= -->
+    <section class="di-rr-section" id="residential-showcase">
+
+        <div class="di-rr-wrap">
+
+            <div class="di-rr-head">
+
+                <div class="di-rr-kicker">
+                    Residential Work
+                </div>
+
+                <h2 class="di-rr-title">
+                    <span class="line line-1"><span>Spaces Shaped</span></span>
+                    <span class="line line-2"><span>by <span class="accent">Real Life.</span></span></span>
+                </h2>
+
+            </div>
+
+
+            <div class="di-rr-list" id="di-rr-list">
+
+                <!-- Row 01 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors1.jpg"
+                             alt="Warm living room interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Warm living room residential interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">01</div>
+                        <div class="di-rr-row-kicker">Living · Mangalore</div>
+                        <h3 class="di-rr-row-title">Cordel Cottage</h3>
+                        <p class="di-rr-row-text">
+                            A warm, easy-living home shaped around natural
+                            light, soft textures and everyday comfort —
+                            built for family life in coastal Karnataka.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Full Home
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2024
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Row 02 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors-services1.jpg"
+                             alt="Contemporary residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Contemporary residential interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">02</div>
+                        <div class="di-rr-row-kicker">Apartment · Bengaluru</div>
+                        <h3 class="di-rr-row-title">Prestige Valley Crest</h3>
+                        <p class="di-rr-row-text">
+                            A compact city apartment reimagined with
+                            intelligent storage, tonal layering and a
+                            quiet palette — calm amid the urban pace.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Apartment
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2023
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Row 03 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors-services2.jpg"
+                             alt="Warm residential bedroom by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Warm residential bedroom interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">03</div>
+                        <div class="di-rr-row-kicker">Bedroom · Udupi</div>
+                        <h3 class="di-rr-row-title">Kunjathbail House</h3>
+                        <p class="di-rr-row-text">
+                            A quiet, layered bedroom retreat designed to
+                            slow the pace of the day — warm timber,
+                            tactile fabrics and calm lighting.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Bedroom Suite
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2023
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Row 04 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors-services3.jpg"
+                             alt="Modern residential dining space by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Modern residential dining interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">04</div>
+                        <div class="di-rr-row-kicker">Dining · Mangalore</div>
+                        <h3 class="di-rr-row-title">Plama Oceanic</h3>
+                        <p class="di-rr-row-text">
+                            A generously proportioned dining and living
+                            space with a warm, contemporary palette —
+                            designed to gather, celebrate and host.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Living + Dining
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2022
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Row 05 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors-services4.jpg"
+                             alt="Compact apartment interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Compact apartment residential interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">05</div>
+                        <div class="di-rr-row-kicker">Full Home · Bahrain</div>
+                        <h3 class="di-rr-row-title">Bahrain Villa</h3>
+                        <p class="di-rr-row-text">
+                            A complete villa interior delivered turnkey —
+                            from concept and material selection through
+                            to final styling, across every room.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Turnkey Villa
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2022
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Row 06 -->
+                <div class="di-rr-row">
+
+                    <figure class="di-rr-row-media">
+                        <img src="images/decor-indoors-cta.jpg"
+                             alt="Personalized residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Personalized residential interior project.
+                        </figcaption>
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">06</div>
+                        <div class="di-rr-row-kicker">Home · Katpadi</div>
+                        <h3 class="di-rr-row-title">Katpadi Residence</h3>
+                        <p class="di-rr-row-text">
+                            A deeply personal home interior — designed
+                            around the routines, rituals and quiet
+                            preferences of a growing family.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Residence
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-calendar4-week"></i>
+                                2021
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="di-rr-bottom">
+
+                <div class="di-rr-bottom-text">
+                    Homes · Apartments · Villas
+                </div>
+
+                <a href="decor-indoors-portfolio.html" class="di-rr-bottom-btn">
+                    <span>View Full Portfolio</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
 
         </div>
 
@@ -1046,6 +1818,64 @@ document.addEventListener("DOMContentLoaded", function () {
             if (instance) instance.hide();
         }
     });
+
+});
+</script>
+
+
+<!-- =========================================================
+     SCROLL REVEAL
+       1. Section observer — head (kicker + title)
+       2. List observer    — card cascade, fires only when the
+          top of the list is 15% up from the viewport bottom
+========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const showcase = document.getElementById("residential-showcase");
+    const cardList = document.getElementById("di-rr-list");
+
+    if (!showcase || !cardList) return;
+
+
+    /* ---------- 1) Section head reveal ---------- */
+    const sectionObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in-view");
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.10, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    sectionObserver.observe(showcase);
+
+
+    /* ---------- 2) Card cascade reveal ----------
+       Fires when the top of the card list enters the
+       viewport — 15% above the very bottom. This is
+       just as the first card is coming into view, so
+       the cascade plays exactly as the user reaches it.
+    -------------------------------------------- */
+    const cardObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in-view");
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0,
+            rootMargin: "0px 0px -15% 0px"
+        }
+    );
+
+    cardObserver.observe(cardList);
 
 });
 </script>

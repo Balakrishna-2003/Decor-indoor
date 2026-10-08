@@ -370,23 +370,32 @@
             transform: scale(1) rotate(0deg);
         }
 
-        .di-about-story-badge-num {
-            font-family: "Playfair Display", serif;
-            font-size: 28px;
-            font-weight: 500;
-            line-height: 1;
-            letter-spacing: -1px;
+        .di-about-story-badge-emblem {
+            width: 82px;
+            height: 82px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--di-brown);
+            transition: color 0.45s ease, transform 0.55s cubic-bezier(.2, .8, .2, 1);
         }
 
-        .di-about-story-badge-text {
-            margin-top: 4px;
-            font-family: "Manrope", sans-serif;
-            font-size: 7px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--di-muted);
+        .di-about-story-badge-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: visible;
+        }
+
+        .di-about-story-badge-ring {
+            transform-origin: 50px 50px;
+            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-about-story-badge-home {
+            transform-origin: 50px 50px;
+            transition: transform 0.55s cubic-bezier(.2, .8, .2, 1);
         }
 
         /* HOVER (unchanged) */
@@ -435,6 +444,18 @@
             box-shadow:
                 0 22px 40px -14px rgba(20, 25, 18, 0.65),
                 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+        }
+
+        .di-about-story.is-in-view .di-about-story-visual:hover .di-about-story-badge-emblem {
+            color: var(--di-brown-dark);
+        }
+
+        .di-about-story.is-in-view .di-about-story-visual:hover .di-about-story-badge-ring {
+            transform: rotate(45deg);
+        }
+
+        .di-about-story.is-in-view .di-about-story-visual:hover .di-about-story-badge-home {
+            transform: scale(1.05);
         }
 
 
@@ -671,8 +692,10 @@
                 width: 74px;
                 height: 74px;
             }
-            .di-about-story-badge-num { font-size: 20px; }
-            .di-about-story-badge-text { font-size: 6px; letter-spacing: 1.5px; margin-top: 3px; }
+            .di-about-story-badge-emblem {
+                width: 62px;
+                height: 62px;
+            }
 
             .di-about-story-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 20px; }
             .di-about-story-kicker span { width: 40px; }
@@ -740,14 +763,16 @@
             pointer-events: none; z-index: 0;
         }
 
+        /* CHANGED: grid columns give the text column more width,
+           and the gap is reduced so the nowrap heading fits comfortably. */
         .di-approach-wrap {
             position: relative; z-index: 2;
             max-width: var(--di-about-wrap);
             margin: 0 auto;
             padding: 0 var(--di-about-edge);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--di-about-gap);
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 80px;
             align-items: center;
         }
 
@@ -884,8 +909,13 @@
         }
 
         .di-approach-title .line { display: block; overflow: hidden; }
+
+        /* CHANGED: white-space: nowrap keeps each title line on a single
+           line so "Collaborative from the" stays together and
+           "first conversation." sits directly below it. */
         .di-approach-title .line > span {
             display: block;
+            white-space: nowrap;
             transform: translateX(-105%);
             transition: transform 1.05s cubic-bezier(.2, .8, .2, 1);
         }
@@ -1485,16 +1515,16 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item"
-                               href="interors/decor-indoors-interiors-residential-interiors.html">
+                               href="decor-indoors-interiors-residential-interiors.html">
                             Residential Interiors</a></li>
                         <li><a class="dropdown-item"
-                               href="interors/decor-indoors-interiors-renovation-and-remodeling.html">
+                               href="decor-indoors-interiors-renovation-and-remodeling.html">
                             Renovation &amp; Remodeling</a></li>
                         <li><a class="dropdown-item"
-                               href="interors/decor-indoors-interiors-furniture-and-styling.html">
+                               href="decor-indoors-interiors-furniture-and-styling.html">
                             Furniture &amp; Styling</a></li>
                         <li><a class="dropdown-item"
-                               href="interors/decor-indoors-interiors-design-counsultation.html">
+                               href="decor-indoors-interiors-design-counsultation.html">
                             Design Consultation</a></li>
                     </ul>
                 </li>
@@ -1602,9 +1632,54 @@
                     </h3>
                 </div>
 
-                <div class="di-about-story-badge">
-                    <span class="di-about-story-badge-num">12+</span>
-                    <span class="di-about-story-badge-text">Years</span>
+                <div class="di-about-story-badge" aria-label="Decor Indoors">
+                    <div class="di-about-story-badge-emblem">
+                        <svg class="di-about-story-badge-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Outer decorative dashed architectural ring -->
+                            <g class="di-about-story-badge-ring">
+                                <circle cx="50" cy="50" r="41" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.5 3.5" opacity="0.45"/>
+                                <!-- 4 Cardinal diamond accents -->
+                                <polygon points="50,6.5 52,9 50,11.5 48,9" fill="currentColor" opacity="0.85"/>
+                                <polygon points="50,88.5 52,91 50,93.5 48,91" fill="currentColor" opacity="0.85"/>
+                                <polygon points="6.5,50 9,52 11.5,50 9,48" fill="currentColor" opacity="0.85"/>
+                                <polygon points="88.5,50 91,52 93.5,50 91,48" fill="currentColor" opacity="0.85"/>
+                            </g>
+
+                            <!-- Inner tinted architectural plate -->
+                            <circle cx="50" cy="50" r="35.5" fill="rgba(174, 155, 138, 0.08)" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
+
+                            <!-- Detailed Architectural Home Icon -->
+                            <g class="di-about-story-badge-home">
+                                <!-- Ground foundation baseline -->
+                                <line x1="26" y1="70" x2="74" y2="70" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+
+                                <!-- Chimney -->
+                                <path d="M59 34V28.5H65V39" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+
+                                <!-- Pitched Gable Roof with extending eaves -->
+                                <path d="M25 46.5L50 26L75 46.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+                                <!-- Attic Rosette Window with cross mullions -->
+                                <circle cx="50" cy="38.5" r="4" stroke="currentColor" stroke-width="1.1"/>
+                                <line x1="50" y1="34.5" x2="50" y2="42.5" stroke="currentColor" stroke-width="0.8"/>
+                                <line x1="46" y1="38.5" x2="54" y2="38.5" stroke="currentColor" stroke-width="0.8"/>
+
+                                <!-- Main House Walls -->
+                                <path d="M30 46.5V70H70V46.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+
+                                <!-- Left Architectural Window -->
+                                <rect x="34.5" y="54" width="5.5" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/>
+                                <line x1="34.5" y1="59" x2="40" y2="59" stroke="currentColor" stroke-width="0.8"/>
+
+                                <!-- Right Architectural Window -->
+                                <rect x="60" y="54" width="5.5" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/>
+                                <line x1="60" y1="59" x2="65.5" y2="59" stroke="currentColor" stroke-width="0.8"/>
+
+                                <!-- Classic Arched Center Entrance -->
+                                <path d="M43.5 70V57.5A6.5 6.5 0 0 1 56.5 57.5V70" stroke="currentColor" stroke-width="1.4"/>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
 
             </div>
@@ -1646,7 +1721,7 @@
                     as they look.
                 </p>
 
-                <div class="di-about-story-stats">
+                <!-- <div class="di-about-story-stats">
 
                     <div class="di-about-story-stat">
                         <span class="di-about-story-stat-number"
@@ -1672,7 +1747,7 @@
                         </span>
                     </div>
 
-                </div>
+                </div> -->
 
             </div>
 
@@ -1696,8 +1771,8 @@
                 </div>
 
                 <h2 class="di-approach-title">
-                    <span class="line line-1"><span>Collaborative from</span></span>
-                    <span class="line line-2"><span>the <span class="accent">first conversation.</span></span></span>
+                    <span class="line line-1"><span>Collaborative from the</span></span>
+                    <span class="line line-2"><span class="accent">first conversation.</span></span>
                 </h2>
 
                 <div class="di-approach-divider"></div>
@@ -1755,11 +1830,11 @@
 
                 <div class="di-approach-ring"></div>
 
-                <div class="di-approach-dots">
+                <!-- <div class="di-approach-dots">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </div> -->
 
             </div>
 
@@ -1928,7 +2003,7 @@
                         <ul class="di-footer-links">
                             <li><a href="index.html"><span>›</span> Home</a></li>
                             <li><a href="decor-indoors-about-us.html"><span>›</span> About Us</a></li>
-                            <li><a href="interors/decor-indoors-interiors-residential-interiors.html"><span>›</span> Interiors</a></li>
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Interiors</a></li>
                             <li><a href="decor-indoors-portfolio.html"><span>›</span> Portfolio</a></li>
                             <li><a href="decor-indoors-testimonials.html"><span>›</span> Testimonials</a></li>
                             <li><a href="decor-indoors-contacts.html"><span>›</span> Contacts</a></li>
@@ -1942,11 +2017,11 @@
                         <div class="di-footer-heading-line"></div>
 
                         <ul class="di-footer-links">
-                            <li><a href="interors/decor-indoors-interiors-residential-interiors.html"><span>›</span> Residential Interiors</a></li>
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Residential Interiors</a></li>
                             <li><a href="decor-indoors-commercials.html"><span>›</span> Commercial Interiors</a></li>
-                            <li><a href="interors/decor-indoors-interiors-renovation-and-remodeling.html"><span>›</span> Renovation &amp; Remodeling</a></li>
-                            <li><a href="interors/decor-indoors-interiors-furniture-and-styling.html"><span>›</span> Furniture &amp; Styling</a></li>
-                            <li><a href="interors/decor-indoors-interiors-design-counsultation.html"><span>›</span> Design Consultation</a></li>
+                            <li><a href="decor-indoors-interiors-renovation-and-remodeling.html"><span>›</span> Renovation &amp; Remodeling</a></li>
+                            <li><a href="decor-indoors-interiors-furniture-and-styling.html"><span>›</span> Furniture &amp; Styling</a></li>
+                            <li><a href="decor-indoors-interiors-design-counsultation.html"><span>›</span> Design Consultation</a></li>
                         </ul>
                     </div>
                 </div>
