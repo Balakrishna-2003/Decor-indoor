@@ -9715,7 +9715,7 @@ figcaption, figure{margin: 0; padding: 0; height:100%; width: 100%;}
 ========================================================= */
 
 .di-footer-main > [class*="col-"]:not(:first-child) {
-    border-left: 1px solid rgba(255,255,255,.18) !important;
+    /* border-left: 1px solid rgba(255,255,255,.18) !important; */
 }
 
 .di-footer-column,
@@ -9810,7 +9810,7 @@ figcaption, figure{margin: 0; padding: 0; height:100%; width: 100%;}
     .di-footer-main > [class*="col-"]:nth-child(2),
     .di-footer-main > [class*="col-"]:nth-child(3),
     .di-footer-main > [class*="col-"]:nth-child(4) {
-        border-left: 1px solid rgba(255,255,255,.18) !important;
+        /* border-left: 1px solid rgba(255,255,255,.18) !important; */
     }
 
     .di-footer-main > [class*="col-"]:nth-child(2) {
