@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Residential Interiors | DECOR INDOORS</title>
+    <title>Renovation &amp; Remodeling | DECOR INDOORS</title>
     <link rel="shortcut icon" href="images/favicon.png">
     <meta name="theme-color" content="#373f2e">
 
@@ -22,7 +22,7 @@
     <style>
 
         /* =========================================================
-           RESIDENTIAL HERO
+           RENOVATION & REMODELING HERO
         ========================================================= */
         .di-ri-hero {
             position: relative;
@@ -271,59 +271,47 @@
 
 
         /* =========================================================
-           SHARED: Title line-by-line reveal (used by rd + mg)
+           INTRO — TRANSFORMATION SLIDER
         ========================================================= */
-        .di-rd-title .line,
-        .di-mg-title .line {
-            display: block;
-            overflow: hidden;
-        }
-
-        .di-rd-title .line > span,
-        .di-mg-title .line > span {
-            display: block;
-            transform: translateX(-105%);
-            transition: transform 1.15s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-section.is-in-view .di-rd-title .line-1 > span,
-        .di-mg-section.is-in-view .di-mg-title .line-1 > span {
-            transform: translateX(0);
-            transition-delay: 0.55s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-title .line-2 > span,
-        .di-mg-section.is-in-view .di-mg-title .line-2 > span {
-            transform: translateX(0);
-            transition-delay: 0.70s;
-        }
-
-
-        /* =========================================================
-           RESIDENTIAL DESIGN — LAYERED COLLAGE
-        ========================================================= */
-        .di-rd-section {
+        .di-rn-section {
             position: relative;
-            padding: 130px 0 80px;
+            padding: 130px 0 100px;
             background: var(--di-white);
             overflow: hidden;
             isolation: isolate;
         }
 
-        .di-rd-section::before {
+        .di-rn-section::before {
             content: "";
             position: absolute;
-            top: -180px; right: -180px;
+            top: -180px; left: -180px;
             width: 460px; height: 460px;
             border-radius: 50%;
             background: radial-gradient(circle,
-                rgba(174, 155, 138, 0.12) 0%,
+                rgba(174, 155, 138, 0.10) 0%,
                 rgba(174, 155, 138, 0) 68%);
             pointer-events: none;
             z-index: 0;
         }
 
-        .di-rd-wrap {
+        .di-rn-section::after {
+            content: "";
+            position: absolute;
+            bottom: -160px; right: -160px;
+            width: 420px; height: 420px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.22);
+            pointer-events: none;
+            animation: diRnSpin 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes diRnSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .di-rn-wrap {
             position: relative;
             z-index: 2;
             max-width: 1400px;
@@ -331,229 +319,16 @@
             padding: 0 clamp(22px, 5%, 80px);
             display: grid;
             grid-template-columns: 1.05fr 1fr;
-            gap: 110px;
+            gap: 55px;
             align-items: center;
         }
 
-        .di-rd-visual {
+        .di-rn-content {
             position: relative;
-            padding: 0 0 70px 40px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition:
-                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.15s,
-                transform 1s cubic-bezier(.2, .8, .2, 1) 0.15s;
+            order: 2;
         }
 
-        .di-rd-section.is-in-view .di-rd-visual {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .di-rd-shape-green {
-            position: absolute;
-            top: -22px;
-            left: 0;
-            width: 46%;
-            height: 42%;
-            background: var(--di-green);
-            border-radius: 20px 20px 20px 4px;
-            z-index: 0;
-            opacity: 0;
-            transform: translate(-14px, -14px);
-            transition:
-                opacity 1.1s cubic-bezier(.2, .8, .2, 1) 0.35s,
-                transform 1.1s cubic-bezier(.2, .8, .2, 1) 0.35s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-shape-green {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        .di-rd-shape-outline {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 48%;
-            height: 46%;
-            border: 2px solid var(--di-brown);
-            border-radius: 20px;
-            z-index: 0;
-            opacity: 0;
-            transform: translate(14px, 14px);
-            transition:
-                opacity 1.1s cubic-bezier(.2, .8, .2, 1) 0.5s,
-                transform 1.1s cubic-bezier(.2, .8, .2, 1) 0.5s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-shape-outline {
-            opacity: 0.55;
-            transform: translate(0, 0);
-        }
-
-        .di-rd-shape-ring {
-            position: absolute;
-            bottom: 40px;
-            left: -50px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 1px dashed rgba(174, 155, 138, 0.55);
-            z-index: 0;
-            opacity: 0;
-            animation: diRdRingSpin 60s linear infinite;
-            transition: opacity 1s ease 0.75s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-shape-ring { opacity: 1; }
-
-        @keyframes diRdRingSpin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-
-        .di-rd-media-main {
-            position: relative;
-            z-index: 2;
-            margin: 0;
-            padding: 0;
-            height: 620px;
-            border-radius: 24px;
-            overflow: hidden;
-            background: #d9d5cb;
-            box-shadow: 0 40px 80px -40px rgba(37, 37, 37, 0.32);
-        }
-
-        .di-rd-media-main img {
-            width: 100%; height: 100%; display: block;
-            object-fit: cover; object-position: center;
-            transform: scale(1.08);
-            transition: transform 1.8s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-section.is-in-view .di-rd-media-main img {
-            transform: scale(1);
-        }
-
-        .di-rd-media-main::after {
-            content: "";
-            position: absolute;
-            inset: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 14px;
-            pointer-events: none;
-        }
-
-        .di-rd-media-small {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: 4;
-            width: 240px;
-            height: 300px;
-            margin: 0;
-            padding: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            background: #d9d5cb;
-            border: 10px solid var(--di-white);
-            box-shadow: 0 30px 60px -22px rgba(37, 37, 37, 0.40);
-            opacity: 0;
-            transform: translate(-20px, 30px);
-            transition:
-                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.85s,
-                transform 1s cubic-bezier(.2, .8, .2, 1) 0.85s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-media-small {
-            opacity: 1;
-            transform: translate(0, 0);
-        }
-
-        .di-rd-media-small img {
-            width: 100%; height: 100%; display: block;
-            object-fit: cover; object-position: center;
-            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-media-small:hover img {
-            transform: scale(1.06);
-        }
-
-        .di-rd-emblem {
-            position: absolute;
-            top: 55px;
-            right: -32px;
-            z-index: 5;
-            width: 108px;
-            height: 108px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.97);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            color: var(--di-brown);
-            box-shadow:
-                0 20px 40px -18px rgba(20, 25, 18, 0.50),
-                0 0 0 1px rgba(255, 255, 255, 0.4) inset;
-            opacity: 0;
-            transform: translateX(20px) scale(0.85) rotate(-8deg);
-            transition:
-                opacity 1s cubic-bezier(.2, .8, .2, 1) 1.0s,
-                transform 1s cubic-bezier(.2, .8, .2, 1) 1.0s;
-        }
-
-        .di-rd-section.is-in-view .di-rd-emblem {
-            opacity: 1;
-            transform: translateX(0) scale(1) rotate(0deg);
-        }
-
-        .di-rd-emblem::before {
-            content: "";
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 1px dashed rgba(174, 155, 138, 0.55);
-            animation: diRdEmblemRing 22s linear infinite;
-        }
-
-        @keyframes diRdEmblemRing {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-
-        .di-rd-emblem svg {
-            width: 60px;
-            height: 60px;
-            display: block;
-            overflow: visible;
-            transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-emblem:hover svg { transform: scale(1.06); }
-        .di-rd-emblem:hover::before { border-color: var(--di-green); }
-
-        .di-rd-emblem .di-rd-emblem-ring {
-            transform-origin: 50px 50px;
-            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-emblem:hover .di-rd-emblem-ring { transform: rotate(45deg); }
-
-        .di-rd-emblem .di-rd-emblem-home {
-            transition: transform 0.55s cubic-bezier(.2, .8, .2, 1);
-        }
-
-        .di-rd-emblem:hover .di-rd-emblem-home {
-            transform: translateY(-1px) scale(1.03);
-        }
-
-        .di-rd-content { position: relative; }
-
-        .di-rd-kicker {
+        .di-rn-kicker {
             display: inline-flex;
             align-items: center;
             gap: 16px;
@@ -571,12 +346,12 @@
                 transform 1s cubic-bezier(.2, .8, .2, 1) 0.35s;
         }
 
-        .di-rd-section.is-in-view .di-rd-kicker {
+        .di-rn-section.is-in-view .di-rn-kicker {
             opacity: 1;
             transform: translateX(0);
         }
 
-        .di-rd-kicker::before {
+        .di-rn-kicker::before {
             content: "";
             display: block;
             width: 44px;
@@ -588,11 +363,11 @@
             transition: transform 1.1s cubic-bezier(.2, .8, .2, 1) 0.95s;
         }
 
-        .di-rd-section.is-in-view .di-rd-kicker::before {
+        .di-rn-section.is-in-view .di-rn-kicker::before {
             transform: scaleX(1);
         }
 
-        .di-rd-title {
+        .di-rn-title {
             margin: 0 0 26px;
             font-family: "Playfair Display", serif;
             font-size: clamp(38px, 4.4vw, 62px);
@@ -602,12 +377,26 @@
             color: var(--di-dark);
         }
 
-        .di-rd-title .accent {
+        .di-rn-title .line { display: block; overflow: hidden; }
+        .di-rn-title .line > span {
+            display: block;
+            transform: translateX(-105%);
+            transition: transform 1.15s cubic-bezier(.2, .8, .2, 1);
+        }
+        .di-rn-section.is-in-view .di-rn-title .line-1 > span {
+            transform: translateX(0);
+            transition-delay: 0.55s;
+        }
+        .di-rn-section.is-in-view .di-rn-title .line-2 > span {
+            transform: translateX(0);
+            transition-delay: 0.70s;
+        }
+        .di-rn-title .accent {
             color: var(--di-brown);
             font-style: italic;
         }
 
-        .di-rd-text {
+        .di-rn-text {
             margin: 0 0 22px;
             font-family: "Manrope", sans-serif;
             font-size: 15px;
@@ -621,99 +410,429 @@
                 transform 1s cubic-bezier(.2, .8, .2, 1);
         }
 
-        .di-rd-section.is-in-view .di-rd-text:nth-of-type(1) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 0.95s;
+        .di-rn-section.is-in-view .di-rn-text:nth-of-type(1) {
+            opacity: 1; transform: translateX(0); transition-delay: 0.95s;
         }
-
-        .di-rd-section.is-in-view .di-rd-text:nth-of-type(2) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.10s;
+        .di-rn-section.is-in-view .di-rn-text:nth-of-type(2) {
+            opacity: 1; transform: translateX(0); transition-delay: 1.10s;
         }
+        .di-rn-text:last-of-type { margin-bottom: 0; }
 
-        .di-rd-text:last-of-type { margin-bottom: 0; }
 
-        .di-rd-features {
+        /* =========================================================
+           STEPS — CREATIVE CONNECTED JOURNEY (numbers removed)
+        ========================================================= */
+        .di-rn-steps {
+            position: relative;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 22px;
-            margin-top: 36px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 42px;
             padding-top: 34px;
             border-top: 1px solid var(--di-border);
         }
 
-        .di-rd-feature {
+        .di-rn-step {
+            position: relative;
             display: flex;
-            align-items: flex-start;
-            gap: 18px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 14px;
+            padding: 0 6px;
             opacity: 0;
-            transform: translateX(-40px);
+            transform: translateY(18px);
             transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1),
-                transform 0.9s cubic-bezier(.2, .8, .2, 1);
+                opacity 0.85s cubic-bezier(.2, .8, .2, 1),
+                transform 0.85s cubic-bezier(.2, .8, .2, 1);
         }
 
-        .di-rd-section.is-in-view .di-rd-feature:nth-child(1) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.25s;
+        .di-rn-section.is-in-view .di-rn-step:nth-child(1) {
+            opacity: 1; transform: translateY(0); transition-delay: 1.15s;
         }
-        .di-rd-section.is-in-view .di-rd-feature:nth-child(2) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.38s;
+        .di-rn-section.is-in-view .di-rn-step:nth-child(2) {
+            opacity: 1; transform: translateY(0); transition-delay: 1.35s;
         }
-        .di-rd-section.is-in-view .di-rd-feature:nth-child(3) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.51s;
+        .di-rn-section.is-in-view .di-rn-step:nth-child(3) {
+            opacity: 1; transform: translateY(0); transition-delay: 1.55s;
         }
 
-        .di-rd-feature-icon {
-            flex: 0 0 50px;
-            width: 50px;
-            height: 50px;
+        .di-rn-step-icon {
+            position: relative;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(174, 155, 138, 0.12);
+            background: linear-gradient(135deg, #ffffff 0%, #f4efe6 100%);
             color: var(--di-brown);
-            font-size: 19px;
+            font-size: 20px;
             line-height: 1;
+            box-shadow:
+                0 14px 26px -14px rgba(174, 155, 138, 0.75),
+                0 0 0 1px rgba(174, 155, 138, 0.22) inset;
             transition:
-                background 0.4s ease,
-                color 0.4s ease,
-                transform 0.55s cubic-bezier(.2, .8, .2, 1);
+                color 0.45s ease,
+                transform 0.55s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.45s ease,
+                background 0.45s ease;
+            z-index: 2;
         }
 
-        .di-rd-feature:hover .di-rd-feature-icon {
+        .di-rn-step-icon::before {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.55);
+            opacity: 0.85;
+            transition:
+                opacity 0.4s ease,
+                border-color 0.4s ease,
+                transform 1.2s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rn-step-icon::after {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            border-top-color: var(--di-brown);
+            transform: rotate(-45deg);
+            transition:
+                transform 1.4s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.4s ease;
+        }
+
+        .di-rn-step:hover .di-rn-step-icon {
             background: var(--di-brown);
             color: #ffffff;
-            transform: scale(1.08) rotate(-6deg);
+            transform: scale(1.06) translateY(-2px);
+            box-shadow:
+                0 20px 32px -14px rgba(174, 155, 138, 0.95),
+                0 0 0 1px rgba(174, 155, 138, 0) inset;
         }
 
-        .di-rd-feature-title {
+        .di-rn-step:hover .di-rn-step-icon::before {
+            opacity: 1;
+            border-color: var(--di-brown);
+            transform: rotate(180deg);
+        }
+
+        .di-rn-step:hover .di-rn-step-icon::after {
+            transform: rotate(135deg);
+            border-top-color: var(--di-green);
+        }
+
+        .di-rn-step-title {
             font-family: "Manrope", sans-serif;
-            font-size: 14.5px;
+            font-size: 11px;
             font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             color: var(--di-dark);
-            margin-bottom: 4px;
-            line-height: 1.3;
+            transition: color 0.35s ease;
         }
 
-        .di-rd-feature-text {
-            font-family: "Manrope", sans-serif;
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--di-muted);
+        .di-rn-step:hover .di-rn-step-title { color: var(--di-brown); }
+
+        .di-rn-step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 29px;
+            left: calc(50% + 40px);
+            right: calc(-50% + 40px);
+            height: 1px;
+            background-image: linear-gradient(
+                to right,
+                rgba(174, 155, 138, 0.55) 0%,
+                rgba(174, 155, 138, 0.55) 50%,
+                transparent 50%,
+                transparent 100%
+            );
+            background-size: 8px 1px;
+            background-repeat: repeat-x;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rn-section.is-in-view .di-rn-step:nth-child(1)::after {
+            opacity: 1;
+            transition-delay: 1.55s;
+        }
+        .di-rn-section.is-in-view .di-rn-step:nth-child(2)::after {
+            opacity: 1;
+            transition-delay: 1.75s;
+        }
+
+        .di-rn-step:not(:last-child) .di-rn-step-arrow {
+            position: absolute;
+            top: 26px;
+            left: calc(50% + 40px);
+            right: calc(-50% + 40px);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            pointer-events: none;
+            color: var(--di-brown);
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(.2, .8, .2, 1);
+            z-index: 1;
+        }
+
+        .di-rn-section.is-in-view .di-rn-step:nth-child(1) .di-rn-step-arrow {
+            opacity: 0.7;
+            transition-delay: 1.6s;
+        }
+        .di-rn-section.is-in-view .di-rn-step:nth-child(2) .di-rn-step-arrow {
+            opacity: 0.7;
+            transition-delay: 1.8s;
+        }
+
+
+        /* ---------- LEFT — VISUAL (COMPARE SLIDER) ---------- */
+        .di-rn-visual {
+            position: relative;
+            order: 1;
+            padding: 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition:
+                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.15s,
+                transform 1s cubic-bezier(.2, .8, .2, 1) 0.15s;
+        }
+
+        .di-rn-section.is-in-view .di-rn-visual {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .di-rn-shape-ring {
+            position: absolute;
+            top: -30px;
+            left: -40px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.55);
+            z-index: 0;
+            animation: diRnSpin 60s linear infinite;
+            pointer-events: none;
+        }
+
+        .di-rn-shape-green {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 160px;
+            height: 160px;
+            background: var(--di-green);
+            border-radius: 20px 20px 20px 4px;
+            z-index: 0;
+            opacity: 0;
+            transform: translate(14px, 14px);
+            transition:
+                opacity 1.1s cubic-bezier(.2, .8, .2, 1) 0.75s,
+                transform 1.1s cubic-bezier(.2, .8, .2, 1) 0.75s;
+        }
+
+        .di-rn-section.is-in-view .di-rn-shape-green {
+            opacity: 0.9;
+            transform: translate(0, 0);
         }
 
 
         /* =========================================================
-           SERVICES — FEATURED + GRID
+           COMPARE SLIDER
+        ========================================================= */
+        .di-rn-compare {
+            --di-rn-pos: 50%;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            min-height: 320px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #d9d5cb;
+            box-shadow: 0 34px 70px -34px rgba(37, 37, 37, 0.32);
+            cursor: ew-resize;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: pan-y;
+        }
+
+        .di-rn-compare-media {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .di-rn-compare-media img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .di-rn-compare-after { z-index: 1; }
+
+        .di-rn-compare-before {
+            z-index: 2;
+            clip-path: inset(0 calc(100% - var(--di-rn-pos, 50%)) 0 0);
+            transition: clip-path 0.35s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rn-compare.is-dragging .di-rn-compare-before {
+            transition: none;
+        }
+
+        .di-rn-compare::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            background: linear-gradient(
+                to top,
+                rgba(20, 25, 18, 0.18) 0%,
+                rgba(20, 25, 18, 0) 34%
+            );
+        }
+
+        .di-rn-compare-tag {
+            position: absolute;
+            top: 22px;
+            z-index: 6;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 16px 9px 11px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.97);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(174, 155, 138, 0.30);
+            font-family: "Manrope", sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2.8px;
+            text-transform: uppercase;
+            color: var(--di-dark);
+            box-shadow: 0 12px 26px -14px rgba(20, 25, 18, 0.45);
+            pointer-events: none;
+        }
+
+        .di-rn-compare-tag-before { left: 22px; }
+        .di-rn-compare-tag-after  { right: 22px; }
+
+        .di-rn-compare-tag-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--di-brown);
+            box-shadow: 0 0 0 3px rgba(174, 155, 138, 0.22);
+            flex-shrink: 0;
+        }
+
+        .di-rn-compare-tag-after .di-rn-compare-tag-dot {
+            background: var(--di-green);
+            box-shadow: 0 0 0 3px rgba(54, 62, 44, 0.20);
+        }
+
+        .di-rn-compare-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: var(--di-rn-pos, 50%);
+            width: 0;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            transition: left 0.35s cubic-bezier(.2, .8, .2, 1);
+            outline: none;
+        }
+
+        .di-rn-compare.is-dragging .di-rn-compare-handle {
+            transition: none;
+        }
+
+        .di-rn-compare-handle-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateX(-50%);
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.22);
+            pointer-events: none;
+        }
+
+        .di-rn-compare-handle-knob {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            background: #ffffff;
+            color: var(--di-brown);
+            font-size: 14px;
+            cursor: ew-resize;
+            box-shadow:
+                0 18px 34px -14px rgba(20, 25, 18, 0.45),
+                0 0 0 1px rgba(255, 255, 255, 0.55) inset;
+            transition:
+                transform 0.35s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.35s ease;
+            animation: diRnHandlePulse 3.2s ease-in-out infinite;
+        }
+
+        .di-rn-compare-handle:hover .di-rn-compare-handle-knob {
+            transform: scale(1.06);
+            animation: none;
+        }
+
+        .di-rn-compare.is-dragging .di-rn-compare-handle-knob {
+            animation: none;
+            transform: scale(1.09);
+            box-shadow:
+                0 22px 40px -14px rgba(20, 25, 18, 0.55),
+                0 0 0 1px rgba(255, 255, 255, 0.65) inset;
+        }
+
+        .di-rn-compare-handle:focus-visible .di-rn-compare-handle-knob {
+            box-shadow:
+                0 20px 40px -14px rgba(20, 25, 18, 0.50),
+                0 0 0 1px rgba(255, 255, 255, 0.55) inset,
+                0 0 0 3px rgba(174, 155, 138, 0.55);
+        }
+
+        @keyframes diRnHandlePulse {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.06); }
+        }
+
+
+        /* =========================================================
+           WHAT WE OFFER — RENOVATION SERVICES
         ========================================================= */
         .di-mg-section {
             position: relative;
@@ -1035,7 +1154,7 @@
             flex-direction: column;
             background: #ffffff;
             border: 1px solid rgba(174, 155, 138, 0.20);
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow:
                 0 18px 40px -26px rgba(37, 37, 37, 0.14),
@@ -1069,29 +1188,25 @@
             transform: translateY(-6px);
         }
 
-        /* =========================================================
-           CARD MEDIA — FULL IMAGE VISIBLE, GAP FROM CARD BORDER
-        ========================================================= */
         .di-mg-card-media {
             position: relative;
             margin: 0;
-            /* padding: 14px 14px 0; */
+            padding: 14px 14px 0;
             aspect-ratio: 4 / 3;
             overflow: hidden;
             background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
-            max-height: 234px;
         }
 
         .di-mg-card-media img {
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
-            border-radius: 0px;
+            border-radius: 12px;
             background: #f4efe6;
             transition: transform 1.4s cubic-bezier(.2, .8, .2, 1);
         }
@@ -1287,7 +1402,7 @@
 
 
         /* =========================================================
-           RESPONSIVE — MERGED BREAKPOINTS
+           HERO RESPONSIVE
         ========================================================= */
         @media (max-width: 1399.98px) {
             .di-ri-hero-content { padding-left: 110px; }
@@ -1297,9 +1412,7 @@
             .di-ri-hero-emblem { right: 58px; bottom: 58px; width: 88px; height: 88px; }
             .di-ri-hero-emblem-svg { width: 52px; height: 52px; }
 
-            .di-rd-wrap { gap: 80px; }
-            .di-rd-media-main { height: 560px; }
-            .di-rd-media-small { width: 210px; height: 260px; }
+            .di-rn-wrap { gap: 45px; }
 
             .di-mg-grid { gap: 18px; }
         }
@@ -1314,11 +1427,8 @@
             .di-ri-hero-emblem::before { inset: -6px; }
             .di-ri-hero-title { letter-spacing: -1.8px; }
 
-            .di-rd-wrap { gap: 60px; }
-            .di-rd-media-main { height: 500px; }
-            .di-rd-media-small { width: 180px; height: 230px; border-width: 8px; }
-            .di-rd-emblem { top: 40px; right: -18px; width: 96px; height: 96px; }
-            .di-rd-emblem svg { width: 54px; height: 54px; }
+            .di-rn-wrap { gap: 38px; }
+            .di-rn-shape-green { width: 130px; height: 130px; right: -20px; }
 
             .di-mg-featured { grid-template-columns: 1.2fr 1fr; }
             .di-mg-featured-media { min-height: 480px; }
@@ -1339,21 +1449,15 @@
             .di-ri-hero-features { gap: 18px; }
             .di-ri-hero-feature { font-size: 9px; letter-spacing: 2px; }
 
-            .di-rd-section { padding: 95px 0 55px; }
-            .di-rd-wrap {
+            .di-rn-section { padding: 95px 0 70px; }
+            .di-rn-wrap {
                 grid-template-columns: 1fr;
-                gap: 80px;
+                gap: 50px;
                 max-width: 720px;
                 padding-left: 40px;
                 padding-right: 40px;
             }
-            .di-rd-media-main { height: 520px; }
-            .di-rd-media-small { width: 200px; height: 250px; left: -10px; bottom: -30px; }
-            .di-rd-visual { padding-left: 30px; }
-            .di-rd-shape-green { top: -18px; }
-            .di-rd-shape-ring { left: -60px; bottom: 20px; width: 120px; height: 120px; }
-            .di-rd-emblem { top: 30px; right: -20px; }
-            .di-rd-text { max-width: 100%; }
+            .di-rn-text { max-width: 100%; }
 
             .di-mg-section { padding: 55px 0 90px; }
             .di-mg-head { margin-bottom: 55px; }
@@ -1388,64 +1492,72 @@
             .di-ri-hero-emblem-svg { width: 36px; height: 36px; }
             .di-ri-hero-emblem::before { inset: -5px; }
 
-            .di-rd-section { padding: 70px 0 45px; }
-            .di-rd-wrap { padding: 0 22px; gap: 60px; }
+            .di-rn-section { padding: 70px 0 55px; }
+            .di-rn-wrap { padding: 0 22px; gap: 45px; }
 
-            .di-rd-visual { padding: 0 0 45px 25px; }
+            .di-rn-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 18px; }
+            .di-rn-kicker::before { width: 32px; }
+            .di-rn-title { font-size: 32px; letter-spacing: -1.2px; margin-bottom: 18px; }
+            .di-rn-text { font-size: 13.5px; line-height: 1.75; margin-bottom: 16px; }
 
-            .di-rd-shape-green {
-                top: -16px;
-                width: 55%;
-                height: 35%;
-                border-radius: 16px 16px 16px 3px;
+            .di-rn-steps {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                margin-top: 28px;
+                padding-top: 26px;
             }
 
-            .di-rd-shape-outline {
-                width: 55%;
-                height: 40%;
-                border-radius: 16px;
+            .di-rn-step {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 16px;
+                padding: 0;
             }
 
-            .di-rd-shape-ring {
-                width: 90px;
-                height: 90px;
-                left: -30px;
-                bottom: 10px;
+            .di-rn-step-icon { width: 52px; height: 52px; font-size: 18px; flex-shrink: 0; }
+            .di-rn-step-icon::before { inset: -6px; }
+
+            .di-rn-step-title { font-size: 12px; letter-spacing: 2.5px; }
+
+            .di-rn-step:not(:last-child)::after {
+                top: calc(100% + 4px);
+                left: 25px;
+                right: auto;
+                width: 1px;
+                height: 18px;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(174, 155, 138, 0.55) 0%,
+                    rgba(174, 155, 138, 0.55) 50%,
+                    transparent 50%,
+                    transparent 100%
+                );
+                background-size: 1px 8px;
+                background-repeat: repeat-y;
             }
 
-            .di-rd-media-main {
-                height: 380px;
-                border-radius: 20px;
-            }
-            .di-rd-media-main::after { inset: 16px; border-radius: 12px; }
-
-            .di-rd-media-small {
-                width: 130px;
-                height: 165px;
-                bottom: -20px;
-                left: -8px;
-                border-width: 6px;
-                border-radius: 14px;
+            .di-rn-step:not(:last-child) .di-rn-step-arrow {
+                display: none;
             }
 
-            .di-rd-emblem {
-                top: 18px;
-                right: -12px;
-                width: 82px;
-                height: 82px;
-            }
-            .di-rd-emblem svg { width: 46px; height: 46px; }
-            .di-rd-emblem::before { inset: -6px; }
+            .di-rn-compare { aspect-ratio: 4 / 5; border-radius: 20px; }
 
-            .di-rd-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 18px; }
-            .di-rd-kicker::before { width: 32px; }
-            .di-rd-title { font-size: 32px; letter-spacing: -1.2px; margin-bottom: 18px; }
-            .di-rd-text { font-size: 13.5px; line-height: 1.75; margin-bottom: 16px; }
-            .di-rd-features { gap: 16px; margin-top: 28px; padding-top: 26px; }
-            .di-rd-feature { gap: 14px; }
-            .di-rd-feature-icon { flex-basis: 42px; width: 42px; height: 42px; font-size: 16px; }
-            .di-rd-feature-title { font-size: 13px; }
-            .di-rd-feature-text { font-size: 12px; }
+            .di-rn-compare-tag {
+                top: 16px;
+                padding: 8px 13px 8px 10px;
+                gap: 7px;
+                font-size: 8px;
+                letter-spacing: 2.4px;
+            }
+            .di-rn-compare-tag-before { left: 16px; }
+            .di-rn-compare-tag-after  { right: 16px; }
+            .di-rn-compare-tag-dot { width: 5px; height: 5px; }
+
+            .di-rn-compare-handle-knob { width: 50px; height: 50px; font-size: 13px; }
+
+            .di-rn-shape-green { width: 110px; height: 110px; right: -16px; bottom: -20px; }
+            .di-rn-shape-ring  { width: 90px; height: 90px; left: -20px; top: -10px; }
 
             .di-mg-section { padding: 45px 0 70px; }
             .di-mg-wrap { padding: 0 22px; }
@@ -1487,15 +1599,9 @@
         }
 
         @media (max-width: 480px) {
-            .di-rd-media-main { height: 320px; }
-            .di-rd-media-small { width: 110px; height: 140px; bottom: -16px; }
-            .di-rd-emblem { width: 72px; height: 72px; top: 14px; right: -8px; }
-            .di-rd-emblem svg { width: 40px; height: 40px; }
-
             .di-mg-card-media { padding: 10px 10px 0; }
             .di-mg-card-media img { border-radius: 8px; }
         }
-
 
         @media (prefers-reduced-motion: reduce) {
             .di-ri-hero-media img,
@@ -1508,21 +1614,23 @@
             .di-ri-hero-corner,
             .di-ri-hero-emblem,
             .di-ri-hero-emblem::before,
-            .di-rd-visual,
-            .di-rd-shape-green,
-            .di-rd-shape-outline,
-            .di-rd-shape-ring,
-            .di-rd-media-main img,
-            .di-rd-media-small,
-            .di-rd-media-small img,
-            .di-rd-emblem,
-            .di-rd-emblem::before,
-            .di-rd-kicker,
-            .di-rd-kicker::before,
-            .di-rd-title .line > span,
-            .di-rd-text,
-            .di-rd-feature,
-            .di-rd-feature-icon,
+            .di-rn-section::after,
+            .di-rn-kicker,
+            .di-rn-kicker::before,
+            .di-rn-title .line > span,
+            .di-rn-text,
+            .di-rn-step,
+            .di-rn-step-icon,
+            .di-rn-step-icon::before,
+            .di-rn-step-icon::after,
+            .di-rn-step::after,
+            .di-rn-step-arrow,
+            .di-rn-visual,
+            .di-rn-shape-ring,
+            .di-rn-shape-green,
+            .di-rn-compare-handle,
+            .di-rn-compare-before,
+            .di-rn-compare-handle-knob,
             .di-mg-section::before,
             .di-mg-kicker,
             .di-mg-kicker::before,
@@ -1539,6 +1647,10 @@
                 clip-path: none !important;
                 opacity: 1 !important;
                 transform: none !important;
+            }
+
+            .di-rn-compare-before {
+                clip-path: inset(0 calc(100% - var(--di-rn-pos, 50%)) 0 0) !important;
             }
         }
 
@@ -1634,7 +1746,7 @@
 <article>
 
     <!-- =========================================================
-         RESIDENTIAL HERO
+         RENOVATION & REMODELING HERO
     ========================================================= -->
     <section class="di-ri-hero">
 
@@ -1646,7 +1758,7 @@
                     <span class="di-ri-hero-rail-dot"></span>
                     <span class="di-ri-hero-rail-line"></span>
                     <span class="di-ri-hero-rail-text">
-                        Decor Indoors · Residential
+                        Decor Indoors · Renovation
                     </span>
                     <span class="di-ri-hero-rail-line"></span>
                     <span class="di-ri-hero-rail-dot"></span>
@@ -1659,35 +1771,35 @@
                         <span>/</span>
                         <a href="decor-indoors-interiors-residential-interiors.html">Interiors</a>
                         <span>/</span>
-                        <strong>Residential</strong>
+                        <strong>Renovation</strong>
                     </nav>
 
                     <h1 class="di-ri-hero-title">
-                        <span class="line line-1"><span>Homes Designed</span></span>
-                        <span class="line line-2"><span class="accent">Around You.</span></span>
+                        <span class="line line-1"><span>Old Spaces,</span></span>
+                        <span class="line line-2"><span class="accent">Rebuilt Better.</span></span>
                     </h1>
 
                     <div class="di-ri-hero-divider"></div>
 
                     <p class="di-ri-hero-text">
-                        Thoughtful residential interiors shaped by the way
-                        you live — warm materials, intelligent planning,
-                        and refined craftsmanship brought together in
-                        every room.
+                        We reimagine tired rooms, dated layouts and worn-out
+                        surfaces into fresh, functional interiors — carefully
+                        re-planned around the way you live today and crafted
+                        to last for the years ahead.
                     </p>
 
                     <div class="di-ri-hero-features">
                         <span class="di-ri-hero-feature">
                             <span class="di-ri-hero-feature-dot"></span>
-                            Warm Materials
+                            Thoughtful Replanning
                         </span>
                         <span class="di-ri-hero-feature">
                             <span class="di-ri-hero-feature-dot"></span>
-                            Smart Planning
+                            Quality Rebuild
                         </span>
                         <span class="di-ri-hero-feature">
                             <span class="di-ri-hero-feature-dot"></span>
-                            Fine Craft
+                            Fresher Finishes
                         </span>
                     </div>
 
@@ -1696,15 +1808,15 @@
             </div>
 
             <figure class="di-ri-hero-media">
-                <img src="images/interiors/residentials/cordel-cottage-kulshekar/01.jpg"
-                     alt="Residential interior design by Decor Indoors">
+                <img src="images/decor-indoors-services2.jpg"
+                     alt="Renovation and remodeling interior by Decor Indoors">
                 <figcaption class="cr-only">
-                    Residential interior design by Decor Indoors.
+                    Renovation and remodeling interior by Decor Indoors.
                 </figcaption>
 
                 <span class="di-ri-hero-corner" aria-hidden="true"></span>
 
-                <div class="di-ri-hero-emblem" aria-label="Decor Indoors residential interiors">
+                <div class="di-ri-hero-emblem" aria-label="Decor Indoors renovation and remodeling">
                     <svg class="di-ri-hero-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <g class="di-emblem-ring">
                             <circle cx="50" cy="50" r="41" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.5 3.5" opacity="0.45"/>
@@ -1739,118 +1851,120 @@
 
 
     <!-- =========================================================
-         RESIDENTIAL DESIGN — LAYERED COLLAGE
+         INTRO — TRANSFORMATION SLIDER
     ========================================================= -->
-    <section class="di-rd-section" id="residential-design">
+    <section class="di-rn-section" id="renovation-intro">
 
-        <div class="di-rd-wrap">
+        <div class="di-rn-wrap">
 
-            <div class="di-rd-visual">
+            <!-- LEFT — VISUAL (COMPARE SLIDER) -->
+            <div class="di-rn-visual">
 
-                <span class="di-rd-shape-green" aria-hidden="true"></span>
-                <span class="di-rd-shape-outline" aria-hidden="true"></span>
-                <span class="di-rd-shape-ring" aria-hidden="true"></span>
+                <span class="di-rn-shape-ring" aria-hidden="true"></span>
+                <span class="di-rn-shape-green" aria-hidden="true"></span>
 
-                <figure class="di-rd-media-main">
-                    <img src="images/interiors/residentials/cordel-cottage-kulshekar/04.jpg"
-                         alt="Residential interior designed by Decor Indoors">
-                    <figcaption class="cr-only">
-                        Residential interior designed by Decor Indoors.
-                    </figcaption>
-                </figure>
+                <div class="di-rn-compare" id="diRnCompare" style="--di-rn-pos: 50%;">
 
-                <figure class="di-rd-media-small">
-                    <img src="images/interiors/residentials/theresa-garden-bondel/02.jpg"
-                         alt="Living room detail by Decor Indoors">
-                    <figcaption class="cr-only">
-                        Living room detail by Decor Indoors.
-                    </figcaption>
-                </figure>
+                    <figure class="di-rn-compare-media di-rn-compare-after">
+                        <img src="images/decor-indoors-aboutus-content-2.jpg"
+                             alt="Interior after renovation by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Interior after renovation by Decor Indoors.
+                        </figcaption>
+                    </figure>
 
-                <div class="di-rd-emblem" aria-label="Decor Indoors residential design">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <g class="di-rd-emblem-ring">
-                            <circle cx="50" cy="50" r="41" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.5 3.5" opacity="0.45"/>
-                            <polygon points="50,6.5 52,9 50,11.5 48,9" fill="currentColor" opacity="0.85"/>
-                            <polygon points="50,88.5 52,91 50,93.5 48,91" fill="currentColor" opacity="0.85"/>
-                            <polygon points="6.5,50 9,52 11.5,50 9,48" fill="currentColor" opacity="0.85"/>
-                            <polygon points="88.5,50 91,52 93.5,50 91,48" fill="currentColor" opacity="0.85"/>
-                        </g>
-                        <circle cx="50" cy="50" r="35.5" fill="rgba(174, 155, 138, 0.08)" stroke="currentColor" stroke-width="1.1" opacity="0.75"/>
-                        <g class="di-rd-emblem-home">
-                            <line x1="26" y1="70" x2="74" y2="70" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                            <path d="M59 34V28.5H65V39" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-                            <path d="M25 46.5L50 26L75 46.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="50" cy="38.5" r="4" stroke="currentColor" stroke-width="1.1"/>
-                            <line x1="50" y1="34.5" x2="50" y2="42.5" stroke="currentColor" stroke-width="0.8"/>
-                            <line x1="46" y1="38.5" x2="54" y2="38.5" stroke="currentColor" stroke-width="0.8"/>
-                            <path d="M30 46.5V70H70V46.5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-                            <rect x="34.5" y="54" width="5.5" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/>
-                            <line x1="34.5" y1="59" x2="40" y2="59" stroke="currentColor" stroke-width="0.8"/>
-                            <rect x="60" y="54" width="5.5" height="10" rx="1" stroke="currentColor" stroke-width="1.1"/>
-                            <line x1="60" y1="59" x2="65.5" y2="59" stroke="currentColor" stroke-width="0.8"/>
-                            <path d="M43.5 70V57.5A6.5 6.5 0 0 1 56.5 57.5V70" stroke="currentColor" stroke-width="1.4"/>
-                        </g>
-                    </svg>
+                    <figure class="di-rn-compare-media di-rn-compare-before">
+                        <img src="images/decor-indoors-aboutus-content-1.jpg"
+                             alt="Interior before renovation by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Interior before renovation by Decor Indoors.
+                        </figcaption>
+                    </figure>
+
+                    <span class="di-rn-compare-tag di-rn-compare-tag-before">
+                        <span class="di-rn-compare-tag-dot"></span>
+                        Before
+                    </span>
+
+                    <span class="di-rn-compare-tag di-rn-compare-tag-after">
+                        <span class="di-rn-compare-tag-dot"></span>
+                        After
+                    </span>
+
+                    <div class="di-rn-compare-handle"
+                         role="slider"
+                         tabindex="0"
+                         aria-label="Drag to compare before and after"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="50">
+                        <span class="di-rn-compare-handle-line"></span>
+                        <span class="di-rn-compare-handle-knob">
+                            <i class="bi bi-chevron-left"></i>
+                            <i class="bi bi-chevron-right"></i>
+                        </span>
+                    </div>
+
                 </div>
 
             </div>
 
 
-            <div class="di-rd-content">
+            <!-- RIGHT — CONTENT -->
+            <div class="di-rn-content">
 
-                <div class="di-rd-kicker">
-                    Residential Design
+                <div class="di-rn-kicker">
+                    Renovation Design
                 </div>
 
-                <h2 class="di-rd-title">
-                    <span class="line line-1"><span>Interiors that make</span></span>
-                    <span class="line line-2"><span>a house <span class="accent">feel like home.</span></span></span>
+                <h2 class="di-rn-title">
+                    <span class="line line-1"><span>We don't just change rooms —</span></span>
+                    <span class="line line-2"><span>we <span class="accent">rebuild how they work.</span></span></span>
                 </h2>
 
-                <p class="di-rd-text">
-                    A home is more than a place — it is a feeling. The way light falls
-                    in the morning, the softness of the sofa you sink into at the end
-                    of the day, the way a room welcomes the people you love. Our
-                    residential interior design service is built around that feeling.
+                <p class="di-rn-text">
+                    A renovation is more than a fresh coat of paint. It is a
+                    chance to rethink the way a space flows, functions and
+                    feels — to fix what has stopped working, to open up what
+                    felt closed, and to bring a tired room back to life with
+                    intention and craft.
                 </p>
 
-                <p class="di-rd-text">
-                    We design homes that reflect how you actually live — with warm
-                    materials, honest craftsmanship and thoughtful details that stay
-                    beautiful for years.
+                <p class="di-rn-text">
+                    We start by understanding what you love about your space
+                    and what you cannot wait to change. Then we replan,
+                    rebuild and refine — turning dated rooms into interiors
+                    that feel considered, current and ready for the next
+                    chapter of your life.
                 </p>
 
-                <div class="di-rd-features">
+                <div class="di-rn-steps">
 
-                    <div class="di-rd-feature">
-                        <div class="di-rd-feature-icon">
-                            <i class="bi bi-person-heart"></i>
+                    <div class="di-rn-step">
+                        <div class="di-rn-step-icon">
+                            <i class="bi bi-search"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Designed Around You</div>
-                            <div class="di-rd-feature-text">Every decision starts with how you live, rest and host.</div>
-                        </div>
+                        <div class="di-rn-step-title">Assess</div>
+                        <span class="di-rn-step-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
                     </div>
 
-                    <div class="di-rd-feature">
-                        <div class="di-rd-feature-icon">
-                            <i class="bi bi-gem"></i>
+                    <div class="di-rn-step">
+                        <div class="di-rn-step-icon">
+                            <i class="bi bi-pencil-square"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Materials That Last</div>
-                            <div class="di-rd-feature-text">Real wood, natural stone and honest finishes.</div>
-                        </div>
+                        <div class="di-rn-step-title">Redesign</div>
+                        <span class="di-rn-step-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
                     </div>
 
-                    <div class="di-rd-feature">
-                        <div class="di-rd-feature-icon">
-                            <i class="bi bi-rulers"></i>
+                    <div class="di-rn-step">
+                        <div class="di-rn-step-icon">
+                            <i class="bi bi-house-check"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Crafted to Detail</div>
-                            <div class="di-rd-feature-text">From joinery to lighting — nothing left to chance.</div>
-                        </div>
+                        <div class="di-rn-step-title">Rebuild</div>
                     </div>
 
                 </div>
@@ -1863,9 +1977,9 @@
 
 
     <!-- =========================================================
-         SERVICES — FEATURED + GRID
+         WHAT WE OFFER — RENOVATION SERVICES
     ========================================================= -->
-    <section class="di-mg-section" id="residential-services">
+    <section class="di-mg-section" id="renovation-services">
 
         <div class="di-mg-wrap">
 
@@ -1876,13 +1990,14 @@
                 </div>
 
                 <h2 class="di-mg-title">
-                    <span class="line line-1"><span>Complete residential</span></span>
-                    <span class="line line-2"><span class="accent">interior services.</span></span>
+                    <span class="line line-1"><span>Complete renovation</span></span>
+                    <span class="line line-2"><span class="accent">services.</span></span>
                 </h2>
 
                 <p class="di-mg-intro">
-                    Everything you need to design, build and furnish your home.
-                    One team, from the first sketch to the final cushion.
+                    From a single room refresh to a full home transformation —
+                    one team handles the replanning, the rebuild and the
+                    finishing touches.
                 </p>
 
             </div>
@@ -1891,43 +2006,43 @@
             <article class="di-mg-featured">
 
                 <figure class="di-mg-featured-media">
-                    <img src="images/decor-indoors-residentials-content-full-home-interior.jpg"
-                         alt="Full Home Interiors by Decor Indoors">
+                    <img src="images/decor-indoors-services2.jpg"
+                         alt="Full Home Renovation by Decor Indoors">
                     <figcaption class="cr-only">
-                        Full Home Interiors by Decor Indoors.
+                        Full Home Renovation by Decor Indoors.
                     </figcaption>
                 </figure>
 
                 <div class="di-mg-featured-content">
 
                     <div class="di-mg-featured-badge">
-                        <i class="bi bi-house-heart"></i>
+                        <i class="bi bi-house-gear"></i>
                         Signature Service
                     </div>
 
                     <h3 class="di-mg-featured-title">
-                        Full Home <span class="accent">Interiors</span>
+                        Full Home <span class="accent">Renovation</span>
                     </h3>
 
                     <p class="di-mg-featured-text">
-                        End-to-end interior design and execution for your entire
-                        home — apartments, villas and row houses. Concept,
-                        drawings, materials, site work and handover as one
-                        seamless turnkey project.
+                        A complete transformation of your home — re-planned,
+                        re-built and re-finished from top to bottom. We manage
+                        demolition, structural changes, new joinery, finishes
+                        and styling under one seamless contract.
                     </p>
 
                     <div class="di-mg-includes-label">What's Included</div>
 
                     <ul class="di-mg-includes">
-                        <li>Space Planning</li>
-                        <li>3D Visualisation</li>
-                        <li>Material Selection</li>
-                        <li>Site Execution</li>
+                        <li>Space Replanning</li>
+                        <li>Structural Changes</li>
+                        <li>New Joinery &amp; Fixtures</li>
+                        <li>Finishes &amp; Fittings</li>
                         <li>Turnkey Handover</li>
                     </ul>
 
                     <a href="decor-indoors-contacts.html" class="di-mg-featured-btn">
-                        <span>Start Your Project</span>
+                        <span>Start Your Renovation</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
 
@@ -1941,22 +2056,22 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-modular-kitchen.jpg"
-                             alt="Modular Kitchens by Decor Indoors" loading="lazy">
+                             alt="Kitchen Remodeling by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Modular Kitchens by Decor Indoors.
+                            Kitchen Remodeling by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Modular <span class="accent">Kitchens</span>
+                            Kitchen <span class="accent">Remodeling</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Smart, ergonomic kitchens built around how you cook.
+                            Tired kitchens reworked into smarter, warmer spaces to cook and gather in.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Layout · Cabinets · Countertops · Appliances · Lighting
+                                Layout · Cabinets · Countertops · Backsplash · Lighting
                             </p>
                         </div>
                     </div>
@@ -1965,23 +2080,23 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-wardrobes-and-storage.jpg"
-                             alt="Wardrobes and Storage by Decor Indoors" loading="lazy">
+                        <img src="images/decor-indoors-aboutus-content-1.jpg"
+                             alt="Bathroom Renovation by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Wardrobes and Storage by Decor Indoors.
+                            Bathroom Renovation by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Wardrobes &amp; <span class="accent">Storage</span>
+                            Bathroom <span class="accent">Renovation</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Custom units built to fit your room to the millimetre.
+                            Dated bathrooms reborn with better layouts, natural finishes and calm light.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Wardrobes · Walk-ins · Loft · Vanity · Shoe Cabinets
+                                Wet Area · Vanity · Tiling · Fittings · Lighting
                             </p>
                         </div>
                     </div>
@@ -1991,22 +2106,22 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-living-and-dining-rooms.jpg"
-                             alt="Living and Dining Rooms by Decor Indoors" loading="lazy">
+                             alt="Living and Dining Refresh by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Living and Dining Rooms by Decor Indoors.
+                            Living and Dining Refresh by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Living &amp; Dining <span class="accent">Rooms</span>
+                            Living &amp; Dining <span class="accent">Refresh</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Warm spaces for hosting, unwinding and gathering.
+                            Open, welcoming living and dining spaces designed for hosting and everyday life.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Seating · TV Walls · Dining Sets · Accents · Lighting
+                                Seating · TV Wall · Dining · Storage · Accents
                             </p>
                         </div>
                     </div>
@@ -2016,22 +2131,22 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-bedrooms-interior.jpg"
-                             alt="Bedroom Interiors by Decor Indoors" loading="lazy">
+                             alt="Bedroom Renovation by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Bedroom Interiors by Decor Indoors.
+                            Bedroom Renovation by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Bedroom <span class="accent">Interiors</span>
+                            Bedroom <span class="accent">Renovation</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Calm, personal retreats with warm textures and light.
+                            Calm, uncluttered bedrooms with custom storage and soft, warm finishes.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Master · Kids · Guests · Bed &amp; Headboard · Nooks
+                                Wardrobes · Headboard · Lighting · Flooring · Drapes
                             </p>
                         </div>
                     </div>
@@ -2041,18 +2156,18 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-ceiling-and-lighting.jpg"
-                             alt="Ceilings and Lighting by Decor Indoors" loading="lazy">
+                             alt="Ceiling and Lighting Upgrade by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Ceilings and Lighting by Decor Indoors.
+                            Ceiling and Lighting Upgrade by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Ceilings &amp; <span class="accent">Lighting</span>
+                            Ceiling &amp; <span class="accent">Lighting</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Layered lighting that shapes the mood of every room.
+                            Reworked ceilings and layered lighting that reshape the mood of every room.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
@@ -2066,22 +2181,22 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-wall-and-floor.jpg"
-                             alt="Wall and Floor Treatments by Decor Indoors" loading="lazy">
+                             alt="Walls and Flooring by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Wall and Floor Treatments by Decor Indoors.
+                            Walls and Flooring by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Wall &amp; Floor <span class="accent">Treatments</span>
+                            Walls &amp; <span class="accent">Flooring</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            Every surface of your home — paint, wood, stone.
+                            Every surface renewed — from paint and panelling to timber, tile and stone.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Paint · Wallpaper · Textures · Wood · Tile &amp; Marble
+                                Paint · Panelling · Wood · Tile · Stone · Polishing
                             </p>
                         </div>
                     </div>
@@ -2091,9 +2206,9 @@
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
                         <img src="images/decor-indoors-residentials-content-furniture-and-styling.jpg"
-                             alt="Furniture and Styling by Decor Indoors" loading="lazy">
+                             alt="Furniture and Styling Updates by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Furniture and Styling by Decor Indoors.
+                            Furniture and Styling Updates by Decor Indoors.
                         </figcaption>
                     </figure>
 
@@ -2102,11 +2217,11 @@
                             Furniture &amp; <span class="accent">Styling</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            The finishing layer that turns a house into a home.
+                            The final layer — refinished, replaced or restyled pieces that tie it together.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Custom · Loose · Curtains · Art · Plants
+                                Refinish · Replace · Curtains · Art · Plants
                             </p>
                         </div>
                     </div>
@@ -2121,12 +2236,12 @@
                         </div>
 
                         <h3 class="di-mg-cta-title">
-                            Ready to design your home?
+                            Ready to renovate?
                         </h3>
 
                         <p class="di-mg-cta-text">
-                            Book a free consultation — no obligation,
-                            no pressure.
+                            Book a free site visit — we'll assess, plan
+                            and share a clear roadmap.
                         </p>
                     </div>
 
@@ -2295,7 +2410,7 @@
      FIXED WHATSAPP BUTTON
 ========================================================= -->
 <a
-    href="https://wa.me/917259357732?text=Hello%20Decor%20Indoors%2C%20I%20would%20like%20to%20know%20more%20about%20your%20residential%20interior%20services."
+    href="https://wa.me/917259357732?text=Hello%20Decor%20Indoors%2C%20I%20would%20like%20to%20know%20more%20about%20your%20renovation%20and%20remodeling%20services."
     class="di-whatsapp-float"
     target="_blank" rel="noopener"
     aria-label="Chat with Decor Indoors on WhatsApp"
@@ -2447,13 +2562,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- =========================================================
-     SCROLL REVEAL — combined observer for both sections
+     SCROLL REVEAL — INTRO + SERVICES SECTIONS
 ========================================================= -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const sections = document.querySelectorAll(
-        "#residential-design, #residential-services"
+        "#renovation-intro, #renovation-services"
     );
 
     if (!sections.length) return;
@@ -2475,6 +2590,80 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<script src="js/decor-indoors-scroll-live-fixed.js" defer></script>
+
+<!-- =========================================================
+     BEFORE / AFTER COMPARE SLIDER
+========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const compare = document.getElementById("diRnCompare");
+    if (!compare) return;
+
+    const handle = compare.querySelector(".di-rn-compare-handle");
+    let isDragging = false;
+
+    function getClientX(e) {
+        if (e.touches && e.touches[0]) return e.touches[0].clientX;
+        if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientX;
+        return e.clientX;
+    }
+
+    function setPosition(clientX) {
+        const rect = compare.getBoundingClientRect();
+        let pos = ((clientX - rect.left) / rect.width) * 100;
+        pos = Math.max(3, Math.min(97, pos));
+        compare.style.setProperty("--di-rn-pos", pos + "%");
+        handle.setAttribute("aria-valuenow", Math.round(pos));
+    }
+
+    function startDrag(e) {
+        isDragging = true;
+        compare.classList.add("is-dragging");
+        setPosition(getClientX(e));
+        if (e.cancelable) e.preventDefault();
+    }
+
+    function moveDrag(e) {
+        if (!isDragging) return;
+        setPosition(getClientX(e));
+        if (e.cancelable) e.preventDefault();
+    }
+
+    function endDrag() {
+        isDragging = false;
+        compare.classList.remove("is-dragging");
+    }
+
+    compare.addEventListener("mousedown", startDrag);
+    compare.addEventListener("touchstart", startDrag, { passive: false });
+
+    document.addEventListener("mousemove", moveDrag);
+    document.addEventListener("touchmove", moveDrag, { passive: false });
+
+    document.addEventListener("mouseup", endDrag);
+    document.addEventListener("touchend", endDrag);
+    document.addEventListener("touchcancel", endDrag);
+
+    handle.addEventListener("keydown", function (e) {
+        const current = parseFloat(compare.style.getPropertyValue("--di-rn-pos")) || 50;
+        let next = current;
+
+        if (e.key === "ArrowLeft" || e.key === "ArrowDown") next = current - 4;
+        else if (e.key === "ArrowRight" || e.key === "ArrowUp") next = current + 4;
+        else if (e.key === "Home") next = 3;
+        else if (e.key === "End") next = 97;
+        else return;
+
+        e.preventDefault();
+        next = Math.max(3, Math.min(97, next));
+        compare.style.setProperty("--di-rn-pos", next + "%");
+        handle.setAttribute("aria-valuenow", Math.round(next));
+    });
+
+});
+</script>
+
+<script src="js/decor-indoors-scroll-live-scoped.js" defer></script>
 </body>
 </html>
