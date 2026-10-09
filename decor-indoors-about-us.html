@@ -67,7 +67,10 @@
             padding: 0 5.5%; display: flex; align-items: center;
         }
 
-        .di-about-hero-content { max-width: 620px; width: 100%; color: var(--di-dark); }
+        .di-about-hero-content { 
+            /* max-width: 620px;  */
+            width: 100%; 
+            color: var(--di-dark); }
 
         .di-about-hero-kicker {
             display: inline-flex; align-items: center; gap: 22px;
@@ -133,15 +136,38 @@
         @media (max-width: 991.98px) {
             .di-about-hero { min-height: 460px; }
             .di-about-hero-inner { padding: 0 6%; }
+            .di-about-hero-content {
+                display: flex;
+                flex-direction:column;
+                align-items: center;
+            }
             .di-about-hero-overlay {
-                background: linear-gradient(90deg,
-                    rgba(250, 248, 244, 0.97) 0%, rgba(250, 248, 244, 0.92) 32%,
-                    rgba(250, 248, 244, 0.62) 50%, rgba(250, 248, 244, 0.20) 66%,
-                    rgba(250, 248, 244, 0) 80%);
+                background: linear-gradient(180deg,
+                    rgba(250, 248, 244, 0.30) 0%, rgba(250, 248, 244, 0.55) 30%,
+                    rgba(250, 248, 244, 0.88) 55%, rgba(250, 248, 244, 0.97) 100%);
             }
             .di-about-hero-title { letter-spacing: -1.6px; }
             .di-about-hero-kicker { font-size: 10px; letter-spacing: 4px; gap: 16px; }
             .di-about-hero-kicker::after { width: 60px; }
+
+
+            .di-about-story.is-in-view .di-about-story-caption {
+    opacity: 1;
+    transform: translateX(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.di-about-story-content, .di-approach-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
         }
 
         @media (max-width: 575.98px) {
@@ -957,7 +983,10 @@
 
         /* Keywords — arrive from LEFT */
         .di-approach-keywords {
-            display: flex; align-items: center; flex-wrap: wrap;
+            display: flex; 
+            align-items: center;
+            justify-content: center; 
+            flex-wrap: wrap;
             gap: 18px; margin-top: 42px; padding-top: 28px;
             border-top: 1px solid var(--di-border);
             opacity: 0; transform: translateX(-40px);
@@ -1435,6 +1464,7 @@
             .di-vm-grid { grid-template-columns: 1fr; gap: 34px; }
             .di-vm-card { padding: 55px 50px 52px; }
             .di-vm-card-letter { font-size: 300px; bottom: -110px; right: -26px; }
+            .di-vm-card-divider { justify-self: center; }
         }
 
         @media (max-width: 575.98px) {
@@ -2027,40 +2057,103 @@
                 </div>
 
                 <div class="col-xl-4 col-lg-4 col-md-4">
-                    <div class="di-footer-contact">
-                        <h3 class="di-footer-heading">Contact Us</h3>
-                        <div class="di-footer-heading-line"></div>
 
-                        <div class="di-footer-contact-item">
-                            <div class="di-footer-contact-icon">
-                                <i class="bi bi-telephone-fill"></i>
+                        <div class="di-footer-contact">
+
+
+                            <h3 class="di-footer-heading">
+                                Contact Us
+                            </h3>
+
+
+                            <div class="di-footer-heading-line"></div>
+
+
+                            <div class="footer-container">
+
+                            
+                            <!-- Phone -->
+
+                            <div class="di-footer-contact-item">
+
+
+                                <div class="di-footer-contact-icon">
+
+                                    <i class="bi bi-telephone-fill"></i>
+
+                                </div>
+
+
+                                <div class="di-footer-contact-content">
+
+                                    <a href="tel:+917259357732">
+                                        +91 72593 57732
+                                    </a>
+
+                                </div>
+
+
                             </div>
-                            <div class="di-footer-contact-content">
-                                <a href="tel:+917259357732">+91 72593 57732</a>
+
+                            <!-- Email -->
+
+                            <div class="di-footer-contact-item">
+
+
+                                <div class="di-footer-contact-icon">
+
+                                    <i class="bi bi-envelope-fill"></i>
+
+                                </div>
+
+
+                                <div class="di-footer-contact-content">
+
+                                    <a href="mailto:info@decorindoors.com">
+                                        info@decorindoors.com
+                                    </a>
+
+                                </div>
+
+
                             </div>
+
+                            <!-- Address -->
+
+                            <div class="di-footer-contact-item">
+
+
+                                <div class="di-footer-contact-icon">
+
+                                    <i class="bi bi-geo-alt-fill"></i>
+
+                                </div>
+
+
+                                <div class="di-footer-contact-content di-footer-address">
+
+                                    <span>
+                                        Door No. 3-12-45, 2nd Floor,
+                                    </span>
+
+                                    <span>
+                                        Kankanady Main Road,
+                                    </span>
+
+                                    <span>
+                                        Mangalore, Karnataka - 575002, India
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+                            </div>
+
+
                         </div>
 
-                        <div class="di-footer-contact-item">
-                            <div class="di-footer-contact-icon">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <div class="di-footer-contact-content">
-                                <a href="mailto:info@decorindoors.com">info@decorindoors.com</a>
-                            </div>
-                        </div>
-
-                        <div class="di-footer-contact-item">
-                            <div class="di-footer-contact-icon">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div class="di-footer-contact-content di-footer-address">
-                                <span>Door No. 3-12-45, 2nd Floor,</span>
-                                <span>Kankanady Main Road,</span>
-                                <span>Mangalore, Karnataka - 575002, India</span>
-                            </div>
-                        </div>
                     </div>
-                </div>
 
             </div>
 

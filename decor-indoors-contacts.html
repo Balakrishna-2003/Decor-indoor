@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us | DECOR INDOORS</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <meta name="theme-color" content="#373f2e">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =========================================================
+           CONTACT HERO — "CORRESPONDENCE" STAMP PANEL
+        ========================================================= */
+        .di-ct-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 520px;
+            background: var(--di-cream);
+            overflow: hidden;
+            isolation: isolate;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .di-ct-hero::before {
+            content: "";
+            position: absolute;
+            top: -160px; right: -160px;
+            width: 460px; height: 460px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.42);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .di-ct-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -200px; left: -120px;
+            width: 460px; height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(54, 62, 44, 0.07) 0%,
+                rgba(54, 62, 44, 0) 68%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .di-ct-hero-wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5.5%;
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .di-ct-hero-content { position: relative; }
+
+        .di-ct-hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 26px;
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: diCtFadeRight 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s forwards;
+        }
+
+        .di-ct-hero-kicker::before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 1px;
+            background: var(--di-brown);
+        }
+
+        .di-ct-hero-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 6.4vw, 96px);
+            font-weight: 500;
+            line-height: 0.98;
+            letter-spacing: -3.2px;
+            color: var(--di-dark);
+        }
+
+        .di-ct-hero-title .line { display: block; overflow: hidden; }
+
+        .di-ct-hero-title .line > span {
+            display: block;
+            transform: translateX(-105%);
+            animation: diCtTitleRise 1.15s cubic-bezier(.2, .8, .2, 1) forwards;
+        }
+
+        .di-ct-hero-title .line-1 > span { animation-delay: 0.40s; }
+        .di-ct-hero-title .line-2 > span { animation-delay: 0.55s; }
+        .di-ct-hero-title .accent { color: var(--di-brown); }
+
+        .di-ct-hero-text {
+            max-width: 500px;
+            margin: 30px 0 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--di-muted);
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: diCtFadeRight 1s cubic-bezier(.2, .8, .2, 1) 0.85s forwards;
+        }
+
+        .di-ct-hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: diCtFadeUp 0.9s cubic-bezier(.2, .8, .2, 1) 1.10s forwards;
+        }
+
+        .di-ct-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 22px 13px 13px;
+            background: #ffffff;
+            border: 1px solid rgba(174, 155, 138, 0.32);
+            border-radius: 60px;
+            text-decoration: none;
+            color: var(--di-dark);
+            transition:
+                border-color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
+        }
+
+        .di-ct-chip:hover {
+            border-color: var(--di-brown);
+            background: #fffdf9;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 30px -18px rgba(174, 155, 138, 0.55);
+        }
+
+        .di-ct-chip-icon {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--di-green);
+            color: var(--di-cream);
+            font-size: 16px;
+            transition: background 0.35s ease;
+        }
+
+        .di-ct-chip:nth-child(2) .di-ct-chip-icon { background: var(--di-brown); }
+        .di-ct-chip:hover .di-ct-chip-icon { background: var(--di-brown-dark); }
+
+        .di-ct-chip-label {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            line-height: 1.15;
+        }
+
+        .di-ct-chip-label small {
+            font-family: "Manrope", sans-serif;
+            font-size: 8.5px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-ct-chip-label strong {
+            font-family: "Manrope", sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--di-dark);
+        }
+
+        .di-ct-hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .di-ct-hero-visual::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--di-green);
+            opacity: 0;
+            animation: diCtCircleIn 1s cubic-bezier(.2, .8, .2, 1) 0.90s forwards;
+            z-index: 0;
+        }
+
+        .di-ct-hero-visual::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid var(--di-brown);
+            opacity: 0;
+            animation: diCtCircleIn 1s cubic-bezier(.2, .8, .2, 1) 1.05s forwards;
+            z-index: 0;
+        }
+
+        .di-ct-stamp {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1 / 1;
+            padding: 22px;
+            background: #ffffff;
+            border: 1px solid rgba(174, 155, 138, 0.28);
+            border-radius: 8px;
+            box-shadow:
+                0 34px 60px -34px rgba(37, 37, 37, 0.30),
+                0 0 0 6px rgba(255, 255, 255, 0.4);
+            opacity: 0;
+            transform: translateY(30px) rotate(-2deg);
+            animation: diCtStampIn 1.2s cubic-bezier(.2, .8, .2, 1) 0.55s forwards;
+            z-index: 2;
+        }
+
+        .di-ct-stamp-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 30px 26px;
+            border: 2px dashed rgba(174, 155, 138, 0.55);
+            border-radius: 4px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .di-ct-stamp-inner::before {
+            content: "";
+            position: absolute;
+            top: 12px; left: 12px;
+            width: 20px; height: 20px;
+            border-top: 1px solid var(--di-brown);
+            border-left: 1px solid var(--di-brown);
+            opacity: 0.55;
+        }
+
+        .di-ct-stamp-inner::after {
+            content: "";
+            position: absolute;
+            bottom: 12px; right: 12px;
+            width: 20px; height: 20px;
+            border-bottom: 1px solid var(--di-brown);
+            border-right: 1px solid var(--di-brown);
+            opacity: 0.55;
+        }
+
+        .di-ct-stamp-icon {
+            font-size: 84px;
+            line-height: 1;
+            color: var(--di-brown);
+            margin-bottom: 20px;
+            opacity: 0.92;
+            transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-ct-stamp:hover .di-ct-stamp-icon {
+            transform: scale(1.06) translateY(-2px);
+        }
+
+        .di-ct-stamp-line {
+            width: 42px;
+            height: 2px;
+            background: var(--di-green);
+            margin-bottom: 18px;
+        }
+
+        .di-ct-stamp-text {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.32;
+            letter-spacing: -0.3px;
+            color: var(--di-dark);
+        }
+
+        .di-ct-stamp-text small {
+            display: block;
+            margin-top: 14px;
+            font-family: "Manrope", sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-ct-postmark {
+            position: absolute;
+            top: -30px; right: -30px;
+            width: 108px; height: 108px;
+            border-radius: 50%;
+            border: 2px solid rgba(174, 155, 138, 0.48);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            background: rgba(250, 248, 244, 0.92);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+
+            z-index: 3;
+            transform: rotate(-12deg);
+            opacity: 0;
+            animation: diCtPostmarkIn 0.9s cubic-bezier(.2, .8, .2, 1) 1.25s forwards;
+        }
+
+        .di-ct-postmark-line {
+            width: 62px; height: 1px;
+            background: rgba(174, 155, 138, 0.65);
+        }
+
+        .di-ct-postmark-text {
+            font-family: "Manrope", sans-serif;
+            font-size: 6.5px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .di-ct-postmark-text strong {
+            display: block;
+            margin: 2px 0;
+            font-family: "Playfair Display", serif;
+            font-size: 14px;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 0;
+            text-transform: none;
+            color: var(--di-green);
+        }
+
+        @keyframes diCtFadeRight {
+            from { opacity: 0; transform: translateX(-40px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes diCtFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes diCtTitleRise { to { transform: translateX(0); } }
+        @keyframes diCtStampIn {
+            from { opacity: 0; transform: translateY(30px) rotate(-2deg); }
+            to   { opacity: 1; transform: translateY(0) rotate(-1deg); }
+        }
+        @keyframes diCtPostmarkIn {
+            from { opacity: 0; transform: rotate(-30deg) scale(0.7); }
+            to   { opacity: 1; transform: rotate(-12deg) scale(1); }
+        }
+        @keyframes diCtCircleIn {
+            from { opacity: 0; transform: scale(0.7); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+
+        @media (max-width: 991.98px) {
+            .di-ct-hero {
+                height: auto;
+                min-height: 70vh;
+                padding: 85px 0 100px;
+                display: block;
+            }
+            .di-ct-hero-wrap {
+                grid-template-columns: 1fr;
+                gap: 70px;
+                padding: 0 6%;
+                justify-items: center;
+                text-align: center;
+            }
+            .di-ct-hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .di-ct-hero-kicker { justify-content: center; }
+            .di-ct-hero-text { margin-left: auto; margin-right: auto; }
+            .di-ct-hero-chips { justify-content: center; }
+            .di-ct-hero-title { letter-spacing: -2.2px; }
+            .di-ct-hero-visual { width: 100%; max-width: 420px; }
+        }
+
+        @media (max-width: 767.98px) {
+            .di-ct-hero { padding: 70px 0 85px; }
+            .di-ct-hero::before { width: 260px; height: 260px; top: -110px; right: -110px; }
+            .di-ct-hero-wrap { padding: 0 22px; gap: 55px; }
+            .di-ct-hero-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 20px; }
+            .di-ct-hero-kicker::before { width: 34px; }
+            .di-ct-hero-title { font-size: clamp(42px, 11vw, 58px); letter-spacing: -1.8px; }
+            .di-ct-hero-text { font-size: 14px; line-height: 1.8; margin-top: 24px; }
+            .di-ct-hero-chips { gap: 10px; margin-top: 30px; }
+            .di-ct-chip { padding: 11px 18px 11px 11px; gap: 12px; }
+            .di-ct-chip-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 14px; }
+            .di-ct-chip-label small { font-size: 7.5px; letter-spacing: 2.5px; }
+            .di-ct-chip-label strong { font-size: 12px; }
+            .di-ct-hero-visual { max-width: 320px; }
+            .di-ct-hero-visual::before { width: 70px; height: 70px; top: 0; left: 0; }
+            .di-ct-hero-visual::after { width: 60px; height: 60px; bottom: 0; right: 0; }
+            .di-ct-stamp { padding: 16px; max-width: 300px; }
+            .di-ct-stamp-inner { padding: 24px 18px; }
+            .di-ct-stamp-icon { font-size: 68px; margin-bottom: 16px; }
+            .di-ct-stamp-line { width: 34px; margin-bottom: 16px; }
+            .di-ct-stamp-text { font-size: 18px; }
+            .di-ct-stamp-text small { font-size: 8px; letter-spacing: 2.5px; margin-top: 11px; }
+            .di-ct-postmark { width: 84px; height: 84px; top: -20px; right: -20px; }
+            .di-ct-postmark-line { width: 48px; }
+            .di-ct-postmark-text { font-size: 5.5px; letter-spacing: 1.2px; }
+            .di-ct-postmark-text strong { font-size: 11px; }
+        }
+
+        @media (max-width: 480px) {
+            .di-ct-hero-title { font-size: 38px; }
+            .di-ct-hero-chips { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+            .di-ct-chip { justify-content: flex-start; }
+            .di-ct-hero-visual { max-width: 290px; }
+            .di-ct-stamp { max-width: 260px; }
+            .di-ct-stamp-icon { font-size: 56px; }
+            .di-ct-stamp-text { font-size: 16px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-ct-hero-kicker, .di-ct-hero-title .line > span,
+            .di-ct-hero-text, .di-ct-hero-chips,
+            .di-ct-stamp, .di-ct-postmark,
+            .di-ct-hero-visual::before, .di-ct-hero-visual::after {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+
+        /* =========================================================
+           SECTION 2 — CONTACT FORM + INFO
+           Background: soft sage (--di-soft) — distinctly different
+           from the cream hero above and warm map band below.
+        ========================================================= */
+        .di-cf-section {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+            background: var(--di-soft);   /* ← CHANGED from cream */
+            border-top: 1px solid rgba(174, 155, 138, 0.24);
+        }
+
+        .di-cf-section::before {
+            content: "";
+            position: absolute;
+            top: 60px; right: -180px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(174, 155, 138, 0.18) 0%,
+                rgba(174, 155, 138, 0) 68%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .di-cf-section::after {
+            content: "";
+            position: absolute;
+            left: -140px; bottom: 80px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(54, 62, 44, 0.14);
+            pointer-events: none; z-index: 0;
+        }
+
+        .di-cf-wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5.5%;
+        }
+
+        .di-cf-head {
+            max-width: 720px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .di-cf-kicker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 22px;
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s;
+        }
+
+        .di-cf-section.is-in-view .di-cf-kicker {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .di-cf-kicker span {
+            display: block;
+            width: 55px; height: 1px;
+            background: var(--di-brown);
+            transform-origin: center center;
+            transform: scaleX(0);
+            transition: transform 1s cubic-bezier(.2, .8, .2, 1) 0.55s;
+        }
+
+        .di-cf-section.is-in-view .di-cf-kicker span { transform: scaleX(1); }
+
+        .di-cf-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 4.6vw, 68px);
+            font-weight: 500;
+            line-height: 1.04;
+            letter-spacing: -2.2px;
+            color: var(--di-dark);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s,
+                transform 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s;
+        }
+
+        .di-cf-section.is-in-view .di-cf-title {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .di-cf-title .accent { color: var(--di-brown); }
+
+
+        /* ---------------- GRID ---------------- */
+        .di-cf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+
+        /* ---------------- INFO STACK (LEFT) ---------------- */
+        .di-cf-info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .di-cf-info-intro {
+            margin: 0 0 18px;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            line-height: 1.85;
+            color: var(--di-muted);
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.45s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.45s;
+        }
+
+        .di-cf-section.is-in-view .di-cf-info-intro {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .di-cf-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 22px 22px 22px 20px;
+
+            background: #ffffff;
+            border: 1px solid rgba(174, 155, 138, 0.24);
+            border-radius: 14px;
+
+            text-decoration: none;
+            color: inherit;
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.85s cubic-bezier(.2, .8, .2, 1),
+                transform 0.85s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .di-cf-section.is-in-view .di-cf-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .di-cf-section.is-in-view .di-cf-card:nth-child(2) { transition-delay: 0.55s; }
+        .di-cf-section.is-in-view .di-cf-card:nth-child(3) { transition-delay: 0.68s; }
+        .di-cf-section.is-in-view .di-cf-card:nth-child(4) { transition-delay: 0.81s; }
+        .di-cf-section.is-in-view .di-cf-card:nth-child(5) { transition-delay: 0.94s; }
+
+        a.di-cf-card:hover {
+            border-color: var(--di-brown);
+            box-shadow: 0 20px 40px -26px rgba(174, 155, 138, 0.55);
+        }
+
+        .di-cf-card-num {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--di-cream);
+
+            background: var(--di-green);
+            transition: background 0.35s ease;
+        }
+
+        .di-cf-card:nth-child(3) .di-cf-card-num { background: var(--di-brown); }
+        .di-cf-card:nth-child(4) .di-cf-card-num { background: var(--di-green); }
+        .di-cf-card:nth-child(5) .di-cf-card-num { background: var(--di-brown); }
+
+        a.di-cf-card:hover .di-cf-card-num { background: var(--di-brown-dark); }
+
+        .di-cf-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-top: 2px;
+            min-width: 0;
+        }
+
+        .di-cf-card-label {
+            font-family: "Manrope", sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-cf-card-value {
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.55;
+            color: var(--di-dark);
+            word-break: break-word;
+        }
+
+
+        /* ---------------- FORM (RIGHT) ---------------- */
+        .di-cf-form {
+            position: relative;
+            padding: 46px 46px 44px;
+            background: #ffffff;
+            border: 1px solid rgba(174, 155, 138, 0.24);
+            border-radius: 18px;
+            box-shadow: 0 30px 60px -34px rgba(37, 37, 37, 0.20);
+
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.55s,
+                transform 1s cubic-bezier(.2, .8, .2, 1) 0.55s;
+        }
+
+        .di-cf-section.is-in-view .di-cf-form {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .di-cf-form-heading {
+            margin: 0 0 8px;
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.6px;
+            color: var(--di-dark);
+        }
+
+        .di-cf-form-sub {
+            margin: 0 0 28px;
+            font-family: "Manrope", sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--di-muted);
+        }
+
+        .di-cf-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .di-cf-field label {
+            font-family: "Manrope", sans-serif;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-cf-field input,
+        .di-cf-field select,
+        .di-cf-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            color: var(--di-dark);
+            background: #faf6ef;
+            border: 1px solid rgba(174, 155, 138, 0.24);
+            border-radius: 10px;
+            outline: none;
+            transition:
+                border-color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .di-cf-field input::placeholder,
+        .di-cf-field textarea::placeholder {
+            color: #a9a196;
+        }
+
+        .di-cf-field input:focus,
+        .di-cf-field select:focus,
+        .di-cf-field textarea:focus {
+            background: #ffffff;
+            border-color: var(--di-brown);
+            box-shadow: 0 0 0 3px rgba(174, 155, 138, 0.16);
+        }
+
+        .di-cf-field textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .di-cf-field select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image:
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ae9b8a' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        .di-cf-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .di-cf-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+
+            margin-top: 12px;
+            padding: 16px 32px;
+
+            background: var(--di-brown);
+            color: #ffffff;
+            border: 1px solid var(--di-brown);
+            border-radius: 40px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            transition:
+                background 0.35s ease,
+                border-color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .di-cf-submit i {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .di-cf-submit:hover {
+            background: var(--di-brown-dark);
+            border-color: var(--di-brown-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px -16px rgba(174, 155, 138, 0.65);
+        }
+
+        .di-cf-submit:hover i { transform: translateX(5px); }
+
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 991.98px) {
+            .di-cf-section { padding: 95px 0; }
+            .di-cf-grid {
+                grid-template-columns: 1fr;
+                gap: 42px;
+            }
+            .di-cf-form { padding: 38px 30px 36px; }
+        }
+
+        @media (max-width: 767.98px) {
+            .di-cf-section { padding: 80px 0; }
+            .di-cf-wrap { padding: 0 22px; }
+            .di-cf-head { margin-bottom: 42px; }
+            .di-cf-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 16px; }
+            .di-cf-kicker span { width: 38px; }
+            .di-cf-title { font-size: 34px; letter-spacing: -1.4px; }
+
+            .di-cf-card { padding: 18px 18px 18px 16px; gap: 14px; }
+            .di-cf-card-num { flex-basis: 40px; width: 40px; height: 40px; border-radius: 10px; font-size: 14px; }
+            .di-cf-card-value { font-size: 13px; }
+
+            .di-cf-form { padding: 30px 22px 30px; border-radius: 16px; }
+            .di-cf-form-heading { font-size: 22px; }
+            .di-cf-form-row { grid-template-columns: 1fr; gap: 0; }
+
+            .di-cf-submit { width: 100%; padding: 15px 26px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-cf-kicker, .di-cf-kicker span,
+            .di-cf-title, .di-cf-info-intro,
+            .di-cf-card, .di-cf-form {
+                transition: none !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+
+        /* =========================================================
+           SECTION 3 — LOCATION / MAP
+        ========================================================= */
+        .di-loc-section {
+            position: relative;
+            overflow: hidden;
+            padding: 110px 0 120px;
+            background: #f4efe6;
+            border-top: 1px solid rgba(174, 155, 138, 0.20);
+        }
+
+        .di-loc-wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5.5%;
+        }
+
+        .di-loc-head {
+            max-width: 720px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .di-loc-kicker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 22px;
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s;
+        }
+
+        .di-loc-section.is-in-view .di-loc-kicker {
+            opacity: 1; transform: translateX(0);
+        }
+
+        .di-loc-kicker span {
+            display: block;
+            width: 55px; height: 1px;
+            background: var(--di-brown);
+            transform-origin: center center;
+            transform: scaleX(0);
+            transition: transform 1s cubic-bezier(.2, .8, .2, 1) 0.55s;
+        }
+
+        .di-loc-section.is-in-view .di-loc-kicker span { transform: scaleX(1); }
+
+        .di-loc-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 4.6vw, 68px);
+            font-weight: 500;
+            line-height: 1.04;
+            letter-spacing: -2.2px;
+            color: var(--di-dark);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s,
+                transform 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s;
+        }
+
+        .di-loc-section.is-in-view .di-loc-title {
+            opacity: 1; transform: translateX(0);
+        }
+
+        .di-loc-title .accent { color: var(--di-brown); }
+
+
+        /* ---------------- MAP + CARD ---------------- */
+        .di-loc-frame {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.65fr 1fr;
+            gap: 0;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 30px 70px -34px rgba(37, 37, 37, 0.28);
+            border: 1px solid rgba(174, 155, 138, 0.24);
+
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.55s,
+                transform 1s cubic-bezier(.2, .8, .2, 1) 0.55s;
+        }
+
+        .di-loc-section.is-in-view .di-loc-frame {
+            opacity: 1; transform: translateY(0);
+        }
+
+        .di-loc-map {
+            position: relative;
+            min-height: 520px;
+            background: #e9e2d5;
+        }
+
+        .di-loc-map iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            filter: saturate(0.85) contrast(1.02);
+        }
+
+        .di-loc-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 22px;
+            padding: 55px 48px;
+            background: #ffffff;
+        }
+
+        .di-loc-card::before {
+            content: "";
+            position: absolute;
+            top: 42px; right: 42px;
+            width: 26px; height: 26px;
+            border-top: 1px solid var(--di-brown);
+            border-right: 1px solid var(--di-brown);
+            opacity: 0.55;
+        }
+
+        .di-loc-card-num {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-loc-card-num::before {
+            content: "";
+            display: block;
+            width: 28px; height: 1px;
+            background: var(--di-brown);
+        }
+
+        .di-loc-card-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(26px, 2.4vw, 36px);
+            font-weight: 500;
+            line-height: 1.14;
+            letter-spacing: -0.8px;
+            color: var(--di-dark);
+        }
+
+        .di-loc-card-title .accent { color: var(--di-brown); }
+
+        .di-loc-card-address {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            line-height: 1.75;
+            color: var(--di-muted);
+            font-style: normal;
+        }
+
+        .di-loc-card-divider {
+            width: 52px; height: 2px;
+            background: var(--di-green);
+        }
+
+        .di-loc-card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+
+            width: fit-content;
+            padding: 14px 26px;
+
+            background: var(--di-green);
+            color: #ffffff;
+            border: 1px solid var(--di-green);
+            border-radius: 40px;
+
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            transition:
+                background 0.35s ease,
+                border-color 0.35s ease,
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .di-loc-card-btn i {
+            font-size: 13px;
+            transition: transform 0.3s ease;
+        }
+
+        .di-loc-card-btn:hover {
+            background: var(--di-brown);
+            border-color: var(--di-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px -16px rgba(54, 62, 44, 0.55);
+        }
+
+        .di-loc-card-btn:hover i { transform: translateX(5px); }
+
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 991.98px) {
+            .di-loc-section { padding: 90px 0 100px; }
+            .di-loc-frame { grid-template-columns: 1fr; }
+            .di-loc-map { min-height: 400px; }
+            .di-loc-card { padding: 42px 36px; }
+        }
+
+        @media (max-width: 767.98px) {
+            .di-loc-section { padding: 75px 0 80px; }
+            .di-loc-wrap { padding: 0 22px; }
+            .di-loc-head { margin-bottom: 40px; }
+            .di-loc-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 16px; }
+            .di-loc-kicker span { width: 38px; }
+            .di-loc-title { font-size: 34px; letter-spacing: -1.4px; }
+
+            .di-loc-map { min-height: 320px; }
+            .di-loc-card { padding: 32px 26px; gap: 18px; }
+            .di-loc-card::before { top: 22px; right: 22px; }
+            .di-loc-card-btn { width: 100%; padding: 13px 22px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-loc-kicker, .di-loc-kicker span,
+            .di-loc-title, .di-loc-frame {
+                transition: none !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+
+        /* =========================================================
+           SECTION 4 — FAQ
+        ========================================================= */
+        .di-faq-section {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
+            background: var(--di-cream);
+            border-top: 1px solid rgba(174, 155, 138, 0.20);
+        }
+
+        .di-faq-section::before {
+            content: "";
+            position: absolute;
+            top: 80px; left: -180px;
+            width: 380px; height: 380px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.32);
+            pointer-events: none; z-index: 0;
+        }
+
+        .di-faq-section::after {
+            content: "";
+            position: absolute;
+            right: -140px; bottom: 120px;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(54, 62, 44, 0.06) 0%,
+                rgba(54, 62, 44, 0) 68%);
+            pointer-events: none; z-index: 0;
+        }
+
+        .di-faq-wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 5.5%;
+        }
+
+        .di-faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .di-faq-head {
+            position: sticky;
+            top: 120px;
+        }
+
+        .di-faq-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 22px;
+            font-family: "Manrope", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.15s;
+        }
+
+        .di-faq-section.is-in-view .di-faq-kicker {
+            opacity: 1; transform: translateX(0);
+        }
+
+        .di-faq-kicker::before {
+            content: "";
+            display: block;
+            width: 55px; height: 1px;
+            background: var(--di-brown);
+        }
+
+        .di-faq-title {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 4.6vw, 66px);
+            font-weight: 500;
+            line-height: 1.04;
+            letter-spacing: -2px;
+            color: var(--di-dark);
+
+            opacity: 0;
+            transform: translateX(-40px);
+            transition:
+                opacity 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s,
+                transform 1.05s cubic-bezier(.2, .8, .2, 1) 0.30s;
+        }
+
+        .di-faq-section.is-in-view .di-faq-title {
+            opacity: 1; transform: translateX(0);
+        }
+
+        .di-faq-title .accent { color: var(--di-brown); }
+
+        .di-faq-note {
+            margin: 28px 0 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            line-height: 1.85;
+            color: var(--di-muted);
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.55s,
+                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.55s;
+        }
+
+        .di-faq-section.is-in-view .di-faq-note {
+            opacity: 1; transform: translateY(0);
+        }
+
+        .di-faq-note a {
+            color: var(--di-brown);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            transition: color 0.3s ease;
+        }
+
+        .di-faq-note a:hover { color: var(--di-brown-dark); }
+
+
+        .di-faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .di-faq-item {
+            background: #ffffff;
+            border: 1px solid rgba(174, 155, 138, 0.24);
+            border-radius: 14px;
+            overflow: hidden;
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.85s cubic-bezier(.2, .8, .2, 1),
+                transform 0.85s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .di-faq-section.is-in-view .di-faq-item {
+            opacity: 1; transform: translateY(0);
+        }
+
+        .di-faq-section.is-in-view .di-faq-item:nth-child(1) { transition-delay: 0.35s; }
+        .di-faq-section.is-in-view .di-faq-item:nth-child(2) { transition-delay: 0.48s; }
+        .di-faq-section.is-in-view .di-faq-item:nth-child(3) { transition-delay: 0.61s; }
+        .di-faq-section.is-in-view .di-faq-item:nth-child(4) { transition-delay: 0.74s; }
+        .di-faq-section.is-in-view .di-faq-item:nth-child(5) { transition-delay: 0.87s; }
+
+        .di-faq-item[open] {
+            border-color: var(--di-brown);
+            box-shadow: 0 22px 45px -28px rgba(174, 155, 138, 0.55);
+        }
+
+        .di-faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+
+            padding: 22px 26px;
+            cursor: pointer;
+            list-style: none;
+            outline: none;
+
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 1.35;
+            letter-spacing: -0.3px;
+            color: var(--di-dark);
+
+            transition: color 0.3s ease;
+        }
+
+        .di-faq-q::-webkit-details-marker { display: none; }
+        .di-faq-q::marker { display: none; content: ""; }
+
+        .di-faq-q:hover { color: var(--di-brown); }
+
+        .di-faq-q-icon {
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(174, 155, 138, 0.14);
+            color: var(--di-brown);
+            font-size: 13px;
+
+            transition:
+                background 0.35s ease,
+                color 0.35s ease,
+                transform 0.45s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-faq-item[open] .di-faq-q-icon {
+            background: var(--di-brown);
+            color: #ffffff;
+            transform: rotate(45deg);
+        }
+
+        .di-faq-a {
+            padding: 0 26px 24px;
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            font-size: 14px;
+            line-height: 1.85;
+            color: var(--di-muted);
+
+            animation: diFaqFadeIn 0.4s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        @keyframes diFaqFadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        @media (max-width: 991.98px) {
+            .di-faq-section { padding: 95px 0; }
+            .di-faq-grid { grid-template-columns: 1fr; gap: 44px; }
+            .di-faq-head { position: static; }
+        }
+
+        @media (max-width: 767.98px) {
+            .di-faq-section { padding: 80px 0; }
+            .di-faq-wrap { padding: 0 22px; }
+            .di-faq-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 16px; }
+            .di-faq-kicker::before { width: 38px; }
+            .di-faq-title { font-size: 34px; letter-spacing: -1.4px; }
+            .di-faq-note { font-size: 13px; margin-top: 20px; }
+
+            .di-faq-list { gap: 12px; }
+            .di-faq-q {
+                padding: 18px 20px;
+                font-size: 16px;
+                gap: 18px;
+            }
+            .di-faq-q-icon { flex-basis: 30px; width: 30px; height: 30px; font-size: 12px; }
+            .di-faq-a { padding: 0 20px 20px; font-size: 13px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-faq-kicker, .di-faq-title, .di-faq-note,
+            .di-faq-item, .di-faq-a, .di-faq-q-icon {
+                transition: none !important;
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!-- =========================================================
+     DECOR INDOORS HEADER
+========================================================= -->
+<header class="di-main-header" id="diMainHeader">
+
+    <div class="di-header-inner">
+
+        <a href="index.html" class="di-brand">
+            <figure>
+                <img src="images/decor-indoors-logo.png"
+                     alt="Decor Indoors" class="di-brand-logo">
+                <figcaption class="cr-only">
+                    Decor Indoors official brand logo.
+                </figcaption>
+            </figure>
+        </a>
+
+        <nav class="di-desktop-navigation navbar navbar-expand-lg" id="diNavigation">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-about-us.html">About</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Interiors
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-residential-interiors.html">
+                            Residential Interiors</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-renovation-and-remodeling.html">
+                            Renovation &amp; Remodeling</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-furniture-and-styling.html">
+                            Furniture &amp; Styling</a></li>
+                        <li><a class="dropdown-item"
+                               href="decor-indoors-interiors-design-counsultation.html">
+                            Design Consultation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-commercials.html">Commercials</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="decor-indoors-portfolio.html">Portfolio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link di-active-link" href="decor-indoors-contacts.html">Contacts</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <a href="decor-indoors-contacts.html" class="di-header-action">
+            Let's Talk
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+        <button class="di-mobile-trigger" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#diMobileOffcanvas"
+                aria-controls="diMobileOffcanvas" aria-label="Open menu">
+            <span class="di-mobile-trigger-inner">
+                <span class="di-mobile-trigger-line"></span>
+                <span class="di-mobile-trigger-line"></span>
+                <span class="di-mobile-trigger-line"></span>
+            </span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<article>
+
+    <!-- =========================================================
+         CONTACT HERO — "CORRESPONDENCE"
+    ========================================================= -->
+    <section class="di-ct-hero">
+
+        <div class="di-ct-hero-wrap">
+
+            <div class="di-ct-hero-content">
+
+                <div class="di-ct-hero-kicker">
+                    Get In Touch
+                </div>
+
+                <h1 class="di-ct-hero-title">
+                    <span class="line line-1"><span>Let's start a</span></span>
+                    <span class="line line-2"><span class="accent">conversation.</span></span>
+                </h1>
+
+                <p class="di-ct-hero-text">
+                    Whether you're planning a new home, redesigning a
+                    workspace or simply exploring ideas — we'd love to
+                    hear from you. Share your vision and let's shape
+                    something beautiful together.
+                </p>
+
+                <div class="di-ct-hero-chips">
+
+                    <a href="tel:+917259357732" class="di-ct-chip">
+                        <span class="di-ct-chip-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </span>
+                        <span class="di-ct-chip-label">
+                            <small>Call Us</small>
+                            <strong>+91 72593 57732</strong>
+                        </span>
+                    </a>
+
+                    <a href="mailto:info@decorindoors.com" class="di-ct-chip">
+                        <span class="di-ct-chip-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </span>
+                        <span class="di-ct-chip-label">
+                            <small>Write To Us</small>
+                            <strong>info@decorindoors.com</strong>
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="di-ct-hero-visual">
+
+                <div class="di-ct-stamp">
+
+                    <div class="di-ct-postmark">
+                        <span class="di-ct-postmark-line"></span>
+                        <span class="di-ct-postmark-text">
+                            Decor
+                            <strong>Indoors</strong>
+                            Est. 2013
+                        </span>
+                        <span class="di-ct-postmark-line"></span>
+                    </div>
+
+                    <div class="di-ct-stamp-inner">
+
+                        <i class="bi bi-envelope-paper-heart di-ct-stamp-icon"></i>
+
+                        <span class="di-ct-stamp-line"></span>
+
+                        <p class="di-ct-stamp-text">
+                            We read every message<br>with care.
+                            <small>Reply within 24 hours</small>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 2 — CONTACT FORM + INFO (soft sage background)
+    ========================================================= -->
+    <section class="di-cf-section" id="contact-form">
+
+        <div class="di-cf-wrap">
+
+            <div class="di-cf-head">
+                <div class="di-cf-kicker">
+                    <span></span>
+                    Start A Project
+                    <span></span>
+                </div>
+
+                <h2 class="di-cf-title">
+                    Tell us about <span class="accent">your space.</span>
+                </h2>
+            </div>
+
+
+            <div class="di-cf-grid">
+
+                <div class="di-cf-info">
+
+                    <p class="di-cf-info-intro">
+                        Reach us directly, or share a few details about
+                        your project and we'll get back within one
+                        working day.
+                    </p>
+
+                    <a href="https://maps.google.com/?q=Kankanady+Main+Road+Mangalore"
+                       target="_blank" rel="noopener"
+                       class="di-cf-card">
+                        <span class="di-cf-card-num">01</span>
+                        <span class="di-cf-card-body">
+                            <span class="di-cf-card-label">Visit The Studio</span>
+                            <span class="di-cf-card-value">
+                                Door No. 3-12-45, 2nd Floor,<br>
+                                Kankanady Main Road, Mangalore
+                            </span>
+                        </span>
+                    </a>
+
+                    <a href="tel:+917259357732" class="di-cf-card">
+                        <span class="di-cf-card-num">02</span>
+                        <span class="di-cf-card-body">
+                            <span class="di-cf-card-label">Call Us</span>
+                            <span class="di-cf-card-value">+91 72593 57732</span>
+                        </span>
+                    </a>
+
+                    <a href="mailto:info@decorindoors.com" class="di-cf-card">
+                        <span class="di-cf-card-num">03</span>
+                        <span class="di-cf-card-body">
+                            <span class="di-cf-card-label">Write To Us</span>
+                            <span class="di-cf-card-value">info@decorindoors.com</span>
+                        </span>
+                    </a>
+
+                    <div class="di-cf-card">
+                        <span class="di-cf-card-num">04</span>
+                        <span class="di-cf-card-body">
+                            <span class="di-cf-card-label">Studio Hours</span>
+                            <span class="di-cf-card-value">
+                                Mon – Sat · 10:00 AM – 7:00 PM
+                            </span>
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="di-cf-form">
+
+                    <h3 class="di-cf-form-heading">
+                        Send us a message
+                    </h3>
+
+                    <p class="di-cf-form-sub">
+                        A few details help us prepare for our first
+                        conversation.
+                    </p>
+
+                    <form action="#" method="post" novalidate>
+
+                        <div class="di-cf-form-row">
+
+                            <div class="di-cf-field">
+                                <label for="di-cf-name">Your Name</label>
+                                <input id="di-cf-name" type="text"
+                                       name="name" placeholder="Full name" required>
+                            </div>
+
+                            <div class="di-cf-field">
+                                <label for="di-cf-phone">Phone</label>
+                                <input id="di-cf-phone" type="tel"
+                                       name="phone" placeholder="+91 00000 00000">
+                            </div>
+
+                        </div>
+
+                        <div class="di-cf-field">
+                            <label for="di-cf-email">Email</label>
+                            <input id="di-cf-email" type="email"
+                                   name="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="di-cf-field">
+                            <label for="di-cf-service">Service Interested In</label>
+                            <select id="di-cf-service" name="service">
+                                <option value="">Select a service</option>
+                                <option>Residential Interiors</option>
+                                <option>Renovation &amp; Remodeling</option>
+                                <option>Furniture &amp; Styling</option>
+                                <option>Design Consultation</option>
+                                <option>Commercial Interiors</option>
+                            </select>
+                        </div>
+
+                        <div class="di-cf-field">
+                            <label for="di-cf-msg">Tell Us About Your Project</label>
+                            <textarea id="di-cf-msg" name="message"
+                                      placeholder="A few lines about your space, timeline and vision…"></textarea>
+                        </div>
+
+                        <button type="submit" class="di-cf-submit">
+                            <span>Send Message</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 3 — LOCATION / MAP (warm beige background)
+    ========================================================= -->
+    <section class="di-loc-section" id="location">
+
+        <div class="di-loc-wrap">
+
+            <div class="di-loc-head">
+                <div class="di-loc-kicker">
+                    <span></span>
+                    Visit Us
+                    <span></span>
+                </div>
+
+                <h2 class="di-loc-title">
+                    Find us in <span class="accent">Mangalore.</span>
+                </h2>
+            </div>
+
+
+            <div class="di-loc-frame">
+
+                <div class="di-loc-map">
+                    <iframe
+                        src="https://www.google.com/maps?q=Kankanady+Main+Road+Mangalore+Karnataka&output=embed"
+                        title="Decor Indoors studio location in Mangalore"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <aside class="di-loc-card">
+
+                    <div class="di-loc-card-num">
+                        Studio Address
+                    </div>
+
+                    <h3 class="di-loc-card-title">
+                        Decor <span class="accent">Indoors</span>
+                    </h3>
+
+                    <address class="di-loc-card-address">
+                        <span>Door No. 3-12-45, 2nd Floor,</span>
+                        <span>Kankanady Main Road,</span>
+                        <span>Mangalore, Karnataka — 575002, India</span>
+                    </address>
+
+                    <div class="di-loc-card-divider"></div>
+
+                    <a href="https://maps.google.com/?q=Kankanady+Main+Road+Mangalore+Karnataka"
+                       target="_blank" rel="noopener"
+                       class="di-loc-card-btn">
+                        <span>Open In Google Maps</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 4 — FAQ (cream background)
+    ========================================================= -->
+    <section class="di-faq-section" id="faq">
+
+        <div class="di-faq-wrap">
+
+            <div class="di-faq-grid">
+
+                <div class="di-faq-head">
+
+                    <div class="di-faq-kicker">
+                        Common Questions
+                    </div>
+
+                    <h2 class="di-faq-title">
+                        Before you <span class="accent">write to us.</span>
+                    </h2>
+
+                    <p class="di-faq-note">
+                        A few things most clients ask us before
+                        starting a project. Still curious? Write to
+                        us at <a href="mailto:info@decorindoors.com">
+                        info@decorindoors.com</a>.
+                    </p>
+
+                </div>
+
+
+                <div class="di-faq-list">
+
+                    <details class="di-faq-item">
+                        <summary class="di-faq-q">
+                            How do I begin a project with Decor Indoors?
+                            <span class="di-faq-q-icon" aria-hidden="true">
+                                <i class="bi bi-plus-lg"></i>
+                            </span>
+                        </summary>
+                        <p class="di-faq-a">
+                            It starts with a conversation. Send us a
+                            message or give us a call — we'll schedule
+                            a discovery call to understand your space,
+                            your needs, and your budget. From there we
+                            prepare a proposal and a design roadmap.
+                        </p>
+                    </details>
+
+                    <details class="di-faq-item">
+                        <summary class="di-faq-q">
+                            What is the typical timeline for a project?
+                            <span class="di-faq-q-icon" aria-hidden="true">
+                                <i class="bi bi-plus-lg"></i>
+                            </span>
+                        </summary>
+                        <p class="di-faq-a">
+                            A single-room interior typically takes 4–6
+                            weeks, a full home interior 10–16 weeks, and
+                            larger commercial projects 12–24 weeks. The
+                            exact timeline is confirmed during the
+                            design phase.
+                        </p>
+                    </details>
+
+                    <details class="di-faq-item">
+                        <summary class="di-faq-q">
+                            Do you work outside of Mangalore?
+                            <span class="di-faq-q-icon" aria-hidden="true">
+                                <i class="bi bi-plus-lg"></i>
+                            </span>
+                        </summary>
+                        <p class="di-faq-a">
+                            Yes. We are based in Mangalore but have
+                            delivered projects across India and in the
+                            Middle East. Remote projects are handled
+                            with dedicated site supervision and regular
+                            progress updates.
+                        </p>
+                    </details>
+
+                    <details class="di-faq-item">
+                        <summary class="di-faq-q">
+                            Can you work with my existing furniture?
+                            <span class="di-faq-q-icon" aria-hidden="true">
+                                <i class="bi bi-plus-lg"></i>
+                            </span>
+                        </summary>
+                        <p class="di-faq-a">
+                            Absolutely. We often integrate meaningful
+                            existing pieces into new designs. During
+                            the concept phase we'll review what you
+                            already own and plan around it.
+                        </p>
+                    </details>
+
+                    <details class="di-faq-item">
+                        <summary class="di-faq-q">
+                            Do you offer turnkey interiors?
+                            <span class="di-faq-q-icon" aria-hidden="true">
+                                <i class="bi bi-plus-lg"></i>
+                            </span>
+                        </summary>
+                        <p class="di-faq-a">
+                            Yes — most of our projects are turnkey.
+                            Design, procurement, execution and styling
+                            are all managed under one roof, so you can
+                            hand over the keys and step into a
+                            finished space.
+                        </p>
+                    </details>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</article>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="di-footer">
+
+    <div class="di-footer-deco di-footer-deco-top-left"></div>
+    <div class="di-footer-deco di-footer-deco-bottom-left"></div>
+    <div class="di-footer-deco di-footer-deco-top-right"></div>
+    <div class="di-footer-deco di-footer-deco-bottom-right"></div>
+
+    <div class="container">
+        <div class="di-footer-inner">
+
+            <div class="row di-footer-main align-items-start">
+
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                    <div class="di-footer-brand">
+
+                        <a href="index.html" class="di-footer-logo">
+                            <figure>
+                                <img src="images/decor-indoors-logo1.png"
+                                     alt="Decor Indoors">
+                                <figcaption class="cr-only">
+                                    Decor Indoors footer brand logo.
+                                </figcaption>
+                            </figure>
+                        </a>
+
+                        <div class="di-footer-brand-line"></div>
+
+                        <p>
+                            We design and create inspiring spaces
+                            that bring together beauty, functionality
+                            and a better way of living.
+                        </p>
+
+                        <div class="di-footer-social">
+                            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        </div>
+
+                        <div class="di-footer-connected">STAY CONNECTED</div>
+
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                    <div class="di-footer-column">
+                        <h3 class="di-footer-heading">Quick Links</h3>
+                        <div class="di-footer-heading-line"></div>
+
+                        <ul class="di-footer-links">
+                            <li><a href="index.html"><span>›</span> Home</a></li>
+                            <li><a href="decor-indoors-about-us.html"><span>›</span> About Us</a></li>
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Interiors</a></li>
+                            <li><a href="decor-indoors-portfolio.html"><span>›</span> Portfolio</a></li>
+                            <li><a href="decor-indoors-testimonials.html"><span>›</span> Testimonials</a></li>
+                            <li><a href="decor-indoors-contacts.html"><span>›</span> Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
+                    <div class="di-footer-column">
+                        <h3 class="di-footer-heading">Our Services</h3>
+                        <div class="di-footer-heading-line"></div>
+
+                        <ul class="di-footer-links">
+                            <li><a href="decor-indoors-interiors-residential-interiors.html"><span>›</span> Residential Interiors</a></li>
+                            <li><a href="decor-indoors-commercials.html"><span>›</span> Commercial Interiors</a></li>
+                            <li><a href="decor-indoors-interiors-renovation-and-remodeling.html"><span>›</span> Renovation &amp; Remodeling</a></li>
+                            <li><a href="decor-indoors-interiors-furniture-and-styling.html"><span>›</span> Furniture &amp; Styling</a></li>
+                            <li><a href="decor-indoors-interiors-design-counsultation.html"><span>›</span> Design Consultation</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4">
+
+                        <div class="di-footer-contact">
+
+                            <h3 class="di-footer-heading">
+                                Contact Us
+                            </h3>
+
+                            <div class="di-footer-heading-line"></div>
+
+                            <div class="footer-container">
+
+                            <div class="di-footer-contact-item">
+                                <div class="di-footer-contact-icon">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </div>
+                                <div class="di-footer-contact-content">
+                                    <a href="tel:+917259357732">
+                                        +91 72593 57732
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="di-footer-contact-item">
+                                <div class="di-footer-contact-icon">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <div class="di-footer-contact-content">
+                                    <a href="mailto:info@decorindoors.com">
+                                        info@decorindoors.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="di-footer-contact-item">
+                                <div class="di-footer-contact-icon">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+                                <div class="di-footer-contact-content di-footer-address">
+                                    <span>Door No. 3-12-45, 2nd Floor,</span>
+                                    <span>Kankanady Main Road,</span>
+                                    <span>Mangalore, Karnataka - 575002, India</span>
+                                </div>
+                            </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </div>
+
+            <div class="di-footer-bottom">
+
+                <div class="di-footer-copy">
+                    © 2026 Decor Indoors. All rights reserved.
+                </div>
+
+                <div class="di-footer-policy">
+                    <a href="#">Privacy Policy</a>
+                    <span></span>
+                    <a href="#">Terms and Conditions</a>
+                </div>
+
+                <div class="di-footer-powered">
+                    Powered By
+                    <a href="https://bluelinecomputers.com/" target="_blank" rel="noopener">
+                        <strong>Blue Line Computers</strong>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     FIXED WHATSAPP BUTTON
+========================================================= -->
+<a
+    href="https://wa.me/917259357732?text=Hello%20Decor%20Indoors%2C%20I%20would%20like%20to%20know%20more%20about%20your%20interior%20design%20services."
+    class="di-whatsapp-float"
+    target="_blank" rel="noopener"
+    aria-label="Chat with Decor Indoors on WhatsApp"
+>
+    <span class="di-whatsapp-ripple ripple-one"></span>
+    <span class="di-whatsapp-ripple ripple-two"></span>
+    <span class="di-whatsapp-ripple ripple-three"></span>
+    <span class="di-whatsapp-orbit"></span>
+
+    <span class="di-whatsapp-tooltip">
+        <span class="di-tooltip-dot"></span>
+        Chat with us
+    </span>
+
+    <span class="di-whatsapp-icon">
+        <i class="bi bi-whatsapp"></i>
+    </span>
+</a>
+
+
+<!-- =========================================================
+     MOBILE OFFCANVAS
+========================================================= -->
+<div class="offcanvas offcanvas-start di-mobile-offcanvas"
+     tabindex="-1" id="diMobileOffcanvas"
+     aria-labelledby="diMobileOffcanvasLabel">
+
+    <button type="button" class="di-offcanvas-close"
+            data-bs-dismiss="offcanvas" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="offcanvas-body di-offcanvas-body">
+
+        <div id="diMobileMenuContainer"></div>
+
+        <a href="decor-indoors-contacts.html"
+           class="di-offcanvas-action" data-bs-dismiss="offcanvas">
+            Let's Talk
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+        <div class="di-offcanvas-note">
+            <small>Interior Design Studio</small>
+            <strong>Spaces for a<br>Better Tomorrow.</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.7.1.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const diHeader = document.getElementById("diMainHeader");
+    const diNavigation = document.getElementById("diNavigation");
+    const diMobileMenuContainer = document.getElementById("diMobileMenuContainer");
+    const diMobileOffcanvas = document.getElementById("diMobileOffcanvas");
+
+    diMobileOffcanvas.addEventListener("show.bs.offcanvas", function () {
+        diHeader.style.display = "none";
+    });
+
+    diMobileOffcanvas.addEventListener("hidden.bs.offcanvas", function () {
+        diHeader.style.display = "";
+    });
+
+    const diMenu = diNavigation.querySelector(".navbar-nav");
+    const diDesktopParent = diNavigation;
+    const diDesktopMedia = window.matchMedia("(min-width: 992px)");
+
+    function diMoveMenu() {
+        if (diDesktopMedia.matches) {
+            if (diMenu.parentElement !== diDesktopParent) {
+                diDesktopParent.appendChild(diMenu);
+            }
+        } else {
+            if (diMenu.parentElement !== diMobileMenuContainer) {
+                diMobileMenuContainer.appendChild(diMenu);
+            }
+        }
+    }
+
+    diMoveMenu();
+    diDesktopMedia.addEventListener("change", diMoveMenu);
+
+    function diHeaderScrollEffect() {
+        if (window.scrollY > 70) {
+            diHeader.classList.add("di-header-scrolled");
+        } else {
+            diHeader.classList.remove("di-header-scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", diHeaderScrollEffect, { passive: true });
+
+    function diEnableDesktopHover() {
+        if (!diDesktopMedia.matches) return;
+
+        const diDropdowns = diNavigation.querySelectorAll(".dropdown");
+
+        diDropdowns.forEach(function (diDropdown) {
+            const diToggle = diDropdown.querySelector(".dropdown-toggle");
+            if (diDropdown.dataset.diHoverReady === "true") return;
+            diDropdown.dataset.diHoverReady = "true";
+
+            diDropdown.addEventListener("mouseenter", function () {
+                if (!diDesktopMedia.matches) return;
+                bootstrap.Dropdown.getOrCreateInstance(diToggle).show();
+            });
+
+            diDropdown.addEventListener("mouseleave", function () {
+                if (!diDesktopMedia.matches) return;
+                bootstrap.Dropdown.getOrCreateInstance(diToggle).hide();
+            });
+        });
+    }
+
+    setTimeout(diEnableDesktopHover, 100);
+
+    diDesktopMedia.addEventListener("change", function () {
+        setTimeout(diEnableDesktopHover, 100);
+    });
+
+    diMobileOffcanvas.addEventListener("click", function (event) {
+
+        const diClickedLink = event.target.closest(".nav-link:not(.dropdown-toggle)");
+
+        if (diClickedLink && !diClickedLink.classList.contains("dropdown-toggle")) {
+            const instance = bootstrap.Offcanvas.getInstance(diMobileOffcanvas);
+            if (instance) instance.hide();
+        }
+
+        const diDropdownItem = event.target.closest(".dropdown-item");
+
+        if (diDropdownItem) {
+            const instance = bootstrap.Offcanvas.getInstance(diMobileOffcanvas);
+            if (instance) instance.hide();
+        }
+    });
+
+});
+</script>
+
+
+<!-- =========================================================
+     SCROLL REVEAL — CONTACT / LOCATION / FAQ SECTIONS
+========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const revealSections = document.querySelectorAll(
+        ".di-cf-section, .di-loc-section, .di-faq-section"
+    );
+
+    if (!revealSections.length) return;
+
+    const scrollObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in-view");
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    revealSections.forEach(function (section) {
+        scrollObserver.observe(section);
+    });
+
+});
+</script>
+
+<script src="js/decor-indoors-scroll-reveal-fixed.js"></script>
+</body>
+</html>
