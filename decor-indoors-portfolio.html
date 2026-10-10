@@ -935,41 +935,36 @@
         }
 
 
-        /* SEQUENTIAL REVEAL — 4 rows per section */
-        .di-rr-list.is-in-view .di-rr-row:nth-child(1) {
-            opacity: 1; transform: translateY(0);
-            transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.05s,
-                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.05s,
-                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
-                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
-        }
-        .di-rr-list.is-in-view .di-rr-row:nth-child(2) {
-            opacity: 1; transform: translateY(0);
-            transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.35s,
-                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.35s,
-                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
-                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
-        }
-        .di-rr-list.is-in-view .di-rr-row:nth-child(3) {
-            opacity: 1; transform: translateY(0);
-            transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.65s,
-                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.65s,
-                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
-                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
-        }
-        .di-rr-list.is-in-view .di-rr-row:nth-child(4) {
-            opacity: 1; transform: translateY(0);
-            transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1) 0.95s,
-                transform 0.9s cubic-bezier(.2, .8, .2, 1) 0.95s,
-                box-shadow 0.55s cubic-bezier(.2, .8, .2, 1) 0s,
-                border-color 0.55s cubic-bezier(.2, .8, .2, 1) 0s;
+        /* SEQUENTIAL REVEAL — all rows in section */
+        .di-rr-list.is-in-view .di-rr-row,
+        .di-rr-row.is-in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .di-rr-list.is-in-view .di-rr-row:hover {
+        .di-rr-list.is-in-view .di-rr-row:nth-child(1),
+        .di-rr-row.is-in-view:nth-child(1) { transition-delay: 0.05s, 0.05s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(2),
+        .di-rr-row.is-in-view:nth-child(2) { transition-delay: 0.18s, 0.18s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(3),
+        .di-rr-row.is-in-view:nth-child(3) { transition-delay: 0.28s, 0.28s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(4),
+        .di-rr-row.is-in-view:nth-child(4) { transition-delay: 0.38s, 0.38s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(5),
+        .di-rr-row.is-in-view:nth-child(5) { transition-delay: 0.45s, 0.45s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(6),
+        .di-rr-row.is-in-view:nth-child(6) { transition-delay: 0.50s, 0.50s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(7),
+        .di-rr-row.is-in-view:nth-child(7) { transition-delay: 0.55s, 0.55s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(8),
+        .di-rr-row.is-in-view:nth-child(8) { transition-delay: 0.60s, 0.60s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(9),
+        .di-rr-row.is-in-view:nth-child(9) { transition-delay: 0.65s, 0.65s, 0s, 0s; }
+        .di-rr-list.is-in-view .di-rr-row:nth-child(10),
+        .di-rr-row.is-in-view:nth-child(10) { transition-delay: 0.70s, 0.70s, 0s, 0s; }
+
+        .di-rr-list.is-in-view .di-rr-row:hover,
+        .di-rr-row.is-in-view:hover {
             transform: translateY(-6px);
             border-color: rgba(174, 155, 138, 0.38);
             box-shadow:
@@ -1110,6 +1105,7 @@
         }
 
         .di-rr-row-media-thumb {
+            position: relative;
             flex: 0 0 auto;
             width: 64px;
             height: 64px;
@@ -1126,6 +1122,28 @@
                 transform 0.35s cubic-bezier(.2, .8, .2, 1),
                 border-color 0.3s ease,
                 box-shadow 0.35s ease;
+        }
+
+        .di-rr-row-media-thumb-more {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 25, 18, 0.72);
+            color: #ffffff;
+            font-family: "Manrope", sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            transition: background 0.3s ease;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        .di-rr-row-media-thumb:hover .di-rr-row-media-thumb-more {
+            background: rgba(174, 155, 138, 0.90);
         }
 
         .di-rr-row-media-thumb img {
@@ -1970,7 +1988,7 @@
                         role="tab"
                         aria-selected="true">
                     All Work
-                    <span class="di-pf-filter-btn-num">08</span>
+                    <span class="di-pf-filter-btn-num">18</span>
                 </button>
 
                 <button type="button"
@@ -1979,7 +1997,7 @@
                         role="tab"
                         aria-selected="false">
                     Residential
-                    <span class="di-pf-filter-btn-num">04</span>
+                    <span class="di-pf-filter-btn-num">10</span>
                 </button>
 
                 <button type="button"
@@ -1988,13 +2006,13 @@
                         role="tab"
                         aria-selected="false">
                     Commercial
-                    <span class="di-pf-filter-btn-num">04</span>
+                    <span class="di-pf-filter-btn-num">08</span>
                 </button>
 
             </div>
 
             <span class="di-pf-filter-count">
-                <strong id="diPfVisibleCount">08</strong>
+                <strong id="diPfVisibleCount">18</strong>
                 Projects Shown
             </span>
 
@@ -2033,20 +2051,33 @@
 
             <div class="di-rr-list">
 
-                <!-- Row 01 -->
+                <!-- Row 01 · Cordel Cottage -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
                             data-gallery-title="Cordel Cottage · Kulshekar"
-                            data-gallery="images/decor-indoors-featured-projet1.jpg">
-                        <img src="images/decor-indoors-featured-projet1.jpg"
+                            data-gallery="images/interiors/residentials/cordel-cottage-kulshekar/01.jpg|images/interiors/residentials/cordel-cottage-kulshekar/02.jpg|images/interiors/residentials/cordel-cottage-kulshekar/03.jpg|images/interiors/residentials/cordel-cottage-kulshekar/04.jpg|images/interiors/residentials/cordel-cottage-kulshekar/05.jpg|images/interiors/residentials/cordel-cottage-kulshekar/06.jpg|images/interiors/residentials/cordel-cottage-kulshekar/07.jpg|images/interiors/residentials/cordel-cottage-kulshekar/08.jpg|images/interiors/residentials/cordel-cottage-kulshekar/09.jpg|images/interiors/residentials/cordel-cottage-kulshekar/10.jpg|images/interiors/residentials/cordel-cottage-kulshekar/11.jpg">
+                        <img src="images/interiors/residentials/cordel-cottage-kulshekar/01.jpg"
                              alt="Cordel Cottage Kulshekar residential interior by Decor Indoors">
                         <figcaption class="cr-only">
                             Cordel Cottage Kulshekar residential interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet1.jpg" alt="Cordel Cottage photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Cordel Cottage photo 1">
+                                <img src="images/interiors/residentials/cordel-cottage-kulshekar/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Cordel Cottage photo 2">
+                                <img src="images/interiors/residentials/cordel-cottage-kulshekar/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Cordel Cottage photo 3">
+                                <img src="images/interiors/residentials/cordel-cottage-kulshekar/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Cordel Cottage photo 4">
+                                <img src="images/interiors/residentials/cordel-cottage-kulshekar/04.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Cordel Cottage photo 5 - More images available">
+                                <img src="images/interiors/residentials/cordel-cottage-kulshekar/05.jpg" alt="">
+                                <span class="di-rr-row-media-thumb-more">+6</span>
                             </button>
                         </div>
 
@@ -2057,7 +2088,7 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">01</div>
-                        <div class="di-rr-row-kicker">Living Room · Residence</div>
+                        <div class="di-rr-row-kicker">Home · Kulshekar</div>
                         <h3 class="di-rr-row-title">Cordel Cottage, Kulshekar</h3>
                         <p class="di-rr-row-text">
                             A warm, easy-living home shaped around natural
@@ -2077,20 +2108,29 @@
                     </div>
                 </div>
 
-                <!-- Row 02 -->
+                <!-- Row 02 · Theresa Garden -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Bahrain Villa"
-                            data-gallery="images/decor-indoors-featured-projet3.jpg">
-                        <img src="images/decor-indoors-featured-projet3.jpg"
-                             alt="Bahrain Villa residential interior by Decor Indoors">
+                            data-gallery-title="Theresa Garden · Bondel"
+                            data-gallery="images/interiors/residentials/theresa-garden-bondel/01.jpg|images/interiors/residentials/theresa-garden-bondel/02.jpg|images/interiors/residentials/theresa-garden-bondel/03.jpg|images/interiors/residentials/theresa-garden-bondel/04.jpg">
+                        <img src="images/interiors/residentials/theresa-garden-bondel/01.jpg"
+                             alt="Theresa Garden Bondel residential interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Bahrain Villa residential interior by Decor Indoors.
+                            Theresa Garden Bondel residential interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet3.jpg" alt="Bahrain Villa photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Theresa Garden photo 1">
+                                <img src="images/interiors/residentials/theresa-garden-bondel/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Theresa Garden photo 2">
+                                <img src="images/interiors/residentials/theresa-garden-bondel/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Theresa Garden photo 3">
+                                <img src="images/interiors/residentials/theresa-garden-bondel/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Theresa Garden photo 4">
+                                <img src="images/interiors/residentials/theresa-garden-bondel/04.jpg" alt="">
                             </button>
                         </div>
 
@@ -2101,12 +2141,293 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">02</div>
-                        <div class="di-rr-row-kicker">Villa Interior</div>
-                        <h3 class="di-rr-row-title">Bahrain Villa</h3>
+                        <div class="di-rr-row-kicker">Residence · Bondel</div>
+                        <h3 class="di-rr-row-title">Theresa Garden, Bondel</h3>
+                        <p class="di-rr-row-text">
+                            A calm, layered residence designed around the
+                            rhythm of family life — warm timber, tactile
+                            finishes and a quietly elegant palette.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Residence
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Bondel
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 03 · Prestige Valley Crest -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Prestige Valley Crest · Bejai"
+                            data-gallery="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (10).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (11).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (12).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (13).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (14).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (15).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (16).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (17).png|images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (18).png">
+                        <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (10).png"
+                             alt="Prestige Valley Crest apartment interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Prestige Valley Crest apartment interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Prestige Valley Crest photo 1">
+                                <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (10).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Prestige Valley Crest photo 2">
+                                <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (11).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Prestige Valley Crest photo 3">
+                                <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (12).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Prestige Valley Crest photo 4">
+                                <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (13).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Prestige Valley Crest photo 5 - More images available">
+                                <img src="images/interiors/residentials/PRESTIGE VALLEY CREST (1)/11507 (1)/SCENE (14).png" alt="">
+                                <span class="di-rr-row-media-thumb-more">+4</span>
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">03</div>
+                        <div class="di-rr-row-kicker">Apartment · Bejai</div>
+                        <h3 class="di-rr-row-title">Prestige Valley Crest</h3>
+                        <p class="di-rr-row-text">
+                            A compact city apartment reimagined with
+                            intelligent storage, tonal layering and a
+                            quiet palette — calm amid the urban pace.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-building"></i>
+                                Apartment
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Bejai, Mangalore
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 04 · Brigade A 204 -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Brigade A 204 · Bengaluru"
+                            data-gallery="images/interiors/residentials/brigade-a-204/01.jpg|images/interiors/residentials/brigade-a-204/02.jpg|images/interiors/residentials/brigade-a-204/03.jpg|images/interiors/residentials/brigade-a-204/04.jpg">
+                        <img src="images/interiors/residentials/brigade-a-204/01.jpg"
+                             alt="Brigade A 204 residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Brigade A 204 residential interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Brigade A 204 photo 1">
+                                <img src="images/interiors/residentials/brigade-a-204/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Brigade A 204 photo 2">
+                                <img src="images/interiors/residentials/brigade-a-204/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Brigade A 204 photo 3">
+                                <img src="images/interiors/residentials/brigade-a-204/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Brigade A 204 photo 4">
+                                <img src="images/interiors/residentials/brigade-a-204/04.jpg" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">04</div>
+                        <div class="di-rr-row-kicker">Apartment · Bengaluru</div>
+                        <h3 class="di-rr-row-title">Brigade A 204</h3>
+                        <p class="di-rr-row-text">
+                            A contemporary apartment interior with
+                            streamlined joinery and a soft, warm material
+                            story — designed for everyday ease.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Apartment
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Bengaluru
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 05 · Plama Oceanic 807 -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Plama Oceanic 807 · Mangalore"
+                            data-gallery="images/interiors/residentials/plama-oceanic-807/01.jpg|images/interiors/residentials/plama-oceanic-807/02.jpg|images/interiors/residentials/plama-oceanic-807/03.jpg|images/interiors/residentials/plama-oceanic-807/04.jpg|images/interiors/residentials/plama-oceanic-807/05.jpg|images/interiors/residentials/plama-oceanic-807/06.jpg|images/interiors/residentials/plama-oceanic-807/07.jpg|images/interiors/residentials/plama-oceanic-807/08.jpg">
+                        <img src="images/interiors/residentials/plama-oceanic-807/01.jpg"
+                             alt="Plama Oceanic 807 residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Plama Oceanic 807 residential interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Plama Oceanic 807 photo 1">
+                                <img src="images/interiors/residentials/plama-oceanic-807/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Plama Oceanic 807 photo 2">
+                                <img src="images/interiors/residentials/plama-oceanic-807/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Plama Oceanic 807 photo 3">
+                                <img src="images/interiors/residentials/plama-oceanic-807/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Plama Oceanic 807 photo 4">
+                                <img src="images/interiors/residentials/plama-oceanic-807/04.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Plama Oceanic 807 photo 5 - More images available">
+                                <img src="images/interiors/residentials/plama-oceanic-807/05.jpg" alt="">
+                                <span class="di-rr-row-media-thumb-more">+3</span>
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">05</div>
+                        <div class="di-rr-row-kicker">Apartment · Mangalore</div>
+                        <h3 class="di-rr-row-title">Plama Oceanic 807</h3>
+                        <p class="di-rr-row-text">
+                            A turnkey apartment interior — full design,
+                            procurement and styling delivered as one
+                            cohesive, move-in ready space.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Turnkey
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Mangalore
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 06 · Plama Oceanic 1203 -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Plama Oceanic 1203 · Mangalore"
+                            data-gallery="images/interiors/residentials/plama-oceanic-1203/01.jpg|images/interiors/residentials/plama-oceanic-1203/02.jpg|images/interiors/residentials/plama-oceanic-1203/03.jpg|images/interiors/residentials/plama-oceanic-1203/04.jpg|images/interiors/residentials/plama-oceanic-1203/05.jpg|images/interiors/residentials/plama-oceanic-1203/06.jpg|images/interiors/residentials/plama-oceanic-1203/07.jpg|images/interiors/residentials/plama-oceanic-1203/08.jpg">
+                        <img src="images/interiors/residentials/plama-oceanic-1203/01.jpg"
+                             alt="Plama Oceanic 1203 residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Plama Oceanic 1203 residential interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Plama Oceanic 1203 photo 1">
+                                <img src="images/interiors/residentials/plama-oceanic-1203/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Plama Oceanic 1203 photo 2">
+                                <img src="images/interiors/residentials/plama-oceanic-1203/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Plama Oceanic 1203 photo 3">
+                                <img src="images/interiors/residentials/plama-oceanic-1203/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Plama Oceanic 1203 photo 4">
+                                <img src="images/interiors/residentials/plama-oceanic-1203/04.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Plama Oceanic 1203 photo 5 - More images available">
+                                <img src="images/interiors/residentials/plama-oceanic-1203/05.jpg" alt="">
+                                <span class="di-rr-row-media-thumb-more">+3</span>
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">06</div>
+                        <div class="di-rr-row-kicker">Apartment · Mangalore</div>
+                        <h3 class="di-rr-row-title">Plama Oceanic 1203</h3>
+                        <p class="di-rr-row-text">
+                            A high-floor apartment in the same tower, given its
+                            own identity through a warmer palette, custom
+                            joinery and considered lighting.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Turnkey
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Mangalore
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 07 · Bahrain 4BHK Villa -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Bahrain 4BHK Villa"
+                            data-gallery="images/interiors/residentials/bahrain-4bhk-villa/01.jpg|images/interiors/residentials/bahrain-4bhk-villa/02.jpg|images/interiors/residentials/bahrain-4bhk-villa/03.jpg|images/interiors/residentials/bahrain-4bhk-villa/04.jpg|images/interiors/residentials/bahrain-4bhk-villa/05.jpg|images/interiors/residentials/bahrain-4bhk-villa/06.jpg|images/interiors/residentials/bahrain-4bhk-villa/07.jpg|images/interiors/residentials/bahrain-4bhk-villa/08.jpg|images/interiors/residentials/bahrain-4bhk-villa/09.jpg|images/interiors/residentials/bahrain-4bhk-villa/10.jpg|images/interiors/residentials/bahrain-4bhk-villa/11.jpg|images/interiors/residentials/bahrain-4bhk-villa/12.jpg|images/interiors/residentials/bahrain-4bhk-villa/13.jpg|images/interiors/residentials/bahrain-4bhk-villa/14.jpg|images/interiors/residentials/bahrain-4bhk-villa/15.jpg|images/interiors/residentials/bahrain-4bhk-villa/16.jpg|images/interiors/residentials/bahrain-4bhk-villa/17.jpg|images/interiors/residentials/bahrain-4bhk-villa/18.jpg">
+                        <img src="images/interiors/residentials/bahrain-4bhk-villa/01.jpg"
+                             alt="Bahrain 4BHK Villa interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Bahrain 4BHK Villa interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Bahrain Villa photo 1">
+                                <img src="images/interiors/residentials/bahrain-4bhk-villa/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Bahrain Villa photo 2">
+                                <img src="images/interiors/residentials/bahrain-4bhk-villa/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Bahrain Villa photo 3">
+                                <img src="images/interiors/residentials/bahrain-4bhk-villa/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Bahrain Villa photo 4">
+                                <img src="images/interiors/residentials/bahrain-4bhk-villa/04.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Bahrain Villa photo 5 - More images available">
+                                <img src="images/interiors/residentials/bahrain-4bhk-villa/05.jpg" alt="">
+                                <span class="di-rr-row-media-thumb-more">+13</span>
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">07</div>
+                        <div class="di-rr-row-kicker">Turnkey Villa · Bahrain</div>
+                        <h3 class="di-rr-row-title">Bahrain 4BHK Villa</h3>
                         <p class="di-rr-row-text">
                             A complete villa interior delivered turnkey —
                             from concept and material selection through
-                            to final styling across every room.
+                            to final styling across all four bedrooms.
                         </p>
                         <div class="di-rr-row-meta">
                             <span class="di-rr-row-meta-item">
@@ -2121,20 +2442,33 @@
                     </div>
                 </div>
 
-                <!-- Row 03 -->
+                <!-- Row 08 · Ujjire Villa -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Kunjathbail House"
-                            data-gallery="images/decor-indoors-featured-projet6.jpg">
-                        <img src="images/decor-indoors-featured-projet6.jpg"
-                             alt="Kunjathbail House residential interior by Decor Indoors">
+                            data-gallery-title="Ujjire Villa"
+                            data-gallery="images/interiors/residentials/ujjire-villa/01.jpg|images/interiors/residentials/ujjire-villa/02.jpg|images/interiors/residentials/ujjire-villa/03.jpg|images/interiors/residentials/ujjire-villa/04.jpg|images/interiors/residentials/ujjire-villa/05.jpg|images/interiors/residentials/ujjire-villa/06.jpg|images/interiors/residentials/ujjire-villa/07.jpg|images/interiors/residentials/ujjire-villa/08.jpg|images/interiors/residentials/ujjire-villa/09.jpg|images/interiors/residentials/ujjire-villa/10.jpg|images/interiors/residentials/ujjire-villa/11.jpg|images/interiors/residentials/ujjire-villa/12.jpg">
+                        <img src="images/interiors/residentials/ujjire-villa/01.jpg"
+                             alt="Ujjire Villa interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Kunjathbail House residential interior by Decor Indoors.
+                            Ujjire Villa residential interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet6.jpg" alt="Kunjathbail House photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Ujjire Villa photo 1">
+                                <img src="images/interiors/residentials/ujjire-villa/01.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Ujjire Villa photo 2">
+                                <img src="images/interiors/residentials/ujjire-villa/02.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Ujjire Villa photo 3">
+                                <img src="images/interiors/residentials/ujjire-villa/03.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Ujjire Villa photo 4">
+                                <img src="images/interiors/residentials/ujjire-villa/04.jpg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Ujjire Villa photo 5 - More images available">
+                                <img src="images/interiors/residentials/ujjire-villa/05.jpg" alt="">
+                                <span class="di-rr-row-media-thumb-more">+7</span>
                             </button>
                         </div>
 
@@ -2144,8 +2478,116 @@
                     </figure>
 
                     <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">03</div>
-                        <div class="di-rr-row-kicker">Family Home</div>
+                        <div class="di-rr-row-number">08</div>
+                        <div class="di-rr-row-kicker">Villa · Ujjire</div>
+                        <h3 class="di-rr-row-title">Ujjire Villa</h3>
+                        <p class="di-rr-row-text">
+                            A generous villa interior designed for
+                            entertaining and family time — spacious
+                            living zones, warm textures and quiet
+                            luxury throughout.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Villa
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Ujjire
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 09 · Katpadi Residence Design -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Katpadi Residence Design"
+                            data-gallery="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (9).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (10).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (11).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (12).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (13).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (14).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (15).png|images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (16).png">
+                        <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (9).png"
+                             alt="Katpadi Residence interior design by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Katpadi Residence interior design by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Katpadi Residence photo 1">
+                                <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (9).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Katpadi Residence photo 2">
+                                <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (10).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Katpadi Residence photo 3">
+                                <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (11).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Katpadi Residence photo 4">
+                                <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (12).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Katpadi Residence photo 5 - More images available">
+                                <img src="images/interiors/residentials/KATPADI RESIDENCE DESIGN (1)/SCENE (13).png" alt="">
+                                <span class="di-rr-row-media-thumb-more">+3</span>
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">09</div>
+                        <div class="di-rr-row-kicker">Bespoke Residence · Katpadi</div>
+                        <h3 class="di-rr-row-title">Katpadi Residence Design</h3>
+                        <p class="di-rr-row-text">
+                            A bespoke residential concept tailored to open-plan
+                            living, rich natural finishes, warm illumination
+                            and elegant custom cabinetry.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-house-heart"></i>
+                                Full Home
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Katpadi
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 10 · Kunjathbail House -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Kunjathbail House"
+                            data-gallery="images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/01.png|images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/02.png|images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/03.png">
+                        <img src="images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/01.png"
+                             alt="Kunjathbail House residential interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Kunjathbail House residential interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Kunjathbail House photo 1">
+                                <img src="images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/01.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Kunjathbail House photo 2">
+                                <img src="images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/02.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Kunjathbail House photo 3">
+                                <img src="images/interiors/residentials/KUNJATHBAIL HOUSE WORK (1)/03.png" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">10</div>
+                        <div class="di-rr-row-kicker">Family Home · Kunjathbail</div>
                         <h3 class="di-rr-row-title">Kunjathbail House</h3>
                         <p class="di-rr-row-text">
                             A quiet, layered family home designed around
@@ -2160,50 +2602,6 @@
                             <span class="di-rr-row-meta-item">
                                 <i class="bi bi-geo-alt"></i>
                                 Kunjathbail
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 04 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Plama Oceanic"
-                            data-gallery="images/decor-indoors-featured-projet7.jpg">
-                        <img src="images/decor-indoors-featured-projet7.jpg"
-                             alt="Plama Oceanic residential interior by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Plama Oceanic residential interior by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet7.jpg" alt="Plama Oceanic photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">04</div>
-                        <div class="di-rr-row-kicker">Apartment</div>
-                        <h3 class="di-rr-row-title">Plama Oceanic</h3>
-                        <p class="di-rr-row-text">
-                            A turnkey apartment interior — full design,
-                            procurement and styling delivered as one
-                            cohesive, move-in ready space.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-house-heart"></i>
-                                Turnkey
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-geo-alt"></i>
-                                Mangalore
                             </span>
                         </div>
                     </div>
@@ -2259,20 +2657,32 @@
 
             <div class="di-rr-list">
 
-                <!-- Row 01 -->
+                <!-- Row 01 · Amrutha Cafe -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Modern Office Interior"
-                            data-gallery="images/decor-indoors-commercial-interior-main-img.jpg">
-                        <img src="images/decor-indoors-commercial-interior-main-img.jpg"
-                             alt="Modern commercial interior by Decor Indoors">
+                            data-gallery-title="Amrutha Cafe · Mlore Airport"
+                            data-gallery="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (7).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (8).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (9).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (10).jpeg">
+                        <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg"
+                             alt="Amrutha Cafe, Mlore Airport interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Modern commercial interior by Decor Indoors.
+                            Amrutha Cafe, Mlore Airport interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-commercial-interior-main-img.jpg" alt="Modern Office Interior photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Amrutha Cafe photo 1">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Amrutha Cafe photo 2">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (7).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Amrutha Cafe photo 3">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (8).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Amrutha Cafe photo 4">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Amrutha Cafe photo 5">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (10).jpeg" alt="">
                             </button>
                         </div>
 
@@ -2283,40 +2693,53 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">01</div>
-                        <div class="di-rr-row-kicker">Office · Workplace</div>
-                        <h3 class="di-rr-row-title">Modern Office Interior</h3>
+                        <div class="di-rr-row-kicker">Cafe · Hospitality</div>
+                        <h3 class="di-rr-row-title">Amrutha Cafe, Mlore Airport</h3>
                         <p class="di-rr-row-text">
-                            A contemporary office environment designed
-                            to support focus, collaboration and the
-                            everyday rhythm of a modern team.
+                            A welcoming airport cafe designed for quick turnarounds
+                            and long waits alike — warm timber, soft lighting and a
+                            palette that feels like a pause between flights.
                         </p>
                         <div class="di-rr-row-meta">
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-grid-3x3-gap"></i>
-                                Office
+                                <i class="bi bi-shop-window"></i>
+                                Hospitality
                             </span>
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-people"></i>
-                                Workplace
+                                <i class="bi bi-geo-alt"></i>
+                                Mangalore Airport
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Row 02 -->
+                <!-- Row 02 · Anushas Clinic -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Commercial Lounge"
-                            data-gallery="images/decor-indoors-commercial-interior-small-img.jpg">
-                        <img src="images/decor-indoors-commercial-interior-small-img.jpg"
-                             alt="Commercial lounge interior by Decor Indoors">
+                            data-gallery-title="Anushas Clinic · Aesthetic &amp; Healthcare"
+                            data-gallery="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png|images/interiors/commercial/ANUSHAS CLINIC/a907c0a2-b239-4b20-aec9-1a9831766aac.png|images/interiors/commercial/ANUSHAS CLINIC/e457c93a-996c-4a97-b850-69249f25522c.png|images/interiors/commercial/ANUSHAS CLINIC/82bb0c6e-0811-4bee-bc3a-691a3940180e.png|images/interiors/commercial/ANUSHAS CLINIC/176993a6-34d8-45ce-9c6a-108dde0fba67.png|images/interiors/commercial/ANUSHAS CLINIC/e6d58a9e-0312-4aff-bf11-b8790a04645d.png|images/interiors/commercial/ANUSHAS CLINIC/3d9477cf-e7df-40d1-99ba-962a61cc8da8.png|images/interiors/commercial/ANUSHAS CLINIC/49b68828-9127-4e64-ad37-26e8ea5be2cc.png|images/interiors/commercial/ANUSHAS CLINIC/39d3e961-0c6b-4f04-81e2-b45b861d3607 (1).png">
+                        <img src="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png"
+                             alt="Anushas Clinic interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Commercial lounge interior by Decor Indoors.
+                            Anushas Clinic interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-commercial-interior-small-img.jpg" alt="Commercial Lounge photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Anushas Clinic photo 1">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Anushas Clinic photo 2">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/a907c0a2-b239-4b20-aec9-1a9831766aac.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Anushas Clinic photo 3">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/e457c93a-996c-4a97-b850-69249f25522c.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Anushas Clinic photo 4">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/82bb0c6e-0811-4bee-bc3a-691a3940180e.png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Anushas Clinic photo 5 - More images available">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/176993a6-34d8-45ce-9c6a-108dde0fba67.png" alt="">
+                                <span class="di-rr-row-media-thumb-more">+4</span>
                             </button>
                         </div>
 
@@ -2327,41 +2750,46 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">02</div>
-                        <div class="di-rr-row-kicker">Lounge · Hospitality</div>
-                        <h3 class="di-rr-row-title">Commercial Lounge</h3>
+                        <div class="di-rr-row-kicker">Clinic · Healthcare</div>
+                        <h3 class="di-rr-row-title">Anushas Clinic</h3>
                         <p class="di-rr-row-text">
-                            An inviting lounge zone for hospitality —
-                            comfortable seating, layered lighting and
-                            a palette designed to make guests want to
-                            stay a little longer.
+                            A calm, hygienic clinic interior — clean lines, warm
+                            neutrals and intelligent storage designed to make
+                            patients feel at ease the moment they walk in.
                         </p>
                         <div class="di-rr-row-meta">
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-shop-window"></i>
-                                Hospitality
+                                <i class="bi bi-heart-pulse"></i>
+                                Healthcare
                             </span>
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-stars"></i>
-                                Lounge
+                                <i class="bi bi-geo-alt"></i>
+                                Mangalore
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Row 03 -->
+                <!-- Row 03 · Bahrain Clothing Store -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Hotel Coriander"
-                            data-gallery="images/decor-indoors-featured-projet2.jpg">
-                        <img src="images/decor-indoors-featured-projet2.jpg"
-                             alt="Hotel Coriander hospitality interior by Decor Indoors">
+                            data-gallery-title="Bahrain Clothing Store"
+                            data-gallery="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png|images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (5).png|images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (6).png">
+                        <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png"
+                             alt="Bahrain Clothing Store retail interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Hotel Coriander hospitality interior by Decor Indoors.
+                            Bahrain Clothing Store retail interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet2.jpg" alt="Hotel Coriander photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Bahrain Clothing Store photo 1">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Bahrain Clothing Store photo 2">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (5).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Bahrain Clothing Store photo 3">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (6).png" alt="">
                             </button>
                         </div>
 
@@ -2372,41 +2800,52 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">03</div>
-                        <div class="di-rr-row-kicker">Hospitality</div>
-                        <h3 class="di-rr-row-title">Hotel Coriander</h3>
+                        <div class="di-rr-row-kicker">Retail · Showroom</div>
+                        <h3 class="di-rr-row-title">Bahrain Clothing Store</h3>
                         <p class="di-rr-row-text">
-                            A hospitality interior where warmth,
-                            materials and considered detailing come
-                            together to leave a lasting impression on
-                            every guest.
+                            A boutique retail environment built to elevate the
+                            brand experience — clear display, layered lighting
+                            and a confident, contemporary material story.
                         </p>
                         <div class="di-rr-row-meta">
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-shop-window"></i>
-                                Hospitality
+                                <i class="bi bi-bag"></i>
+                                Retail
                             </span>
                             <span class="di-rr-row-meta-item">
                                 <i class="bi bi-geo-alt"></i>
-                                Mangalore
+                                Bahrain
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Row 04 -->
+                <!-- Row 04 · Hotel Coriander -->
                 <div class="di-rr-row">
                     <figure class="di-rr-row-media"
-                            data-gallery-title="Bahrain Clothing Store"
-                            data-gallery="images/decor-indoors-featured-projet4.jpg">
-                        <img src="images/decor-indoors-featured-projet4.jpg"
-                             alt="Bahrain Clothing Store retail interior by Decor Indoors">
+                            data-gallery-title="Hotel Coriander · Dining &amp; Hospitality"
+                            data-gallery="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (9).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (10).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (6).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (7).jpeg">
+                        <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg"
+                             alt="Hotel Coriander hospitality interior by Decor Indoors">
                         <figcaption class="cr-only">
-                            Bahrain Clothing Store retail interior by Decor Indoors.
+                            Hotel Coriander hospitality interior by Decor Indoors.
                         </figcaption>
 
                         <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet4.jpg" alt="Bahrain Clothing Store photo 1">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Hotel Coriander photo 1">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Hotel Coriander photo 2">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Hotel Coriander photo 3">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (10).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Hotel Coriander photo 4">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Hotel Coriander photo 5">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (7).jpeg" alt="">
                             </button>
                         </div>
 
@@ -2417,22 +2856,224 @@
 
                     <div class="di-rr-row-content">
                         <div class="di-rr-row-number">04</div>
-                        <div class="di-rr-row-kicker">Retail · Showroom</div>
-                        <h3 class="di-rr-row-title">Bahrain Clothing Store</h3>
+                        <div class="di-rr-row-kicker">Restaurant · Dining &amp; Hospitality</div>
+                        <h3 class="di-rr-row-title">Hotel Coriander</h3>
                         <p class="di-rr-row-text">
-                            A retail showroom interior designed to
-                            elevate the brand experience — clear
-                            display, warm lighting and a confident,
-                            contemporary material story.
+                            An inviting dining atmosphere balancing earthy greens,
+                            rich wood textures and botanical illuminated accents —
+                            crafted to create memorable culinary experiences.
                         </p>
                         <div class="di-rr-row-meta">
                             <span class="di-rr-row-meta-item">
-                                <i class="bi bi-bag"></i>
-                                Retail
+                                <i class="bi bi-cup-hot"></i>
+                                Restaurant
                             </span>
                             <span class="di-rr-row-meta-item">
                                 <i class="bi bi-geo-alt"></i>
-                                Bahrain
+                                Mangalore
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 05 · Wafa Jewellery Store -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="Wafa Jewellery Store · Gold &amp; Diamonds"
+                            data-gallery="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (7).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (8).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (9).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (10).jpeg">
+                        <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg"
+                             alt="Wafa Jewellery Store retail interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            Wafa Jewellery Store retail interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Wafa Jewellery Store photo 1">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Wafa Jewellery Store photo 2">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (7).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Wafa Jewellery Store photo 3">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (8).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="3" aria-label="Wafa Jewellery Store photo 4">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="4" aria-label="Wafa Jewellery Store photo 5">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (10).jpeg" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">05</div>
+                        <div class="di-rr-row-kicker">Luxury Retail · Jewellery</div>
+                        <h3 class="di-rr-row-title">Wafa Jewellery Store</h3>
+                        <p class="di-rr-row-text">
+                            An opulent retail boutique designed for high-value fine
+                            jewelry — featuring bespoke gold-accented display fixtures,
+                            custom chandelier illumination and sculpted marble detailing.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-gem"></i>
+                                Luxury Retail
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-stars"></i>
+                                Gold &amp; Diamonds
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 06 · UAE Projects - Al Hamra -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="UAE Projects - Al Hamra · Corporate Office"
+                            data-gallery="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg|images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (5).jpeg|images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (4).jpeg">
+                        <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg"
+                             alt="UAE Projects - Al Hamra corporate interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            UAE Projects - Al Hamra corporate interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Al Hamra photo 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Al Hamra photo 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (5).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Al Hamra photo 3">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (4).jpeg" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">06</div>
+                        <div class="di-rr-row-kicker">Corporate Office · UAE Projects</div>
+                        <h3 class="di-rr-row-title">UAE Projects - Al Hamra</h3>
+                        <p class="di-rr-row-text">
+                            An executive corporate office suite designed for Al Hamra —
+                            featuring illuminated fluted timber wall accents, custom marble
+                            reception counters and acoustically isolated glass conference suites.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-briefcase"></i>
+                                Corporate Office
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Al Hamra, UAE
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 07 · UAE Projects - Dubai Mall -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="UAE Projects - Dubai Mall · Al Nibras Watches"
+                            data-gallery="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png|images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (6).png|images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (5).png">
+                        <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png"
+                             alt="UAE Projects - Dubai Mall retail interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            UAE Projects - Dubai Mall retail interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Dubai Mall photo 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Dubai Mall photo 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (6).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="2" aria-label="Dubai Mall photo 3">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (5).png" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">07</div>
+                        <div class="di-rr-row-kicker">Luxury Retail Kiosk · UAE Projects</div>
+                        <h3 class="di-rr-row-title">UAE Projects - Dubai Mall</h3>
+                        <p class="di-rr-row-text">
+                            A high-visibility luxury island kiosk crafted for Al Nibras Watches
+                            in Dubai Mall — precision tempered-glass display cases, perimeter
+                            under-counter illumination and custom oak detailing.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-shop"></i>
+                                Retail Kiosk
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Dubai Mall, UAE
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 08 · UAE Projects - Sharjah Mall -->
+                <div class="di-rr-row">
+                    <figure class="di-rr-row-media"
+                            data-gallery-title="UAE Projects - Sharjah Mall · Al Nibras Watches"
+                            data-gallery="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png|images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (4).png">
+                        <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png"
+                             alt="UAE Projects - Sharjah Mall retail interior by Decor Indoors">
+                        <figcaption class="cr-only">
+                            UAE Projects - Sharjah Mall retail interior by Decor Indoors.
+                        </figcaption>
+
+                        <div class="di-rr-row-media-thumbs">
+                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0" aria-label="Sharjah Mall photo 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png" alt="">
+                            </button>
+                            <button type="button" class="di-rr-row-media-thumb" data-index="1" aria-label="Sharjah Mall photo 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (4).png" alt="">
+                            </button>
+                        </div>
+
+                        <span class="di-rr-row-media-arrow" aria-hidden="true">
+                            <i class="bi bi-arrows-angle-expand"></i>
+                        </span>
+                    </figure>
+
+                    <div class="di-rr-row-content">
+                        <div class="di-rr-row-number">08</div>
+                        <div class="di-rr-row-kicker">Luxury Retail Kiosk · UAE Projects</div>
+                        <h3 class="di-rr-row-title">UAE Projects - Sharjah Mall</h3>
+                        <p class="di-rr-row-text">
+                            A sophisticated retail showcase installation designed for Al Nibras Watches
+                            in Sharjah Mall — architectural lighting, brushed brass trim and panoramic
+                            customer viewing angles.
+                        </p>
+                        <div class="di-rr-row-meta">
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-shop"></i>
+                                Retail Kiosk
+                            </span>
+                            <span class="di-rr-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Sharjah Mall, UAE
                             </span>
                         </div>
                     </div>
@@ -2809,7 +3450,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
 
     const sections = document.querySelectorAll(".di-rr-section");
-    const lists = document.querySelectorAll(".di-rr-list");
+    const lists    = document.querySelectorAll(".di-rr-list");
+    const rows     = document.querySelectorAll(".di-rr-row");
 
     if (!sections.length) return;
 
@@ -2822,7 +3464,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         },
-        { threshold: 0.10, rootMargin: "0px 0px -60px 0px" }
+        { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
 
     sections.forEach(function (section) {
@@ -2838,11 +3480,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         },
-        { threshold: 0, rootMargin: "0px 0px -15% 0px" }
+        { threshold: 0, rootMargin: "0px 0px -10% 0px" }
     );
 
     lists.forEach(function (list) {
         listObserver.observe(list);
+    });
+
+    const rowObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in-view");
+                    rowObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    rows.forEach(function (row) {
+        rowObserver.observe(row);
     });
 
 });
@@ -2896,6 +3554,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const list = section.querySelector(".di-rr-list");
                 if (list) list.classList.add("is-in-view");
+
+                section.querySelectorAll(".di-rr-row").forEach(function (r) {
+                    r.classList.add("is-in-view");
+                });
 
                 visibleSections.push(section);
             } else {
