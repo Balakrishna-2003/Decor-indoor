@@ -405,8 +405,327 @@
 
 
         /* =========================================================
+           PORTFOLIO FILTER BAR — CENTERED EDITORIAL DESIGN
+        ========================================================= */
+        .di-pf-filter {
+            position: relative;
+            z-index: 5;
+            padding: 85px 0 65px;
+            background: var(--di-cream);
+            border-bottom: 1px solid rgba(174, 155, 138, 0.18);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        /* Rotating dashed ring top-right */
+        .di-pf-filter::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.30);
+            pointer-events: none;
+            animation: diPfFilterSpin 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes diPfFilterSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Soft brown glow bottom-left */
+        .di-pf-filter::after {
+            content: "";
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(174, 155, 138, 0.16) 0%,
+                rgba(174, 155, 138, 0) 68%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .di-pf-filter-wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 clamp(22px, 4.5%, 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        /* ---------------- TOP KICKER ---------------- */
+        .di-pf-filter-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 22px;
+            margin-bottom: 38px;
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--di-brown);
+        }
+
+        .di-pf-filter-label::before,
+        .di-pf-filter-label::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 1px;
+            background: linear-gradient(to right,
+                transparent 0%,
+                rgba(174, 155, 138, 0.75) 40%,
+                rgba(174, 155, 138, 0.75) 60%,
+                transparent 100%);
+            transform-origin: center center;
+            animation: diPfLabelLine 1.2s cubic-bezier(.2, .8, .2, 1) 0.15s both;
+        }
+
+        @keyframes diPfLabelLine {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+
+
+        /* ---------------- TAB PILL CAPSULE ---------------- */
+        .di-pf-filter-tabs {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(174, 155, 138, 0.30);
+            box-shadow:
+                0 24px 50px -26px rgba(174, 155, 138, 0.55),
+                0 0 0 6px rgba(255, 255, 255, 0.42);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            max-width: 100%;
+        }
+
+
+        /* ---------------- BUTTONS ---------------- */
+        .di-pf-filter-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 30px;
+            background: transparent;
+            color: var(--di-dark);
+            border: 0;
+            border-radius: 50px;
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+            white-space: nowrap;
+            transition:
+                background 0.45s cubic-bezier(.2, .8, .2, 1),
+                color 0.35s cubic-bezier(.2, .8, .2, 1),
+                transform 0.35s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.45s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        /* Small diamond separator between buttons */
+        .di-pf-filter-btn + .di-pf-filter-btn::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            background: var(--di-brown);
+            transform: translate(-50%, -50%) rotate(45deg);
+            opacity: 0.55;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        /* Hide separators touching the active button */
+        .di-pf-filter-btn.is-active::before,
+        .di-pf-filter-btn.is-active + .di-pf-filter-btn::before {
+            opacity: 0;
+        }
+
+        .di-pf-filter-btn .di-pf-filter-btn-num {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 1;
+            color: var(--di-brown);
+            transition:
+                color 0.35s ease,
+                transform 0.45s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-pf-filter-btn:hover {
+            color: var(--di-brown);
+        }
+
+        .di-pf-filter-btn:hover .di-pf-filter-btn-num {
+            transform: scale(1.22);
+            color: var(--di-brown-dark);
+        }
+
+        .di-pf-filter-btn:focus-visible {
+            outline: 2px solid var(--di-brown);
+            outline-offset: 3px;
+        }
+
+        .di-pf-filter-btn.is-active {
+            background: var(--di-brown);
+            color: #ffffff;
+            box-shadow:
+                0 16px 30px -12px rgba(174, 155, 138, 0.90),
+                0 4px 10px -4px rgba(174, 155, 138, 0.45);
+        }
+
+        .di-pf-filter-btn.is-active .di-pf-filter-btn-num {
+            color: rgba(255, 255, 255, 0.90);
+            transform: scale(1);
+        }
+
+
+        /* ---------------- BOTTOM COUNTER ---------------- */
+        .di-pf-filter-count {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-top: 38px;
+            font-family: "Manrope", sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            color: var(--di-muted);
+        }
+
+        .di-pf-filter-count::before,
+        .di-pf-filter-count::after {
+            content: "";
+            display: block;
+            width: 34px;
+            height: 1px;
+            background: rgba(174, 155, 138, 0.55);
+            align-self: center;
+        }
+
+        .di-pf-filter-count strong {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            color: var(--di-brown);
+            transition: color 0.35s ease;
+        }
+
+
+        /* ---------------- SECTION SHOW / HIDE ---------------- */
+        .di-rr-section.is-filtered-out {
+            display: none !important;
+        }
+
+        .di-rr-section.is-filtered-in {
+            animation: diPfFilterIn 0.55s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        @keyframes diPfFilterIn {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 991.98px) {
+            .di-pf-filter { padding: 70px 0 55px; }
+            .di-pf-filter-label { font-size: 9.5px; letter-spacing: 4px; gap: 16px; margin-bottom: 32px; }
+            .di-pf-filter-label::before,
+            .di-pf-filter-label::after { width: 50px; }
+
+            .di-pf-filter-btn { padding: 13px 22px; font-size: 9.5px; letter-spacing: 2.4px; gap: 10px; }
+            .di-pf-filter-btn .di-pf-filter-btn-num { font-size: 12px; }
+
+            .di-pf-filter-count { margin-top: 30px; font-size: 9px; letter-spacing: 3px; gap: 10px; }
+            .di-pf-filter-count strong { font-size: 26px; }
+            .di-pf-filter-count::before,
+            .di-pf-filter-count::after { width: 26px; }
+        }
+
+        @media (max-width: 767.98px) {
+            .di-pf-filter { padding: 60px 0 45px; }
+            .di-pf-filter-label { font-size: 9px; letter-spacing: 3px; gap: 12px; margin-bottom: 26px; }
+            .di-pf-filter-label::before,
+            .di-pf-filter-label::after { width: 34px; }
+
+            /* Pill becomes horizontally scrollable */
+            .di-pf-filter-tabs {
+                width: 100%;
+                max-width: 100%;
+                padding: 6px;
+                justify-content: flex-start;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+                border-radius: 40px;
+            }
+
+            .di-pf-filter-tabs::-webkit-scrollbar { display: none; }
+
+            .di-pf-filter-btn {
+                flex: 0 0 auto;
+                padding: 12px 20px;
+                font-size: 8.5px;
+                letter-spacing: 2px;
+                gap: 8px;
+            }
+
+            .di-pf-filter-btn .di-pf-filter-btn-num { font-size: 11px; }
+            .di-pf-filter-btn + .di-pf-filter-btn::before { width: 4px; height: 4px; }
+
+            .di-pf-filter-count { margin-top: 26px; font-size: 8px; letter-spacing: 2.5px; gap: 8px; }
+            .di-pf-filter-count strong { font-size: 22px; }
+            .di-pf-filter-count::before,
+            .di-pf-filter-count::after { width: 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .di-pf-filter::before,
+            .di-pf-filter-label::before,
+            .di-pf-filter-label::after,
+            .di-pf-filter-btn,
+            .di-rr-section.is-filtered-in {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+
+
+        /* =========================================================
            PORTFOLIO ROW SECTIONS
-           (converted from residential .di-rr-* pattern)
         ========================================================= */
         .di-rr-section {
             position: relative;
@@ -1633,9 +1952,61 @@
 
 
     <!-- =========================================================
+         PORTFOLIO FILTER BAR — CENTERED EDITORIAL
+    ========================================================= -->
+    <section class="di-pf-filter" aria-label="Filter portfolio by category">
+
+        <div class="di-pf-filter-wrap">
+
+            <span class="di-pf-filter-label">
+                Browse By Category
+            </span>
+
+            <div class="di-pf-filter-tabs" role="tablist" aria-label="Portfolio categories">
+
+                <button type="button"
+                        class="di-pf-filter-btn is-active"
+                        data-filter="all"
+                        role="tab"
+                        aria-selected="true">
+                    All Work
+                    <span class="di-pf-filter-btn-num">08</span>
+                </button>
+
+                <button type="button"
+                        class="di-pf-filter-btn"
+                        data-filter="residential"
+                        role="tab"
+                        aria-selected="false">
+                    Residential
+                    <span class="di-pf-filter-btn-num">04</span>
+                </button>
+
+                <button type="button"
+                        class="di-pf-filter-btn"
+                        data-filter="commercial"
+                        role="tab"
+                        aria-selected="false">
+                    Commercial
+                    <span class="di-pf-filter-btn-num">04</span>
+                </button>
+
+            </div>
+
+            <span class="di-pf-filter-count">
+                <strong id="diPfVisibleCount">08</strong>
+                Projects Shown
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
          01 · RESIDENTIAL INTERIORS  (row format)
     ========================================================= -->
-    <section class="di-rr-section" id="residential-interiors">
+    <section class="di-rr-section" id="residential-interiors" data-category="residential">
 
         <div class="di-rr-wrap">
 
@@ -1860,697 +2231,9 @@
 
 
     <!-- =========================================================
-         02 · RENOVATION & REMODELING  (row format)
+         02 · COMMERCIAL INTERIORS  (row format)
     ========================================================= -->
-    <section class="di-rr-section di-rr-alt" id="renovation-remodeling">
-
-        <div class="di-rr-wrap">
-
-            <div class="di-rr-head">
-
-                <div class="di-rr-kicker">
-                    Renovation &amp; Remodeling
-                </div>
-
-                <h2 class="di-rr-title">
-                    <span class="line line-1"><span>Old spaces,</span></span>
-                    <span class="line line-2"><span><span class="accent">reimagined.</span></span></span>
-                </h2>
-
-                <p class="di-rr-intro">
-                    From single rooms to complete homes and offices, we
-                    transform existing spaces into something fresh,
-                    functional and beautifully aligned with how you
-                    live and work today.
-                </p>
-
-            </div>
-
-
-            <div class="di-rr-list">
-
-                <!-- Row 01 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Hotel Coriander Refit"
-                            data-gallery="images/decor-indoors-featured-projet2.jpg">
-                        <img src="images/decor-indoors-featured-projet2.jpg"
-                             alt="Hotel Coriander renovation and remodeling project by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Hotel Coriander renovation and remodeling project by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet2.jpg" alt="Hotel Coriander Refit photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">01</div>
-                        <div class="di-rr-row-kicker">Hospitality · Remodel</div>
-                        <h3 class="di-rr-row-title">Hotel Coriander Refit</h3>
-                        <p class="di-rr-row-text">
-                            A full hospitality refit that reimagined the
-                            guest experience — streamlined circulation,
-                            refreshed materials and a renewed atmosphere.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-building"></i>
-                                Hospitality
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-arrow-repeat"></i>
-                                Refit
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 02 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Living Room Transformation"
-                            data-gallery="images/decor-indoors-services2.jpg">
-                        <img src="images/decor-indoors-services2.jpg"
-                             alt="Renovation and remodeling interior by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Renovation and remodeling interior by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-services2.jpg" alt="Living Room Transformation photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">02</div>
-                        <div class="di-rr-row-kicker">Living · Renewed</div>
-                        <h3 class="di-rr-row-title">Living Room Transformation</h3>
-                        <p class="di-rr-row-text">
-                            An underused living space reworked with
-                            intelligent planning, softer lighting and a
-                            warmer material direction — designed for
-                            everyday gathering.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-house"></i>
-                                Residential
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-arrow-repeat"></i>
-                                Renewal
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 03 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Bahrain Clothing Store"
-                            data-gallery="images/decor-indoors-featured-projet4.jpg">
-                        <img src="images/decor-indoors-featured-projet4.jpg"
-                             alt="Bahrain Clothing Store renovation project by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Bahrain Clothing Store renovation project by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet4.jpg" alt="Bahrain Clothing Store photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">03</div>
-                        <div class="di-rr-row-kicker">Retail · Remodel</div>
-                        <h3 class="di-rr-row-title">Bahrain Clothing Store</h3>
-                        <p class="di-rr-row-text">
-                            A retail remodel that elevated the brand's
-                            physical presence — sharper display, warmer
-                            lighting and a more inviting customer flow.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-bag"></i>
-                                Retail
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-arrow-repeat"></i>
-                                Remodel
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 04 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Full Home Renovation"
-                            data-gallery="images/decor-indoors-services1.jpg">
-                        <img src="images/decor-indoors-services1.jpg"
-                             alt="Residential renovation interior by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Residential renovation interior by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-services1.jpg" alt="Full Home Renovation photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">04</div>
-                        <div class="di-rr-row-kicker">Residence · Renewed</div>
-                        <h3 class="di-rr-row-title">Full Home Renovation</h3>
-                        <p class="di-rr-row-text">
-                            A complete home renovation that touched every
-                            room — new joinery, refreshed materials and a
-                            design language that ties the whole house
-                            together.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-house-heart"></i>
-                                Residential
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-arrow-repeat"></i>
-                                Full Renovation
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="di-rr-bottom">
-
-                <div class="di-rr-bottom-text">
-                    Plan · Rebuild · Refine · Reveal
-                </div>
-
-                <a href="decor-indoors-interiors-renovation-and-remodeling.html" class="di-rr-bottom-btn">
-                    <span>Explore Renovation</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         03 · FURNITURE & STYLING  (row format)
-    ========================================================= -->
-    <section class="di-rr-section" id="furniture-styling">
-
-        <div class="di-rr-wrap">
-
-            <div class="di-rr-head">
-
-                <div class="di-rr-kicker">
-                    Furniture &amp; Styling
-                </div>
-
-                <h2 class="di-rr-title">
-                    <span class="line line-1"><span>The details that</span></span>
-                    <span class="line line-2"><span><span class="accent">finish a room.</span></span></span>
-                </h2>
-
-                <p class="di-rr-intro">
-                    Custom furniture, curated pieces and thoughtful styling —
-                    the finishing layer that turns a well-planned space into
-                    one that truly feels like yours.
-                </p>
-
-            </div>
-
-
-            <div class="di-rr-list">
-
-                <!-- Row 01 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Bespoke Living Pieces"
-                            data-gallery="images/decor-indoors-services3.jpg">
-                        <img src="images/decor-indoors-services3.jpg"
-                             alt="Furniture and styling interior by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Furniture and styling interior by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-services3.jpg" alt="Bespoke Living Pieces photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">01</div>
-                        <div class="di-rr-row-kicker">Custom Furniture</div>
-                        <h3 class="di-rr-row-title">Bespoke Living Pieces</h3>
-                        <p class="di-rr-row-text">
-                            A curated set of custom furniture designed
-                            and built to the scale of the room — each
-                            piece shaped for the way the family
-                            actually lives.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-rulers"></i>
-                                Bespoke
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-house"></i>
-                                Residential
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 02 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Styled Interior Detail"
-                            data-gallery="images/decor-indoors-services4.jpg">
-                        <img src="images/decor-indoors-services4.jpg"
-                             alt="Furniture styling detail by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Furniture styling detail by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-services4.jpg" alt="Styled Interior Detail photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">02</div>
-                        <div class="di-rr-row-kicker">Interior Styling</div>
-                        <h3 class="di-rr-row-title">Styled Interior Detail</h3>
-                        <p class="di-rr-row-text">
-                            Considered styling — textiles, greenery,
-                            lighting and object placement working
-                            together to give a space its final,
-                            finished character.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-palette"></i>
-                                Styling
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-house"></i>
-                                Residential
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 03 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Katpadi Residence Styling"
-                            data-gallery="images/decor-indoors-featured-projet5.jpg">
-                        <img src="images/decor-indoors-featured-projet5.jpg"
-                             alt="Katpadi Residence furniture and styling by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Katpadi Residence furniture and styling by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet5.jpg" alt="Katpadi Residence Styling photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">03</div>
-                        <div class="di-rr-row-kicker">Residential Styling</div>
-                        <h3 class="di-rr-row-title">Katpadi Residence Styling</h3>
-                        <p class="di-rr-row-text">
-                            A quiet, tonal styling layer applied across
-                            a private residence — bringing cohesion to
-                            the interiors and softening every
-                            transition between rooms.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-palette"></i>
-                                Styling
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-geo-alt"></i>
-                                Katpadi
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 04 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Prestige Valley Crest"
-                            data-gallery="images/decor-indoors-featured-projet8.jpg">
-                        <img src="images/decor-indoors-featured-projet8.jpg"
-                             alt="Prestige Valley Crest furniture and styling by Decor Indoors">
-                        <figcaption class="cr-only">
-                            Prestige Valley Crest furniture and styling by Decor Indoors.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-featured-projet8.jpg" alt="Prestige Valley Crest photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">04</div>
-                        <div class="di-rr-row-kicker">Furniture Layout</div>
-                        <h3 class="di-rr-row-title">Prestige Valley Crest</h3>
-                        <p class="di-rr-row-text">
-                            A compact city apartment styled with a
-                            quiet palette and intelligent furniture
-                            layouts — calm amid the urban pace.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-rulers"></i>
-                                Furniture
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-geo-alt"></i>
-                                Bengaluru
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="di-rr-bottom">
-
-                <div class="di-rr-bottom-text">
-                    Custom Furniture · Lighting · Textiles · Decor
-                </div>
-
-                <a href="decor-indoors-interiors-furniture-and-styling.html" class="di-rr-bottom-btn">
-                    <span>Explore Furniture &amp; Styling</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         04 · DESIGN CONSULTATION  (row format)
-    ========================================================= -->
-    <section class="di-rr-section di-rr-alt" id="design-consultation">
-
-        <div class="di-rr-wrap">
-
-            <div class="di-rr-head">
-
-                <div class="di-rr-kicker">
-                    Design Consultation
-                </div>
-
-                <h2 class="di-rr-title">
-                    <span class="line line-1"><span>A clear plan,</span></span>
-                    <span class="line line-2"><span><span class="accent">before anything begins.</span></span></span>
-                </h2>
-
-                <p class="di-rr-intro">
-                    One-on-one consultation for homeowners and businesses —
-                    space planning, material direction and design clarity to
-                    help you move forward with confidence.
-                </p>
-
-            </div>
-
-
-            <div class="di-rr-list">
-
-                <!-- Row 01 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Design Direction Session"
-                            data-gallery="images/decor-indoors1.jpg">
-                        <img src="images/decor-indoors1.jpg"
-                             alt="Decor Indoors design consultation interior visual">
-                        <figcaption class="cr-only">
-                            Decor Indoors design consultation interior visual.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors1.jpg" alt="Design Direction Session photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">01</div>
-                        <div class="di-rr-row-kicker">Concept · Direction</div>
-                        <h3 class="di-rr-row-title">Design Direction Session</h3>
-                        <p class="di-rr-row-text">
-                            A focused session to establish the design
-                            direction — how the space should feel, how
-                            it should be used, and the story it should
-                            tell.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-lightbulb"></i>
-                                Concept
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-chat-heart"></i>
-                                1-on-1
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 02 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Material &amp; Finish Selection"
-                            data-gallery="images/decor-indoors-cta.jpg">
-                        <img src="images/decor-indoors-cta.jpg"
-                             alt="Decor Indoors design consultation interior visual">
-                        <figcaption class="cr-only">
-                            Decor Indoors design consultation interior visual.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-cta.jpg" alt="Material &amp; Finish Selection photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">02</div>
-                        <div class="di-rr-row-kicker">Material Palette</div>
-                        <h3 class="di-rr-row-title">Material &amp; Finish Selection</h3>
-                        <p class="di-rr-row-text">
-                            A guided walkthrough of material options —
-                            timber, stone, fabric, paint and metal —
-                            curated to match the palette and mood of
-                            the project.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-palette"></i>
-                                Materials
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-stars"></i>
-                                Finishes
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 03 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Layout &amp; Planning Review"
-                            data-gallery="images/4a4e9f9b-d0c0-4dbb-8dfa-bd168191add9.png">
-                        <img src="images/4a4e9f9b-d0c0-4dbb-8dfa-bd168191add9.png"
-                             alt="Decor Indoors design consultation visual">
-                        <figcaption class="cr-only">
-                            Decor Indoors design consultation visual.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/4a4e9f9b-d0c0-4dbb-8dfa-bd168191add9.png" alt="Layout &amp; Planning Review photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">03</div>
-                        <div class="di-rr-row-kicker">Space Planning</div>
-                        <h3 class="di-rr-row-title">Layout &amp; Planning Review</h3>
-                        <p class="di-rr-row-text">
-                            A careful review of how you move through
-                            the space — circulation, storage and
-                            furniture placement resolved before any
-                            construction begins.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-grid-3x3-gap"></i>
-                                Layout
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-rulers"></i>
-                                Planning
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 04 -->
-                <div class="di-rr-row">
-                    <figure class="di-rr-row-media"
-                            data-gallery-title="Vision &amp; Concept Board"
-                            data-gallery="images/decor-indoors-aboutus-content-1.jpg">
-                        <img src="images/decor-indoors-aboutus-content-1.jpg"
-                             alt="Decor Indoors design consultation interior visual">
-                        <figcaption class="cr-only">
-                            Decor Indoors design consultation interior visual.
-                        </figcaption>
-
-                        <div class="di-rr-row-media-thumbs">
-                            <button type="button" class="di-rr-row-media-thumb is-first" data-index="0">
-                                <img src="images/decor-indoors-aboutus-content-1.jpg" alt="Vision &amp; Concept Board photo 1">
-                            </button>
-                        </div>
-
-                        <span class="di-rr-row-media-arrow" aria-hidden="true">
-                            <i class="bi bi-arrows-angle-expand"></i>
-                        </span>
-                    </figure>
-
-                    <div class="di-rr-row-content">
-                        <div class="di-rr-row-number">04</div>
-                        <div class="di-rr-row-kicker">Design Clarity</div>
-                        <h3 class="di-rr-row-title">Vision &amp; Concept Board</h3>
-                        <p class="di-rr-row-text">
-                            A single, clear visual reference — concept
-                            imagery, palette swatches and material
-                            samples — that guides every decision
-                            downstream.
-                        </p>
-                        <div class="di-rr-row-meta">
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-image"></i>
-                                Concept
-                            </span>
-                            <span class="di-rr-row-meta-item">
-                                <i class="bi bi-stars"></i>
-                                Clarity
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="di-rr-bottom">
-
-                <div class="di-rr-bottom-text">
-                    Listen · Plan · Guide · Decide
-                </div>
-
-                <a href="decor-indoors-interiors-design-counsultation.html" class="di-rr-bottom-btn">
-                    <span>Explore Consultation</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================================================
-         05 · COMMERCIAL INTERIORS  (row format)
-    ========================================================= -->
-    <section class="di-rr-section" id="commercials">
+    <section class="di-rr-section di-rr-alt" id="commercials" data-category="commercial">
 
         <div class="di-rr-wrap">
 
@@ -3161,6 +2844,105 @@ document.addEventListener("DOMContentLoaded", function () {
     lists.forEach(function (list) {
         listObserver.observe(list);
     });
+
+});
+</script>
+
+
+<!-- =========================================================
+     PORTFOLIO FILTER
+========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const filterBtns = document.querySelectorAll(".di-pf-filter-btn");
+    const sections   = document.querySelectorAll(".di-rr-section");
+    const countEl    = document.getElementById("diPfVisibleCount");
+    const filterBar  = document.querySelector(".di-pf-filter");
+
+    if (!filterBtns.length || !sections.length) return;
+
+    function padCount(n) {
+        return n < 10 ? "0" + n : String(n);
+    }
+
+    function countRows(section) {
+        return section.querySelectorAll(".di-rr-row").length;
+    }
+
+    function updateCount(visibleSections) {
+        if (!countEl) return;
+        let total = 0;
+        visibleSections.forEach(function (sec) {
+            total += countRows(sec);
+        });
+        countEl.textContent = padCount(total);
+    }
+
+    function applyFilter(value) {
+
+        const visibleSections = [];
+
+        sections.forEach(function (section) {
+
+            const cat = section.getAttribute("data-category");
+            const match = (value === "all") || (cat === value);
+
+            if (match) {
+                section.classList.remove("is-filtered-out");
+                section.classList.add("is-filtered-in");
+
+                section.classList.add("is-in-view");
+
+                const list = section.querySelector(".di-rr-list");
+                if (list) list.classList.add("is-in-view");
+
+                visibleSections.push(section);
+            } else {
+                section.classList.add("is-filtered-out");
+                section.classList.remove("is-filtered-in");
+            }
+
+        });
+
+        updateCount(visibleSections);
+
+        requestAnimationFrame(function () {
+            sections.forEach(function (s) {
+                if (!s.classList.contains("is-filtered-out")) {
+                    s.classList.remove("is-filtered-in");
+                }
+            });
+        });
+
+        if (window.matchMedia("(max-width: 767.98px)").matches && filterBar) {
+            const y = filterBar.getBoundingClientRect().top
+                    + window.pageYOffset - 20;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    }
+
+
+    filterBtns.forEach(function (btn) {
+
+        btn.addEventListener("click", function () {
+
+            filterBtns.forEach(function (b) {
+                b.classList.remove("is-active");
+                b.setAttribute("aria-selected", "false");
+            });
+
+            btn.classList.add("is-active");
+            btn.setAttribute("aria-selected", "true");
+
+            applyFilter(btn.getAttribute("data-filter"));
+
+        });
+
+    });
+
+
+    applyFilter("all");
 
 });
 </script>

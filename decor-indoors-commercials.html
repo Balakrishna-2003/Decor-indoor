@@ -549,17 +549,34 @@
             right: 46px;
         }
 
+        .di-cw-section.is-in-view .di-cw-row {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .di-cw-section.is-in-view .di-cw-row:nth-child(1) {
-            opacity: 1; transform: translateY(0);
             transition-delay: 0.25s, 0.25s, 0s, 0s;
         }
         .di-cw-section.is-in-view .di-cw-row:nth-child(2) {
-            opacity: 1; transform: translateY(0);
             transition-delay: 0.45s, 0.45s, 0s, 0s;
         }
         .di-cw-section.is-in-view .di-cw-row:nth-child(3) {
-            opacity: 1; transform: translateY(0);
             transition-delay: 0.65s, 0.65s, 0s, 0s;
+        }
+        .di-cw-section.is-in-view .di-cw-row:nth-child(4) {
+            transition-delay: 0.85s, 0.85s, 0s, 0s;
+        }
+        .di-cw-section.is-in-view .di-cw-row:nth-child(5) {
+            transition-delay: 1.05s, 1.05s, 0s, 0s;
+        }
+        .di-cw-section.is-in-view .di-cw-row:nth-child(6) {
+            transition-delay: 1.15s, 1.15s, 0s, 0s;
+        }
+        .di-cw-section.is-in-view .di-cw-row:nth-child(7) {
+            transition-delay: 1.25s, 1.25s, 0s, 0s;
+        }
+        .di-cw-section.is-in-view .di-cw-row:nth-child(8) {
+            transition-delay: 1.35s, 1.35s, 0s, 0s;
         }
 
         .di-cw-row:hover {
@@ -637,10 +654,30 @@
         /* Thumbnail strip */
         .di-cw-row-thumbs {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
             gap: 8px;
             padding: 8px;
             background: #f4efe6;
+        }
+
+        .di-cw-row-thumb-more {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 25, 18, 0.68);
+            color: #ffffff;
+            font-family: "Manrope", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        .di-cw-row-thumb:hover .di-cw-row-thumb-more {
+            background: rgba(174, 155, 138, 0.90);
         }
 
         .di-cw-row-thumb {
@@ -1137,6 +1174,12 @@
                 border-radius: 22px;
             }
 
+            .di-cw-row-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             .di-cw-row:nth-child(even) .di-cw-row-media,
             .di-cw-row:nth-child(even) .di-cw-row-content {
                 order: initial;
@@ -1149,7 +1192,7 @@
             }
 
             .di-cw-row-thumbs {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
             }
         }
 
@@ -1192,7 +1235,7 @@
             }
 
             .di-cw-row-thumbs {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
                 gap: 6px;
                 padding: 6px;
             }
@@ -1228,7 +1271,7 @@
             .di-cm-hero-title { font-size: 32px; }
             .di-cm-hero-index { font-size: 13px; }
             .di-cm-hero-index::after { width: 34px; }
-            .di-cw-row-thumbs { grid-template-columns: repeat(3, 1fr); }
+            .di-cw-row-thumbs { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1386,9 +1429,9 @@
                         <a href="decor-indoors-commercials.html">Services</a>
                         <span>/</span>
                         <strong>Commercials</strong>
-                    </nav>
+                    </nav><br>
 
-                    <div class="di-cm-hero-index">04 — Commercial</div>
+                    <div class="di-cm-hero-index"> — Commercial</div>
 
                     <h1 class="di-cm-hero-title">
                         <span class="line line-1"><span>Spaces built for</span></span>
@@ -1457,10 +1500,10 @@
 
                     <figure class="di-cw-row-media"
                             data-gallery="Amrutha Cafe · Mlore Airport"
-                            data-gallery-src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/01.jpg|images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/02.jpg|images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/03.jpg|images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/04.jpg">
+                            data-gallery-src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (7).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (8).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (9).jpeg|images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (10).jpeg">
 
                         <div class="di-cw-row-media-main">
-                            <img src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/01.jpg"
+                            <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg"
                                  alt="Amrutha Cafe, Mlore Airport interior by Decor Indoors">
                             <figcaption class="cr-only">
                                 Amrutha Cafe, Mlore Airport interior by Decor Indoors.
@@ -1473,16 +1516,19 @@
 
                         <div class="di-cw-row-thumbs" role="tablist" aria-label="Amrutha Cafe gallery thumbnails">
                             <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
-                                <img src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/01.jpg" alt="">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (6).jpeg" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
-                                <img src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/02.jpg" alt="">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (7).jpeg" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
-                                <img src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/03.jpg" alt="">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (8).jpeg" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="3" aria-label="Image 4">
-                                <img src="images/commercials/AMRUTHA CAFE MLORE AIRPORT (1)/04.jpg" alt="">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="4" aria-label="Image 5">
+                                <img src="images/interiors/commercial/AMRUTHA CAFE MLORE AIRPORT (1)/scene (10).jpeg" alt="">
                             </button>
                         </div>
 
@@ -1517,11 +1563,11 @@
                 <article class="di-cw-row">
 
                     <figure class="di-cw-row-media"
-                            data-gallery="Anushas Clinic"
-                            data-gallery-src="images/commercials/ANUSHAS CLINIC/01.jpg|images/commercials/ANUSHAS CLINIC/02.jpg|images/commercials/ANUSHAS CLINIC/03.jpg|images/commercials/ANUSHAS CLINIC/04.jpg">
+                            data-gallery="Anushas Clinic · Aesthetic &amp; Healthcare"
+                            data-gallery-src="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png|images/interiors/commercial/ANUSHAS CLINIC/a907c0a2-b239-4b20-aec9-1a9831766aac.png|images/interiors/commercial/ANUSHAS CLINIC/e457c93a-996c-4a97-b850-69249f25522c.png|images/interiors/commercial/ANUSHAS CLINIC/82bb0c6e-0811-4bee-bc3a-691a3940180e.png|images/interiors/commercial/ANUSHAS CLINIC/176993a6-34d8-45ce-9c6a-108dde0fba67.png|images/interiors/commercial/ANUSHAS CLINIC/e6d58a9e-0312-4aff-bf11-b8790a04645d.png|images/interiors/commercial/ANUSHAS CLINIC/3d9477cf-e7df-40d1-99ba-962a61cc8da8.png|images/interiors/commercial/ANUSHAS CLINIC/49b68828-9127-4e64-ad37-26e8ea5be2cc.png|images/interiors/commercial/ANUSHAS CLINIC/39d3e961-0c6b-4f04-81e2-b45b861d3607 (1).png">
 
                         <div class="di-cw-row-media-main">
-                            <img src="images/commercials/ANUSHAS CLINIC/01.jpg"
+                            <img src="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png"
                                  alt="Anushas Clinic interior by Decor Indoors">
                             <figcaption class="cr-only">
                                 Anushas Clinic interior by Decor Indoors.
@@ -1534,16 +1580,20 @@
 
                         <div class="di-cw-row-thumbs" role="tablist" aria-label="Anushas Clinic gallery thumbnails">
                             <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
-                                <img src="images/commercials/ANUSHAS CLINIC/01.jpg" alt="">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/4b704a27-9642-4d24-9196-f354e0e37151.png" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
-                                <img src="images/commercials/ANUSHAS CLINIC/02.jpg" alt="">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/a907c0a2-b239-4b20-aec9-1a9831766aac.png" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
-                                <img src="images/commercials/ANUSHAS CLINIC/03.jpg" alt="">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/e457c93a-996c-4a97-b850-69249f25522c.png" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="3" aria-label="Image 4">
-                                <img src="images/commercials/ANUSHAS CLINIC/04.jpg" alt="">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/82bb0c6e-0811-4bee-bc3a-691a3940180e.png" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="4" aria-label="Image 5 - More images available">
+                                <img src="images/interiors/commercial/ANUSHAS CLINIC/176993a6-34d8-45ce-9c6a-108dde0fba67.png" alt="">
+                                <span class="di-cw-row-thumb-more">+4</span>
                             </button>
                         </div>
 
@@ -1579,10 +1629,10 @@
 
                     <figure class="di-cw-row-media"
                             data-gallery="Bahrain Clothing Store"
-                            data-gallery-src="images/commercials/BAHRAIN CLOTHING STORE (1)/01.jpg|images/commercials/BAHRAIN CLOTHING STORE (1)/02.jpg|images/commercials/BAHRAIN CLOTHING STORE (1)/03.jpg|images/commercials/BAHRAIN CLOTHING STORE (1)/04.jpg">
+                            data-gallery-src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png|images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (5).png|images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (6).png">
 
                         <div class="di-cw-row-media-main">
-                            <img src="images/commercials/BAHRAIN CLOTHING STORE (1)/01.jpg"
+                            <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png"
                                  alt="Bahrain Clothing Store interior by Decor Indoors">
                             <figcaption class="cr-only">
                                 Bahrain Clothing Store interior by Decor Indoors.
@@ -1595,16 +1645,13 @@
 
                         <div class="di-cw-row-thumbs" role="tablist" aria-label="Bahrain Clothing Store gallery thumbnails">
                             <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
-                                <img src="images/commercials/BAHRAIN CLOTHING STORE (1)/01.jpg" alt="">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (4).png" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
-                                <img src="images/commercials/BAHRAIN CLOTHING STORE (1)/02.jpg" alt="">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (5).png" alt="">
                             </button>
                             <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
-                                <img src="images/commercials/BAHRAIN CLOTHING STORE (1)/03.jpg" alt="">
-                            </button>
-                            <button type="button" class="di-cw-row-thumb" data-index="3" aria-label="Image 4">
-                                <img src="images/commercials/BAHRAIN CLOTHING STORE (1)/04.jpg" alt="">
+                                <img src="images/interiors/commercial/BAHRAIN CLOTHING STORE (1)/SCENE (6).png" alt="">
                             </button>
                         </div>
 
@@ -1626,6 +1673,305 @@
                             <span class="di-cw-row-meta-item">
                                 <i class="bi bi-geo-alt"></i>
                                 Bahrain
+                            </span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================================
+                     PROJECT 04 · HOTEL CORIANDER
+                ============================================================== -->
+                <article class="di-cw-row">
+
+                    <figure class="di-cw-row-media"
+                            data-gallery="Hotel Coriander · Dining &amp; Hospitality"
+                            data-gallery-src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (9).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (10).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (6).jpeg|images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (7).jpeg">
+
+                        <div class="di-cw-row-media-main">
+                            <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg"
+                                 alt="Hotel Coriander interior by Decor Indoors">
+                            <figcaption class="cr-only">
+                                Hotel Coriander interior by Decor Indoors.
+                            </figcaption>
+
+                            <span class="di-cw-row-media-arrow" aria-hidden="true">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </span>
+                        </div>
+
+                        <div class="di-cw-row-thumbs" role="tablist" aria-label="Hotel Coriander gallery thumbnails">
+                            <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (8).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (10).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="3" aria-label="Image 4">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="4" aria-label="Image 5">
+                                <img src="images/interiors/commercial/HOTEL CORIANDER (1)/SCENE (7).jpeg" alt="">
+                            </button>
+                        </div>
+
+                    </figure>
+
+                    <div class="di-cw-row-content">
+                        <div class="di-cw-row-kicker">Restaurant · Dining &amp; Hospitality</div>
+                        <h3 class="di-cw-row-title">Hotel Coriander</h3>
+                        <p class="di-cw-row-text">
+                            An inviting dining atmosphere balancing earthy greens,
+                            rich wood textures and botanical illuminated accents —
+                            crafted to create memorable culinary experiences.
+                        </p>
+                        <div class="di-cw-row-meta">
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-cup-hot"></i>
+                                Restaurant
+                            </span>
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-building"></i>
+                                Hospitality
+                            </span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================================
+                     PROJECT 05 · WAFA JEWELLERY STORE
+                ============================================================== -->
+                <article class="di-cw-row">
+
+                    <figure class="di-cw-row-media"
+                            data-gallery="Wafa Jewellery Store · Gold &amp; Diamonds"
+                            data-gallery-src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (7).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (8).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (9).jpeg|images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (10).jpeg">
+
+                        <div class="di-cw-row-media-main">
+                            <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg"
+                                 alt="Wafa Jewellery Store interior by Decor Indoors">
+                            <figcaption class="cr-only">
+                                Wafa Jewellery Store interior by Decor Indoors.
+                            </figcaption>
+
+                            <span class="di-cw-row-media-arrow" aria-hidden="true">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </span>
+                        </div>
+
+                        <div class="di-cw-row-thumbs" role="tablist" aria-label="Wafa Jewellery Store gallery thumbnails">
+                            <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (7).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (8).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="3" aria-label="Image 4">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (9).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="4" aria-label="Image 5">
+                                <img src="images/interiors/commercial/WAFA JEWELLERY STORE (1)/SCENE (10).jpeg" alt="">
+                            </button>
+                        </div>
+
+                    </figure>
+
+                    <div class="di-cw-row-content">
+                        <div class="di-cw-row-kicker">Luxury Retail · Jewellery</div>
+                        <h3 class="di-cw-row-title">Wafa Jewellery Store</h3>
+                        <p class="di-cw-row-text">
+                            An opulent retail boutique designed for high-value fine
+                            jewelry — featuring bespoke gold-accented display fixtures,
+                            custom chandelier illumination and sculpted marble detailing.
+                        </p>
+                        <div class="di-cw-row-meta">
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-gem"></i>
+                                Luxury Retail
+                            </span>
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-stars"></i>
+                                Gold &amp; Diamonds
+                            </span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================================
+                     PROJECT 06 · UAE PROJECTS - AL HAMRA
+                ============================================================== -->
+                <article class="di-cw-row">
+
+                    <figure class="di-cw-row-media"
+                            data-gallery="UAE Projects - Al Hamra · Corporate Office"
+                            data-gallery-src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg|images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (5).jpeg|images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (4).jpeg">
+
+                        <div class="di-cw-row-media-main">
+                            <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg"
+                                 alt="UAE Projects - Al Hamra interior by Decor Indoors">
+                            <figcaption class="cr-only">
+                                UAE Projects - Al Hamra corporate interior by Decor Indoors.
+                            </figcaption>
+
+                            <span class="di-cw-row-media-arrow" aria-hidden="true">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </span>
+                        </div>
+
+                        <div class="di-cw-row-thumbs" role="tablist" aria-label="UAE Projects - Al Hamra gallery thumbnails">
+                            <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (6).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (5).jpeg" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/AL HAMRA (1)/SCENE (4).jpeg" alt="">
+                            </button>
+                        </div>
+
+                    </figure>
+
+                    <div class="di-cw-row-content">
+                        <div class="di-cw-row-kicker">Corporate Office · UAE Projects</div>
+                        <h3 class="di-cw-row-title">UAE PROJECTS - AL HAMRA</h3>
+                        <p class="di-cw-row-text">
+                            An executive corporate office suite designed for Al Hamra —
+                            featuring illuminated fluted timber wall accents, custom marble
+                            reception counters and acoustically isolated glass conference suites.
+                        </p>
+                        <div class="di-cw-row-meta">
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-briefcase"></i>
+                                Corporate Office
+                            </span>
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Al Hamra, UAE
+                            </span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================================
+                     PROJECT 07 · UAE PROJECTS - DUBAI MALL
+                ============================================================== -->
+                <article class="di-cw-row">
+
+                    <figure class="di-cw-row-media"
+                            data-gallery="UAE Projects - Dubai Mall · Al Nibras Watches"
+                            data-gallery-src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png|images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (6).png|images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (5).png">
+
+                        <div class="di-cw-row-media-main">
+                            <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png"
+                                 alt="UAE Projects - Dubai Mall interior by Decor Indoors">
+                            <figcaption class="cr-only">
+                                UAE Projects - Dubai Mall retail interior by Decor Indoors.
+                            </figcaption>
+
+                            <span class="di-cw-row-media-arrow" aria-hidden="true">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </span>
+                        </div>
+
+                        <div class="di-cw-row-thumbs" role="tablist" aria-label="UAE Projects - Dubai Mall gallery thumbnails">
+                            <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (4).png" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (6).png" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="2" aria-label="Image 3">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/DUBAI MALL (1)/SCENE (5).png" alt="">
+                            </button>
+                        </div>
+
+                    </figure>
+
+                    <div class="di-cw-row-content">
+                        <div class="di-cw-row-kicker">Luxury Retail Kiosk · UAE Projects</div>
+                        <h3 class="di-cw-row-title">UAE PROJECTS - DUBAI MALL</h3>
+                        <p class="di-cw-row-text">
+                            A high-visibility luxury island kiosk crafted for Al Nibras Watches
+                            in Dubai Mall — precision tempered-glass display cases, perimeter
+                            under-counter illumination and custom oak detailing.
+                        </p>
+                        <div class="di-cw-row-meta">
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-shop"></i>
+                                Retail Kiosk
+                            </span>
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Dubai Mall, UAE
+                            </span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- =============================================================
+                     PROJECT 08 · UAE PROJECTS - SHARJAH MALL
+                ============================================================== -->
+                <article class="di-cw-row">
+
+                    <figure class="di-cw-row-media"
+                            data-gallery="UAE Projects - Sharjah Mall · Al Nibras Watches"
+                            data-gallery-src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png|images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (4).png">
+
+                        <div class="di-cw-row-media-main">
+                            <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png"
+                                 alt="UAE Projects - Sharjah Mall interior by Decor Indoors">
+                            <figcaption class="cr-only">
+                                UAE Projects - Sharjah Mall retail interior by Decor Indoors.
+                            </figcaption>
+
+                            <span class="di-cw-row-media-arrow" aria-hidden="true">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </span>
+                        </div>
+
+                        <div class="di-cw-row-thumbs" role="tablist" aria-label="UAE Projects - Sharjah Mall gallery thumbnails">
+                            <button type="button" class="di-cw-row-thumb is-first" data-index="0" aria-label="Image 1">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (3).png" alt="">
+                            </button>
+                            <button type="button" class="di-cw-row-thumb" data-index="1" aria-label="Image 2">
+                                <img src="images/interiors/commercial/UAE PROJECTS (1)/SHARJAH MALL (1)/scene (4).png" alt="">
+                            </button>
+                        </div>
+
+                    </figure>
+
+                    <div class="di-cw-row-content">
+                        <div class="di-cw-row-kicker">Luxury Retail Kiosk · UAE Projects</div>
+                        <h3 class="di-cw-row-title">UAE PROJECTS - SHARJAH MALL</h3>
+                        <p class="di-cw-row-text">
+                            An elegant retail watch kiosk designed for Sharjah Mall —
+                            featuring brass arch branded totems, ribbed white paneling with
+                            warm timber trim and 360-degree floating glass vitrines.
+                        </p>
+                        <div class="di-cw-row-meta">
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-shop"></i>
+                                Retail Kiosk
+                            </span>
+                            <span class="di-cw-row-meta-item">
+                                <i class="bi bi-geo-alt"></i>
+                                Sharjah Mall, UAE
                             </span>
                         </div>
                     </div>
