@@ -635,80 +635,180 @@
 
         .di-rd-text:last-of-type { margin-bottom: 0; }
 
+
+        /* =========================================================
+           STEPS — CREATIVE CONNECTED JOURNEY
+        ========================================================= */
         .di-rd-features {
+            position: relative;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 22px;
-            margin-top: 36px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 42px;
             padding-top: 34px;
             border-top: 1px solid var(--di-border);
         }
 
         .di-rd-feature {
+            position: relative;
             display: flex;
-            align-items: flex-start;
-            gap: 18px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 14px;
+            padding: 0 6px;
             opacity: 0;
-            transform: translateX(-40px);
+            transform: translateY(18px);
             transition:
-                opacity 0.9s cubic-bezier(.2, .8, .2, 1),
-                transform 0.9s cubic-bezier(.2, .8, .2, 1);
+                opacity 0.85s cubic-bezier(.2, .8, .2, 1),
+                transform 0.85s cubic-bezier(.2, .8, .2, 1);
         }
 
         .di-rd-section.is-in-view .di-rd-feature:nth-child(1) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.25s;
+            opacity: 1; transform: translateY(0); transition-delay: 1.15s;
         }
         .di-rd-section.is-in-view .di-rd-feature:nth-child(2) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.38s;
+            opacity: 1; transform: translateY(0); transition-delay: 1.35s;
         }
         .di-rd-section.is-in-view .di-rd-feature:nth-child(3) {
-            opacity: 1;
-            transform: translateX(0);
-            transition-delay: 1.51s;
+            opacity: 1; transform: translateY(0); transition-delay: 1.55s;
         }
 
         .di-rd-feature-icon {
-            flex: 0 0 50px;
-            width: 50px;
-            height: 50px;
+            position: relative;
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(174, 155, 138, 0.12);
+            background: linear-gradient(135deg, #ffffff 0%, #f4efe6 100%);
             color: var(--di-brown);
-            font-size: 19px;
+            font-size: 20px;
             line-height: 1;
+            box-shadow:
+                0 14px 26px -14px rgba(174, 155, 138, 0.75),
+                0 0 0 1px rgba(174, 155, 138, 0.22) inset;
             transition:
-                background 0.4s ease,
-                color 0.4s ease,
-                transform 0.55s cubic-bezier(.2, .8, .2, 1);
+                color 0.45s ease,
+                transform 0.55s cubic-bezier(.2, .8, .2, 1),
+                box-shadow 0.45s ease,
+                background 0.45s ease;
+            z-index: 2;
+            flex: 0 0 auto;
+        }
+
+        .di-rd-feature-icon::before {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border-radius: 50%;
+            border: 1px dashed rgba(174, 155, 138, 0.55);
+            opacity: 0.85;
+            transition:
+                opacity 0.4s ease,
+                border-color 0.4s ease,
+                transform 1.2s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rd-feature-icon::after {
+            content: "";
+            position: absolute;
+            inset: -7px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            border-top-color: var(--di-brown);
+            transform: rotate(-45deg);
+            transition:
+                transform 1.4s cubic-bezier(.2, .8, .2, 1),
+                border-color 0.4s ease;
         }
 
         .di-rd-feature:hover .di-rd-feature-icon {
             background: var(--di-brown);
             color: #ffffff;
-            transform: scale(1.08) rotate(-6deg);
+            transform: scale(1.06) translateY(-2px);
+            box-shadow:
+                0 20px 32px -14px rgba(174, 155, 138, 0.95),
+                0 0 0 1px rgba(174, 155, 138, 0) inset;
+        }
+
+        .di-rd-feature:hover .di-rd-feature-icon::before {
+            opacity: 1;
+            border-color: var(--di-brown);
+            transform: rotate(180deg);
+        }
+
+        .di-rd-feature:hover .di-rd-feature-icon::after {
+            transform: rotate(135deg);
+            border-top-color: var(--di-green);
         }
 
         .di-rd-feature-title {
             font-family: "Manrope", sans-serif;
-            font-size: 14.5px;
+            font-size: 11px;
             font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             color: var(--di-dark);
-            margin-bottom: 4px;
-            line-height: 1.3;
+            transition: color 0.35s ease;
         }
 
-        .di-rd-feature-text {
-            font-family: "Manrope", sans-serif;
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--di-muted);
+        .di-rd-feature:hover .di-rd-feature-title { color: var(--di-brown); }
+
+        .di-rd-feature:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 29px;
+            left: calc(50% + 40px);
+            right: calc(-50% + 40px);
+            height: 1px;
+            background-image: linear-gradient(
+                to right,
+                rgba(174, 155, 138, 0.55) 0%,
+                rgba(174, 155, 138, 0.55) 50%,
+                transparent 50%,
+                transparent 100%
+            );
+            background-size: 8px 1px;
+            background-repeat: repeat-x;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .di-rd-section.is-in-view .di-rd-feature:nth-child(1)::after {
+            opacity: 1;
+            transition-delay: 1.55s;
+        }
+        .di-rd-section.is-in-view .di-rd-feature:nth-child(2)::after {
+            opacity: 1;
+            transition-delay: 1.75s;
+        }
+
+        .di-rd-feature:not(:last-child) .di-rd-feature-arrow {
+            position: absolute;
+            top: 26px;
+            left: calc(50% + 40px);
+            right: calc(-50% + 40px);
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            pointer-events: none;
+            color: var(--di-brown);
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.9s cubic-bezier(.2, .8, .2, 1);
+            z-index: 1;
+        }
+
+        .di-rd-section.is-in-view .di-rd-feature:nth-child(1) .di-rd-feature-arrow {
+            opacity: 0.7;
+            transition-delay: 1.6s;
+        }
+        .di-rd-section.is-in-view .di-rd-feature:nth-child(2) .di-rd-feature-arrow {
+            opacity: 0.7;
+            transition-delay: 1.8s;
         }
 
 
@@ -759,6 +859,58 @@
             max-width: 1480px;
             margin: 0 auto;
             padding: 0 clamp(22px, 5%, 80px);
+        }
+
+        /* =========================================================
+           SECTION DIVIDER — between Residential Design & Services
+        ========================================================= */
+        .di-mg-divider {
+            position: relative;
+            width: min(760px, 80%);
+            height: 1px;
+            margin: 0 auto 70px;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(174, 155, 138, 0.50) 12%,
+                rgba(174, 155, 138, 0.50) 88%,
+                transparent 100%
+            );
+            opacity: 0;
+            transform: scaleX(0.3);
+            transition:
+                opacity 1s cubic-bezier(.2, .8, .2, 1) 0.15s,
+                transform 1.2s cubic-bezier(.2, .8, .2, 1) 0.15s;
+        }
+
+        .di-mg-section.is-in-view .di-mg-divider {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .di-mg-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 7px;
+            height: 7px;
+            background: var(--di-brown);
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 6px #ffffff;
+        }
+
+        .di-mg-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 6%;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--di-green);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 4px #ffffff;
         }
 
         .di-mg-head {
@@ -1082,7 +1234,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            max-height: 234px;
+            max-height: 220px;
         }
 
         .di-mg-card-media img {
@@ -1356,6 +1508,7 @@
             .di-rd-text { max-width: 100%; }
 
             .di-mg-section { padding: 55px 0 90px; }
+            .di-mg-divider { margin-bottom: 55px; }
             .di-mg-head { margin-bottom: 55px; }
             .di-mg-featured { grid-template-columns: 1fr; margin-bottom: 30px; }
             .di-mg-featured-media { min-height: 400px; }
@@ -1441,13 +1594,51 @@
             .di-rd-kicker::before { width: 32px; }
             .di-rd-title { font-size: 32px; letter-spacing: -1.2px; margin-bottom: 18px; }
             .di-rd-text { font-size: 13.5px; line-height: 1.75; margin-bottom: 16px; }
-            .di-rd-features { gap: 16px; margin-top: 28px; padding-top: 26px; }
-            .di-rd-feature { gap: 14px; }
-            .di-rd-feature-icon { flex-basis: 42px; width: 42px; height: 42px; font-size: 16px; }
-            .di-rd-feature-title { font-size: 13px; }
-            .di-rd-feature-text { font-size: 12px; }
+
+            /* STEPS — become vertical journey on mobile */
+            .di-rd-features {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                margin-top: 28px;
+                padding-top: 26px;
+            }
+
+            .di-rd-feature {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 16px;
+                padding: 0;
+            }
+
+            .di-rd-feature-icon { width: 52px; height: 52px; font-size: 18px; flex-shrink: 0; }
+            .di-rd-feature-icon::before { inset: -6px; }
+
+            .di-rd-feature-title { font-size: 12px; letter-spacing: 2.5px; }
+
+            .di-rd-feature:not(:last-child)::after {
+                top: calc(100% + 4px);
+                left: 25px;
+                right: auto;
+                width: 1px;
+                height: 18px;
+                background-image: linear-gradient(
+                    to bottom,
+                    rgba(174, 155, 138, 0.55) 0%,
+                    rgba(174, 155, 138, 0.55) 50%,
+                    transparent 50%,
+                    transparent 100%
+                );
+                background-size: 1px 8px;
+                background-repeat: repeat-y;
+            }
+
+            .di-rd-feature:not(:last-child) .di-rd-feature-arrow {
+                display: none;
+            }
 
             .di-mg-section { padding: 45px 0 70px; }
+            .di-mg-divider { margin-bottom: 42px; }
             .di-mg-wrap { padding: 0 22px; }
             .di-mg-head { margin-bottom: 40px; }
             .di-mg-kicker { font-size: 9.5px; letter-spacing: 4px; gap: 12px; margin-bottom: 18px; }
@@ -1471,8 +1662,8 @@
             .di-mg-grid { grid-template-columns: 1fr; gap: 16px; }
             .di-mg-card { border-radius: 18px; }
 
-            .di-mg-card-media { aspect-ratio: 4 / 3; padding: 12px 12px 0; }
-            .di-mg-card-media img { border-radius: 10px; }
+            .di-mg-card-media { aspect-ratio: 4 / 3; }
+            .di-mg-card-media img { border-radius: 0px; }
 
             .di-mg-card-body { padding: 20px 20px 22px; }
             .di-mg-card-title { font-size: 20px; }
@@ -1491,9 +1682,6 @@
             .di-rd-media-small { width: 110px; height: 140px; bottom: -16px; }
             .di-rd-emblem { width: 72px; height: 72px; top: 14px; right: -8px; }
             .di-rd-emblem svg { width: 40px; height: 40px; }
-
-            .di-mg-card-media { padding: 10px 10px 0; }
-            .di-mg-card-media img { border-radius: 8px; }
         }
 
 
@@ -1523,7 +1711,12 @@
             .di-rd-text,
             .di-rd-feature,
             .di-rd-feature-icon,
+            .di-rd-feature-icon::before,
+            .di-rd-feature-icon::after,
+            .di-rd-feature::after,
+            .di-rd-feature-arrow,
             .di-mg-section::before,
+            .di-mg-divider,
             .di-mg-kicker,
             .di-mg-kicker::before,
             .di-mg-kicker::after,
@@ -1696,7 +1889,7 @@
             </div>
 
             <figure class="di-ri-hero-media">
-                <img src="images/interiors/residentials/cordel-cottage-kulshekar/01.jpg"
+                <img src="images/images-residentials/decor-indoors-residentials-hero-section-bg.jpg"
                      alt="Residential interior design by Decor Indoors">
                 <figcaption class="cr-only">
                     Residential interior design by Decor Indoors.
@@ -1752,7 +1945,7 @@
                 <span class="di-rd-shape-ring" aria-hidden="true"></span>
 
                 <figure class="di-rd-media-main">
-                    <img src="images/interiors/residentials/cordel-cottage-kulshekar/04.jpg"
+                    <img src="images/images-residentials/decor-indoors-residentials-content-welcome-img1.jpg"
                          alt="Residential interior designed by Decor Indoors">
                     <figcaption class="cr-only">
                         Residential interior designed by Decor Indoors.
@@ -1827,30 +2020,27 @@
                         <div class="di-rd-feature-icon">
                             <i class="bi bi-person-heart"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Designed Around You</div>
-                            <div class="di-rd-feature-text">Every decision starts with how you live, rest and host.</div>
-                        </div>
+                        <div class="di-rd-feature-title">Understand</div>
+                        <span class="di-rd-feature-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
                     </div>
 
                     <div class="di-rd-feature">
                         <div class="di-rd-feature-icon">
                             <i class="bi bi-gem"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Materials That Last</div>
-                            <div class="di-rd-feature-text">Real wood, natural stone and honest finishes.</div>
-                        </div>
+                        <div class="di-rd-feature-title">Design</div>
+                        <span class="di-rd-feature-arrow" aria-hidden="true">
+                            <i class="bi bi-arrow-right"></i>
+                        </span>
                     </div>
 
                     <div class="di-rd-feature">
                         <div class="di-rd-feature-icon">
                             <i class="bi bi-rulers"></i>
                         </div>
-                        <div>
-                            <div class="di-rd-feature-title">Crafted to Detail</div>
-                            <div class="di-rd-feature-text">From joinery to lighting — nothing left to chance.</div>
-                        </div>
+                        <div class="di-rd-feature-title">Craft</div>
                     </div>
 
                 </div>
@@ -1868,6 +2058,8 @@
     <section class="di-mg-section" id="residential-services">
 
         <div class="di-mg-wrap">
+
+            <div class="di-mg-divider" aria-hidden="true"></div>
 
             <div class="di-mg-head">
 
@@ -1891,7 +2083,7 @@
             <article class="di-mg-featured">
 
                 <figure class="di-mg-featured-media">
-                    <img src="images/decor-indoors-residentials-content-full-home-interior.jpg"
+                    <img src="images/images-residentials/decor-indoors-residentials-content-full-home-interior.jpg"
                          alt="Full Home Interiors by Decor Indoors">
                     <figcaption class="cr-only">
                         Full Home Interiors by Decor Indoors.
@@ -1940,7 +2132,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-modular-kitchen.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-modular-kitchen.jpg"
                              alt="Modular Kitchens by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Modular Kitchens by Decor Indoors.
@@ -1965,7 +2157,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-wardrobes-and-storage.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-wardrobes-and-storage.jpg"
                              alt="Wardrobes and Storage by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Wardrobes and Storage by Decor Indoors.
@@ -1990,7 +2182,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-living-and-dining-rooms.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-living-and-dining-rooms.jpg"
                              alt="Living and Dining Rooms by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Living and Dining Rooms by Decor Indoors.
@@ -2015,7 +2207,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-bedrooms-interior.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-bedrooms-interior.jpg"
                              alt="Bedroom Interiors by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Bedroom Interiors by Decor Indoors.
@@ -2040,7 +2232,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-ceiling-and-lighting.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-ceiling-and-lighting.jpg"
                              alt="Ceilings and Lighting by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Ceilings and Lighting by Decor Indoors.
@@ -2065,7 +2257,7 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-wall-and-floor.jpg"
+                        <img src="images/images-residentials/decor-indoors-residentials-content-wall-and-floor.jpg"
                              alt="Wall and Floor Treatments by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
                             Wall and Floor Treatments by Decor Indoors.
@@ -2090,23 +2282,23 @@
 
                 <article class="di-mg-card">
                     <figure class="di-mg-card-media">
-                        <img src="images/decor-indoors-residentials-content-furniture-and-styling.jpg"
-                             alt="Furniture and Styling by Decor Indoors" loading="lazy">
+                        <img src="images/images-residentials/decor-indoors-residentials-content-bathroom.jpg"
+                             alt="Bathroom Interiors by Decor Indoors" loading="lazy">
                         <figcaption class="cr-only">
-                            Furniture and Styling by Decor Indoors.
+                            Bathroom Interiors by Decor Indoors.
                         </figcaption>
                     </figure>
 
                     <div class="di-mg-card-body">
                         <h3 class="di-mg-card-title">
-                            Furniture &amp; <span class="accent">Styling</span>
+                            Bathroom <span class="accent">Interiors</span>
                         </h3>
                         <p class="di-mg-card-text">
-                            The finishing layer that turns a house into a home.
+                            Calm, elegant bathrooms with smart layouts and natural finishes.
                         </p>
                         <div class="di-mg-card-includes">
                             <p class="di-mg-card-includes-text">
-                                Custom · Loose · Curtains · Art · Plants
+                                Wet Area · Vanity · Tiling · Fittings · Lighting
                             </p>
                         </div>
                     </div>
