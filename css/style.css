@@ -13136,7 +13136,7 @@ body:has(.di-mobile-offcanvas.show) .di-main-header {
 .di-cm-hero-media {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     margin: 0;
     padding: 0;
     overflow: hidden;
