@@ -18,7 +18,81 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+    /* ---------------- TESTIMONIAL READ MORE ---------------- */
+    .di-tm-text {
+        position: relative;
+        will-change: height;
+    }
 
+    .di-tm-ellipsis {
+        color: var(--di-brown, #ae9b8a);
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .di-tm-remainder {
+        display: none;
+        opacity: 0;
+    }
+
+    .di-tm-read-more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        padding: 2px 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-family: "Manrope", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: var(--di-brown-dark, #8b7367);
+        transition: color 0.25s ease;
+        align-self: flex-start;
+    }
+
+    .di-tm-read-more-btn:hover {
+        color: var(--di-green, #363e2c);
+    }
+
+    .di-tm-read-more-btn i {
+        font-size: 11px;
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .di-tm-read-more-btn[aria-expanded="true"] i {
+        transform: rotate(180deg);
+    }
+
+    .di-tm-read-more-btn:focus-visible {
+        outline: 2px solid var(--di-brown, #ae9b8a);
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+
+    .di-ts-read-more-link {
+        display: inline-block;
+        font-family: "Manrope", sans-serif;
+        font-size: 12.5px;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: var(--di-brown-dark, #8b7367);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        margin-left: 6px;
+        transition: color 0.25s ease;
+    }
+
+    .di-ts-read-more-link:hover {
+        color: var(--di-green, #363e2c);
+    }
+    </style>
 </head>
 <body>
 
@@ -188,19 +262,17 @@
                     </div>
 
                     <p class="di-ts-quote-text">
-                        They didn't just design our home — they
-                        understood how we wanted to live in it.
-                        Every corner feels like it was always meant
-                        to be this way.
+                        We had a great experience with Shannon. He was professional and shared good ideas n designs and was patient with the changes in designs requested.
+                        <a href="#testimonials" class="di-ts-read-more-link">… Read More</a>
                     </p>
 
                     <div class="di-ts-quote-divider" aria-hidden="true"></div>
 
                     <div class="di-ts-author">
-                        <span class="di-ts-avatar">AR</span>
+                        <span class="di-ts-avatar">DL</span>
                         <span class="di-ts-author-info">
-                            <span class="di-ts-author-name">Ananya Rao</span>
-                            <span class="di-ts-author-role">Residential · Mangalore</span>
+                            <span class="di-ts-author-name">Divya Maria Lobo</span>
+                            <span class="di-ts-author-role">Verified Client · Dubai</span>
                         </span>
                     </div>
 
@@ -242,7 +314,7 @@
 
             <div class="di-tm-grid">
 
-                <!-- 01 — Deepthi TS -->
+                <!-- 01 — Suresh Puduvettu -->
                 <article class="di-tm-card">
                     <span class="di-tm-accent di-tm-accent-green"></span>
                     <span class="di-tm-quote" aria-hidden="true">"</span>
@@ -256,26 +328,22 @@
                     </div>
 
                     <p class="di-tm-text">
-                        Excellent work by Decor Indoors! The designs are
-                        modern, functional, and beautifully executed. The
-                        team was professional, attentive, and delivered
-                        everything on time. Highly recommended for anyone
-                        looking for interiors in Mangalore!
+                        Decor indoors is very professional and expertise team. I refer it those who wants to build their dream house and the interior work. They will finish the works in time and home will get new modern looks.
                     </p>
 
                     <div class="di-tm-divider" aria-hidden="true"></div>
 
                     <footer class="di-tm-author">
-                        <span class="di-tm-avatar di-tm-avatar-green">DT</span>
+                        <span class="di-tm-avatar di-tm-avatar-green">SP</span>
                         <span class="di-tm-author-body">
-                            <strong>Deepthi TS</strong>
+                            <strong>Suresh Puduvettu</strong>
                             <small>Verified Client</small>
                         </span>
                     </footer>
                 </article>
 
 
-                <!-- 02 — Prasad Acharya -->
+                <!-- 02 — Yathiraj S Padavinangady -->
                 <article class="di-tm-card">
                     <span class="di-tm-accent di-tm-accent-brown"></span>
                     <span class="di-tm-quote" aria-hidden="true">"</span>
@@ -289,24 +357,22 @@
                     </div>
 
                     <p class="di-tm-text">
-                        Highly professional interior design studio with
-                        excellent idias and qyality work, planning and
-                        execusion of work was great. strongly recommended.
+                        Recently, Decor Indoors – Interior Design Studio &amp; Execution Unit completed the interior design for my company, Blueline Computers. They were extremely quick, professional and detail-oriented throughout the process. I shared my ideas and they executed them exactly as envisioned — the final result was truly stunning and beyond my expectations. The project was completed well before the deadline, with no need for any corrections. I truly appreciate the dedication, creativity and perfection demonstrated by the Decor Indoors team.
                     </p>
 
                     <div class="di-tm-divider" aria-hidden="true"></div>
 
                     <footer class="di-tm-author">
-                        <span class="di-tm-avatar di-tm-avatar-brown">PA</span>
+                        <span class="di-tm-avatar di-tm-avatar-brown">YP</span>
                         <span class="di-tm-author-body">
-                            <strong>Prasad Acharya</strong>
+                            <strong>Yathiraj S Padavinangady</strong>
                             <small>Verified Client</small>
                         </span>
                     </footer>
                 </article>
 
 
-                <!-- 03 — Jayarama BN -->
+                <!-- 03 — Divya Maria Lobo -->
                 <article class="di-tm-card">
                     <span class="di-tm-accent di-tm-accent-green"></span>
                     <span class="di-tm-quote" aria-hidden="true">"</span>
@@ -320,55 +386,46 @@
                     </div>
 
                     <p class="di-tm-text">
-                        Truly impressed with the creativity and
-                        dedication. The interiors look beautiful and
-                        were delivered on time. And also everything was
-                        within my budget without compromising on
-                        quality. Thank you for the wonderful work.
+                        We had a great experience with Shannon. He was professional and shared good ideas n designs and was patient with the changes in designs requested. As we are based put of Dubai, we could entrust him with the task, and he would monitor the work closely and send us updates and pictures.<br><br>
+                        Thank you Shannon (Decor Indoors) and I wish you a lot more clients to make happy beautiful homes.
                     </p>
 
                     <div class="di-tm-divider" aria-hidden="true"></div>
 
                     <footer class="di-tm-author">
-                        <span class="di-tm-avatar di-tm-avatar-green">JB</span>
-                        <span class="di-tm-author-body">
-                            <strong>Jayarama BN</strong>
-                            <small>Verified Client</small>
-                        </span>
-                    </footer>
-                </article>
-
-
-                <!-- 04 — Divya Maria Lobo -->
-                <article class="di-tm-card">
-                    <span class="di-tm-accent di-tm-accent-brown"></span>
-                    <span class="di-tm-quote" aria-hidden="true">"</span>
-
-                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-
-                    <p class="di-tm-text">
-                        We had a great experience with Shannon. He was
-                        professional and shared good ideas n designs and
-                        was patient with the changes in designs
-                        requested. As we are based put of Dubai, we could
-                        entrust him with the task, and he would monitor
-                        the work closely and send us updates and pictures.
-                        Thank you Shannon (Decor Indoors) and I wish you
-                        a lot more clients to make happy beautiful homes.
-                    </p>
-
-                    <div class="di-tm-divider" aria-hidden="true"></div>
-
-                    <footer class="di-tm-author">
-                        <span class="di-tm-avatar di-tm-avatar-brown">DL</span>
+                        <span class="di-tm-avatar di-tm-avatar-green">DL</span>
                         <span class="di-tm-author-body">
                             <strong>Divya Maria Lobo</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 04 — Sonu Gibbu -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Shannon, Thank you for bringing our vision to life to our home and creating a space that truly reflects our needs and style. We are thrilled with the outcome and highly recommend your services.<br><br>
+                        Your professionalism, creative insight, and patience made the design process a positive and enjoyable experience. We look forward to the possibility of working with you again in the future
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">SG</span>
+                        <span class="di-tm-author-body">
+                            <strong>Sonu Gibbu</strong>
                             <small>Verified Client</small>
                         </span>
                     </footer>
@@ -389,12 +446,7 @@
                     </div>
 
                     <p class="di-tm-text">
-                        I couldn't speak of Shannon Rego from decor
-                        indoors any higher enough. The service is
-                        exceptional, and the quality and delivery of
-                        work are outstanding. If you're looking to turn
-                        your house into a dream home, Decor Indoors is
-                        the way to go!
+                        I couldn’t speak of Shannon Rego from decor indoors any higher enough. The service is exceptional, and the quality and delivery of work are outstanding. If you’re looking to turn your house into a dream home, Decor Indoors is the way to go!
                     </p>
 
                     <div class="di-tm-divider" aria-hidden="true"></div>
@@ -423,14 +475,7 @@
                     </div>
 
                     <p class="di-tm-text">
-                        The quality of materials used exceeded our
-                        expectations, and the attention to detail in
-                        every corner of the project was impressive. The
-                        designers patiently accommodated our preferences,
-                        offered thoughtful suggestions, and ensured
-                        everything was completed on time. The final
-                        outcome completely transformed our space into a
-                        warm, elegant, and comfortable home.
+                        The quality of materials used exceeded our expectations, and the attention to detail in every corner of the project was impressive. The designers patiently accommodated our preferences, offered thoughtful suggestions, and ensured everything was completed on time. The final outcome completely transformed our space into a warm, elegant, and comfortable home.
                     </p>
 
                     <div class="di-tm-divider" aria-hidden="true"></div>
@@ -439,6 +484,560 @@
                         <span class="di-tm-avatar di-tm-avatar-brown">AM</span>
                         <span class="di-tm-author-body">
                             <strong>Ash Mk</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 07 — Jayarama BN -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Truly impressed with the creativity and dedication. The interiors look beautiful and were delivered on time. And also everything was within my budget without compromising on quality. Thank you for the wonderful work.
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">JB</span>
+                        <span class="di-tm-author-body">
+                            <strong>Jayarama BN</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 08 — Deepthi TS -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Excellent work by Decor Indoors! The designs are modern, functional, and beautifully executed. The team was professional, attentive, and delivered everything on time. Highly recommended for anyone looking for interiors in Mangalore!
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">DT</span>
+                        <span class="di-tm-author-body">
+                            <strong>Deepthi TS</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 09 — Nishanth K -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Outstanding quality, honest and transparent work, and hassle-free project updates throughout. Communication is excellent—perfect for NRI clients who want smooth execution without any issues. Highly recommended for reliable and premium interiors
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">NK</span>
+                        <span class="di-tm-author-body">
+                            <strong>Nishanth K</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 10 — Sri sweets -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        We had a great experience with Shannon. He was professional and shared good ideas n designs .
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">SS</span>
+                        <span class="di-tm-author-body">
+                            <strong>Sri sweets</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 11 — dinu thomas -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="4 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Our interior design work was completed on time with good quality finishes. Overall, I’m satisfied with both the design and workmanship. Shannon helped me in all aspects of design process.
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">DT</span>
+                        <span class="di-tm-author-body">
+                            <strong>dinu thomas</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 12 — Harsha Bidappa -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Excellent design work on both the bar and kitchen sections of my home. Modern, practical, and aesthetic. Really happy with the execution :)
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">HB</span>
+                        <span class="di-tm-author-body">
+                            <strong>Harsha Bidappa</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 13 — PRASAD ACHARYA -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Highly professional interior design studio with excellent idias and qyality work, planning and execusion of work was great. strongly recommended.
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">PA</span>
+                        <span class="di-tm-author-body">
+                            <strong>PRASAD ACHARYA</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 14 — stella guddi -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Executive Interior design with superior quality. Fast working. All' the best for Decor Indoors
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">SG</span>
+                        <span class="di-tm-author-body">
+                            <strong>stella guddi</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 15 — Prasad S Konchady -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Top notch quality ever seen... Remarkable work.. I wish Decor Indoor team all the good luck ahead...
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">PK</span>
+                        <span class="di-tm-author-body">
+                            <strong>Prasad S Konchady</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 16 — NIHAL NORONHA -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Their work finishing was very neat and clean, also prices are very reasonable
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">NN</span>
+                        <span class="di-tm-author-body">
+                            <strong>NIHAL NORONHA</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 17 — Lokesh Shetty - Pulley Type cloth hanger -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Very innovative interior work done by decor indoors and finished work in time.
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">LS</span>
+                        <span class="di-tm-author-body">
+                            <strong>Lokesh Shetty - Pulley Type cloth hanger</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 18 — manjunath ks -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Awesome design and commitment to the work . Completed project on time . Highly recommended
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">MK</span>
+                        <span class="di-tm-author-body">
+                            <strong>manjunath ks</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 19 — Suburamani Hamsini -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Very nice and beautiful Designs,and it's very friendly and the performance of the staff. Very nice experience
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">SH</span>
+                        <span class="di-tm-author-body">
+                            <strong>Suburamani Hamsini</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 20 — Shivananda RAGHU KOTIAN -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Quality,timely delivery and quick services
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">SK</span>
+                        <span class="di-tm-author-body">
+                            <strong>Shivananda RAGHU KOTIAN</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 21 — Nithin PR -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Best place to get ur interiors
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">NP</span>
+                        <span class="di-tm-author-body">
+                            <strong>Nithin PR</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 22 — Prashanth Rai -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Nice Designing n Execution
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">PR</span>
+                        <span class="di-tm-author-body">
+                            <strong>Prashanth Rai</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 23 — Manojkumar SP -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Very nice and well experience
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">MS</span>
+                        <span class="di-tm-author-body">
+                            <strong>Manojkumar SP</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 24 — Daina Rodrigues -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-brown"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Appreciate 👍 …
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-brown">DR</span>
+                        <span class="di-tm-author-body">
+                            <strong>Daina Rodrigues</strong>
+                            <small>Verified Client</small>
+                        </span>
+                    </footer>
+                </article>
+
+
+                <!-- 25 — Diamond Cleaningservices -->
+                <article class="di-tm-card">
+                    <span class="di-tm-accent di-tm-accent-green"></span>
+                    <span class="di-tm-quote" aria-hidden="true">"</span>
+
+                    <div class="di-tm-stars" aria-label="5 out of 5 stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+
+                    <p class="di-tm-text">
+                        Decor and Indoors is absolutely fantastic!<br>
+                        Working with Mr. Shenanon was such a wonderful experience. He listens, understands exactly what you need, and delivers designs that are elegant, modern, and timeless.<br><br>
+                        Whether it’s your home or office, they make every corner special and meaningful. The entire team is professional, creative, and delivers on time.<br>
+                        Thank you Mr Shenanon and team for making our dream space come to life! Highly recommend to everyone.
+                    </p>
+
+                    <div class="di-tm-divider" aria-hidden="true"></div>
+
+                    <footer class="di-tm-author">
+                        <span class="di-tm-avatar di-tm-avatar-green">DC</span>
+                        <span class="di-tm-author-body">
+                            <strong>Diamond Cleaningservices</strong>
                             <small>Verified Client</small>
                         </span>
                     </footer>
@@ -799,5 +1398,182 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <script src="js/decor-indoors-scroll-reveal-fixed.js"></script>
+
+<!-- =========================================================
+     TESTIMONIALS READ MORE / READ LESS (28-WORD TRUNCATION)
+========================================================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const MAX_WORDS = 28;
+    const cards = document.querySelectorAll(".di-tm-card");
+
+    cards.forEach(function (card) {
+        const textEl = card.querySelector(".di-tm-text");
+        if (!textEl) return;
+
+        // Parse child nodes to count words while preserving tags like <br>
+        const nodes = Array.from(textEl.childNodes);
+        let wordCount = 0;
+        let splitPointReached = false;
+
+        const previewFrag = document.createDocumentFragment();
+        const remainderFrag = document.createDocumentFragment();
+
+        nodes.forEach(function (node) {
+            if (splitPointReached) {
+                remainderFrag.appendChild(node.cloneNode(true));
+                return;
+            }
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent;
+                const tokens = text.split(/(\s+)/);
+
+                let nodePreviewText = "";
+                let nodeRemainderText = "";
+
+                for (let i = 0; i < tokens.length; i++) {
+                    const token = tokens[i];
+                    if (splitPointReached) {
+                        nodeRemainderText += token;
+                    } else {
+                        if (/\S/.test(token)) {
+                            wordCount++;
+                            if (wordCount > MAX_WORDS) {
+                                splitPointReached = true;
+                                nodeRemainderText += token;
+                                continue;
+                            }
+                        }
+                        nodePreviewText += token;
+                    }
+                }
+
+                if (nodePreviewText) {
+                    previewFrag.appendChild(document.createTextNode(nodePreviewText));
+                }
+                if (nodeRemainderText) {
+                    remainderFrag.appendChild(document.createTextNode(nodeRemainderText));
+                }
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                if (splitPointReached) {
+                    remainderFrag.appendChild(node.cloneNode(true));
+                } else {
+                    previewFrag.appendChild(node.cloneNode(true));
+                }
+            }
+        });
+
+        // Only add Read More if review exceeds MAX_WORDS
+        if (!splitPointReached) return;
+
+        // Clear existing element content
+        textEl.innerHTML = "";
+
+        // Append preview fragment
+        textEl.appendChild(previewFrag);
+
+        // Append ellipsis
+        const ellipsis = document.createElement("span");
+        ellipsis.className = "di-tm-ellipsis";
+        ellipsis.textContent = " …";
+        textEl.appendChild(ellipsis);
+
+        // Append remainder span
+        const remainder = document.createElement("span");
+        remainder.className = "di-tm-remainder";
+        remainder.style.display = "none";
+        remainder.style.opacity = "0";
+        remainder.appendChild(remainderFrag);
+        textEl.appendChild(remainder);
+
+        // Create Read More button
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "di-tm-read-more-btn";
+        btn.setAttribute("aria-expanded", "false");
+        btn.innerHTML = '<span class="di-tm-btn-text">Read More</span> <i class="bi bi-chevron-down"></i>';
+
+        // Insert button immediately after .di-tm-text
+        textEl.parentNode.insertBefore(btn, textEl.nextSibling);
+
+        // Smooth expand/collapse logic
+        let isAnimating = false;
+        btn.addEventListener("click", function () {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const isExpanded = btn.getAttribute("aria-expanded") === "true";
+            const btnText = btn.querySelector(".di-tm-btn-text");
+
+            if (!isExpanded) {
+                // Smooth Expand
+                const startHeight = textEl.getBoundingClientRect().height;
+                textEl.style.height = startHeight + "px";
+                textEl.style.overflow = "hidden";
+
+                // Show remainder inline with opacity 0 to calculate target height
+                ellipsis.style.display = "none";
+                remainder.style.display = "inline";
+                remainder.style.opacity = "0";
+
+                const targetHeight = textEl.scrollHeight;
+
+                textEl.style.transition = "height 0.4s cubic-bezier(0.25, 1, 0.5, 1)";
+                remainder.style.transition = "opacity 0.35s ease 0.08s";
+
+                requestAnimationFrame(function () {
+                    textEl.style.height = targetHeight + "px";
+                    remainder.style.opacity = "1";
+                });
+
+                btn.setAttribute("aria-expanded", "true");
+                btnText.textContent = "Read Less";
+
+                setTimeout(function () {
+                    textEl.style.height = "auto";
+                    textEl.style.overflow = "visible";
+                    textEl.style.transition = "";
+                    remainder.style.transition = "";
+                    isAnimating = false;
+                }, 420);
+            } else {
+                // Smooth Collapse
+                const startHeight = textEl.getBoundingClientRect().height;
+                textEl.style.height = startHeight + "px";
+                textEl.style.overflow = "hidden";
+
+                // Calculate collapsed target height
+                remainder.style.display = "none";
+                ellipsis.style.display = "inline";
+                const targetHeight = textEl.scrollHeight;
+                remainder.style.display = "inline";
+                ellipsis.style.display = "none";
+
+                textEl.style.transition = "height 0.35s cubic-bezier(0.25, 1, 0.5, 1)";
+                remainder.style.transition = "opacity 0.2s ease";
+
+                requestAnimationFrame(function () {
+                    remainder.style.opacity = "0";
+                    textEl.style.height = targetHeight + "px";
+                });
+
+                btn.setAttribute("aria-expanded", "false");
+                btnText.textContent = "Read More";
+
+                setTimeout(function () {
+                    remainder.style.display = "none";
+                    ellipsis.style.display = "inline";
+                    textEl.style.height = "auto";
+                    textEl.style.overflow = "visible";
+                    textEl.style.transition = "";
+                    remainder.style.transition = "";
+                    isAnimating = false;
+                }, 370);
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>
