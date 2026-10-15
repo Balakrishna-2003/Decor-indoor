@@ -611,7 +611,7 @@
                             <div class="di-experience-badge">
 
                                 <div class="di-experience-number">
-                                    12+
+                                    10+
                                 </div>
 
                                 <div class="di-experience-text">
@@ -1162,7 +1162,7 @@
                                         </div>
 
 
-                                        <div class="di-stat-number" data-target="250" data-suffix="+">
+                                        <div class="di-stat-number" data-target="100" data-suffix="+">
                                             0
                                         </div>
 
@@ -1192,7 +1192,7 @@
                                         </div>
 
 
-                                        <div class="di-stat-number" data-target="180" data-suffix="+">
+                                        <div class="di-stat-number" data-target="95" data-suffix="+">
                                             0
                                         </div>
 
@@ -1222,7 +1222,7 @@
                                         </div>
 
 
-                                        <div class="di-stat-number" data-target="12" data-suffix="+">
+                                        <div class="di-stat-number" data-target="10" data-suffix="+">
                                             0
                                         </div>
 
@@ -1252,7 +1252,7 @@
                                         </div>
 
 
-                                        <div class="di-stat-number" data-target="98" data-suffix="%">
+                                        <div class="di-stat-number" data-target="99.5" data-suffix="%">
                                             0
                                         </div>
 
@@ -3842,8 +3842,14 @@
 
                 statNumbers.forEach(function (counter) {
 
+                    const targetAttr =
+                        counter.getAttribute("data-target") || "0";
+
+                    const isDecimal =
+                        targetAttr.includes(".");
+
                     const target =
-                        parseInt(counter.getAttribute("data-target"));
+                        parseFloat(targetAttr);
 
                     const suffix =
                         counter.getAttribute("data-suffix") || "";
@@ -3868,8 +3874,9 @@
                             1 - Math.pow(1 - progress, 3);
 
 
-                        const currentValue =
-                            Math.floor(target * easedProgress);
+                        const currentValue = isDecimal
+                            ? (target * easedProgress).toFixed(1)
+                            : Math.floor(target * easedProgress);
 
 
                         counter.textContent =
@@ -3883,7 +3890,7 @@
                         } else {
 
                             counter.textContent =
-                                target + suffix;
+                                (isDecimal ? target.toFixed(1) : target) + suffix;
 
                         }
 
