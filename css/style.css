@@ -15544,6 +15544,11 @@ a.di-cf-card:hover .di-cf-card-num {
     word-break: break-word;
 }
 
+.di-cf-card-value span {
+    font-size: 17px;
+    font-weight: bold;
+}
+
 
 /* ---------------- FORM (RIGHT) ---------------- */
 .di-cf-form {
@@ -15759,6 +15764,10 @@ a.di-cf-card:hover .di-cf-card-num {
 
     .di-cf-card-value {
         font-size: 13px;
+    }
+
+    .di-cf-card-value span {
+        font-size: 16px;
     }
 
     .di-cf-form {
